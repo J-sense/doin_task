@@ -61,7 +61,20 @@ export function GrowthCanvasSelector({ primaryArea }: Props) {
   };
 
   const canvasItems = areas.filter((a) => selected.includes(a.id));
-  const enquiryHref = `/contact?canvas=${selected.join(",")}&primary=${primaryArea.id}`;
+
+  // Build contact URL: primary shown as title, all selected passed as pills
+  const enquiryHref = (() => {
+    const params = new URLSearchParams();
+    params.set("title", primaryArea.title);
+    params.set("price", "Growth Canvas");
+    // Pass all selected area titles so the contact form pills auto-select
+    const pillLabels = canvasItems.map((a) => a.title).join(",");
+    params.set("pills", pillLabels);
+    // Also pass canvas/primary for completeness
+    params.set("canvas", selected.join(","));
+    params.set("primary", primaryArea.id);
+    return `/contact?${params.toString()}`;
+  })();
 
   return (
     <div className="flex flex-col lg:flex-row h-screen overflow-hidden bg-[#F7F8FA] font-sans">

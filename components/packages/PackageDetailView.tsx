@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { PackageDetailData } from "./types";
 
 interface PackageDetailViewProps {
@@ -9,166 +10,238 @@ interface PackageDetailViewProps {
 }
 
 export function PackageDetailView({ data }: PackageDetailViewProps) {
+  const router = useRouter();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const params = new URLSearchParams({
+      title: data.title,
+      name: formData.name,
+      email: formData.email,
+      company: formData.company,
+      phone: formData.phone,
+      message: formData.message,
+      pills: data.title,
+    });
+    router.push(`/contact?${params.toString()}`);
+  };
+
   return (
-    <div className="w-full bg-white text-slate-900">
-      {/* Hero Section */}
-      <section className="relative w-full bg-[#00233F] text-white overflow-hidden pt-36 pb-20 md:pt-44 md:pb-28 px-6 md:px-12 lg:px-20 min-h-[460px] flex items-center border-b border-white/5">
-        {/* Glowing Center Light */}
-        <div className="absolute left-1/3 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-[#01526D] rounded-[58px] blur-[85px] pointer-events-none opacity-80 z-0" />
-
-        {/* Right diagonal green-teal solid/gradient panel */}
-        <div
-          className="absolute top-0 right-0 h-full w-[360px] sm:w-[480px] md:w-[560px] lg:w-[620px] bg-[#074b57] pointer-events-none z-0"
-          style={{
-            clipPath: "polygon(22% 0, 100% 0, 100% 100%, 0% 100%)",
-          }}
-        />
-
-        <div className="mx-auto max-w-[1700px] w-full relative z-10">
-          <div className="max-w-3xl">
-            <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-[62px] tracking-tight leading-[1.05] uppercase text-white">
+    <div className="w-full bg-white text-neutral-900 min-h-screen flex flex-col justify-between">
+      {/* Top Header Spacing + Main Content */}
+      <div className="pt-10 sm:pt-14 md:pt-16 pb-20 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Left Column (Package Detail Information) */}
+          <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
+            
+            {/* Title */}
+            <h1 className="font-sans font-black text-[40px] sm:text-[54px] lg:text-[66px] leading-[1.02] text-[#03182B] uppercase tracking-tight mb-6">
               {data.title}
             </h1>
-            <p className="mt-5 text-slate-300 text-base sm:text-lg font-light leading-relaxed max-w-xl">
+
+            {/* Subtitle */}
+            <p className="text-[#525252] font-sans font-bold text-base sm:text-lg leading-snug mb-6">
               {data.subtitle}
             </p>
 
-            <div className="mt-8 flex items-baseline gap-2.5">
-              <span className="text-[#00dfb6] font-heading font-black text-3xl sm:text-4xl lg:text-[42px]">
-                {data.price}
-              </span>
-              <span className="text-slate-300 font-mono text-xs sm:text-sm tracking-wide">
-                {data.vatText}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* Main Description */}
+            <p className="text-[#737373] font-sans font-light text-sm sm:text-base leading-relaxed mb-10 max-w-2xl">
+              {data.description}
+            </p>
 
-      {/* Main Content Layout */}
-      <section className="relative w-full py-16 lg:py-24 px-6 md:px-12 lg:px-20 bg-white">
-        <div className="mx-auto max-w-[1700px] w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* Left Main Content Column */}
-            <div className="lg:col-span-7 xl:col-span-8 flex flex-col">
-              {/* Introduction Paragraph */}
-              <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal mb-14 max-w-2xl">
-                {data.intro}
-              </p>
-
-              {/* WHAT IS INCLUDED */}
-              <div>
-                <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#03182B] mb-8">
-                  WHAT IS INCLUDED
-                </h2>
-
-                <div className="space-y-6">
-                  {data.whatsIncluded.map((item, idx) => (
+            {/* RELEVANT GOALS Section */}
+            {data.relevantGoals && data.relevantGoals.length > 0 && (
+              <div className="mb-10 w-full">
+                <span className="text-neutral-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3.5 block">
+                  RELEVANT GOALS
+                </span>
+                <div className="flex flex-wrap gap-2.5">
+                  {data.relevantGoals.map((goal, idx) => (
                     <div
                       key={idx}
-                      className="border-b border-slate-100 pb-6 flex items-start gap-4"
+                      className="bg-white border border-neutral-200 text-neutral-600 font-sans text-xs px-4 py-2 rounded-xs shadow-2xs select-none"
                     >
-                      <div className="size-6 rounded-full bg-[#00B894] text-[#02111c] flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 select-none">
-                        ✓
-                      </div>
-                      <div>
-                        <h3 className="font-heading font-extrabold text-sm sm:text-base text-slate-900 tracking-wide">
-                          {item.title}
-                        </h3>
-                        <p className="text-slate-500 text-xs sm:text-sm font-normal mt-1 leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
+                      {goal}
                     </div>
                   ))}
                 </div>
               </div>
+            )}
 
-              {/* YOUR RESPONSIBILITIES */}
-              <div className="mt-16">
-                <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#03182B] mb-6">
-                  YOUR RESPONSIBILITIES
-                </h2>
-
-                <ul className="space-y-3.5">
-                  {data.responsibilities.map((resp, idx) => (
-                    <li
-                      key={idx}
-                      className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed flex items-start gap-3"
-                    >
-                      <span className="text-slate-400 font-bold">•</span>
-                      <span>{resp}</span>
+            {/* WHAT WE DELIVER Section */}
+            {data.whatWeDeliver && data.whatWeDeliver.length > 0 && (
+              <div className="mb-10 w-full">
+                <span className="text-neutral-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4 block">
+                  WHAT WE DELIVER
+                </span>
+                <ul className="flex flex-col gap-3">
+                  {data.whatWeDeliver.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2.5">
+                      <span className="text-[#00dfb6] font-bold text-sm leading-none">
+                        ✓
+                      </span>
+                      <span className="text-[#03182B] text-xs font-semibold uppercase tracking-tight">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
+            )}
 
-              {/* NOT INCLUDED */}
-              <div className="mt-16">
-                <h2 className="font-heading font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#03182B] mb-6">
-                  NOT INCLUDED
-                </h2>
+            {/* Add to My Canvas Button */}
+            <Link
+              href={`/area/${data.slug}`}
+              className="inline-flex items-center gap-2 bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B] font-mono text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-xs transition-colors duration-150 shadow-xs mt-2"
+            >
+              Add to My Canvas →
+            </Link>
+          </div>
 
-                <ul className="space-y-3.5">
-                  {data.notIncluded.map((notInc, idx) => (
-                    <li
-                      key={idx}
-                      className="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed flex items-start gap-3"
-                    >
-                      <span className="text-slate-400 font-bold">•</span>
-                      <span>{notInc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+          {/* Right Column (Enquiry Form Card) */}
+          <div className="lg:col-span-6 xl:col-span-5 w-full">
+            <div className="bg-white border border-neutral-100/90 rounded-xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                
+                {/* Row 1: Name & Email */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                      NAME *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Full name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                    />
+                  </div>
 
-            {/* Right Sticky Sidebar Package Request Card */}
-            <div className="lg:col-span-5 xl:col-span-4 sticky top-28">
-              <div className="bg-[#F4F6F8] rounded-md p-8 sm:p-10 border border-slate-200/80 shadow-xs">
-                <span className="text-[#00B894] font-mono text-[11px] font-extrabold uppercase tracking-widest block mb-3">
-                  {data.tag}
-                </span>
-
-                <div className="flex items-baseline gap-2">
-                  <span className="font-heading font-black text-3xl sm:text-4xl text-slate-900">
-                    {data.price}
-                  </span>
-                  <span className="text-slate-500 font-mono text-xs">
-                    {data.vatText}
-                  </span>
+                  <div>
+                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                      EMAIL *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="hello@company.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                    />
+                  </div>
                 </div>
-                <span className="text-slate-400 text-xs font-mono mt-1 block mb-8">
-                  {data.commitmentNote}
-                </span>
 
-                <div className="mb-8 pt-6 border-t border-slate-200/80">
-                  <span className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-widest block mb-2">
-                    NEED BROADER SUPPORT?
-                  </span>
-                  <p className="text-slate-500 text-xs font-normal leading-relaxed">
-                    {data.sidebarNote}
-                  </p>
+                {/* Row 2: Company & Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                      COMPANY
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Business name"
+                      value={formData.company}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                      PHONE
+                    </label>
+                    <input
+                      type="tel"
+                      placeholder="+44..."
+                      value={formData.phone}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
+                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                    />
+                  </div>
                 </div>
 
-                <Link
-                  href={`/contact?title=${encodeURIComponent(data.title)}&price=${encodeURIComponent(data.price + " " + data.vatText)}`}
-                  className="w-full bg-[#00B894] hover:bg-[#18d1ad] text-slate-900 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider py-4 rounded-xs transition-all shadow-[0_0_20px_rgba(0,223,182,0.18)] flex items-center justify-center gap-2 text-center"
-                >
-                  Request This Package ➔
-                </Link>
+                {/* Row 3: Message */}
+                <div>
+                  <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                    MESSAGE
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Any additional context, questions or background..."
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs p-4 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all resize-none"
+                  />
+                </div>
 
-                <Link
-                  href={`/contact?title=${encodeURIComponent(data.title)}&price=${encodeURIComponent(data.price + " " + data.vatText)}`}
-                  className="w-full text-center text-xs font-mono text-slate-500 hover:text-slate-900 font-bold transition-colors mt-4 block"
+                {/* Prepare My Enquiry Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B] font-mono text-xs font-bold uppercase tracking-widest py-4 rounded-xs transition-colors duration-150 flex items-center justify-center gap-2 mt-2 cursor-pointer"
                 >
-                  Ask a question first ➔
-                </Link>
-              </div>
+                  Prepare My Enquiry →
+                </button>
+
+                {/* Footer Disclaimer */}
+                <p className="text-[#737373] text-[11px] font-sans text-center font-light leading-relaxed">
+                  You will be able to review the information before it is sent.
+                </p>
+              </form>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* Bottom Navy Banner */}
+      <div className="w-full bg-[#03182B] py-14 md:py-16 px-6 md:px-12 lg:px-20 text-white">
+        <div className="max-w-[1440px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <div>
+            <span className="text-[#00dfb6] font-mono text-[11px] font-extrabold uppercase tracking-widest block mb-2">
+              START HERE
+            </span>
+            <h2 className="font-sans font-black text-2xl sm:text-3xl lg:text-4xl uppercase tracking-tight text-white max-w-xl leading-tight">
+              YOUR GROWTH SHOULDN&apos;T LIVE IN SILOS.
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 shrink-0">
+            <Link
+              href="/area/business-growth"
+              className="bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B] font-mono text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-xs transition-colors duration-150 inline-block"
+            >
+              Build Your Growth Canvas →
+            </Link>
+
+            <Link
+              href="/contact"
+              className="border border-white/20 hover:border-white text-white font-mono text-xs font-bold uppercase tracking-widest px-7 py-4 rounded-xs transition-colors duration-150 inline-block"
+            >
+              Book A Free Consultation
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

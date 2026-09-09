@@ -1,19 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
 
 interface PillOption {
   id: string;
   label: string;
+  // Area titles/keywords that should activate this pill
+  keywords: string[];
 }
 
 export function ContactForm() {
-  const searchParams = useSearchParams();
-  const titleQuery = searchParams ? searchParams.get("title") : null;
-  const priceQuery = searchParams ? searchParams.get("price") : null;
-  const pillsQuery = searchParams ? searchParams.get("pills") : null;
-
   // Form fields state
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,70 +17,67 @@ export function ContactForm() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
+  // Query param state (read client-side to avoid useSearchParams + Suspense)
+  const [titleQuery, setTitleQuery] = useState<string | null>(null);
+  const [priceQuery, setPriceQuery] = useState<string | null>(null);
+  const [pillsQuery, setPillsQuery] = useState<string | null>(null);
+  const [isCanvasFlow, setIsCanvasFlow] = useState(false);
+
   // Help topics / pill buttons options
   const allPills: PillOption[] = [
-    { id: "strategy", label: "Strategy & Planning" },
-    { id: "commercial", label: "Commercial Growth" },
-    { id: "seo", label: "SEO & AI Visibility" },
-    { id: "social", label: "Social & Content" },
-    { id: "website", label: "Website & Conversion" },
-    { id: "campaigns", label: "Campaigns & Leads" },
+    { id: "strategy",   label: "Strategy & Planning",  keywords: ["strategy", "planning", "strategy & planning"] },
+    { id: "commercial", label: "Commercial Growth",    keywords: ["commercial", "business growth", "business", "revenue", "profitability"] },
+    { id: "seo",        label: "SEO & AI Visibility",  keywords: ["seo", "ai visibility", "seo & ai visibility", "search"] },
+    { id: "social",     label: "Social & Content",     keywords: ["social", "content", "social media", "social & content"] },
+    { id: "website",    label: "Website & Conversion", keywords: ["website", "conversion", "website & conversion", "ux"] },
+    { id: "campaigns",  label: "Campaigns & Leads",    keywords: ["campaigns", "leads", "marketing", "campaigns & leads"] },
   ];
 
   // Active pill selection state
   const [activePillIds, setActivePillIds] = useState<string[]>([]);
 
+  // Read query params on mount (avoids useSearchParams + Suspense)
   useEffect(() => {
-    if (pillsQuery) {
-      const rawItems = pillsQuery.split(",").map((item) => item.trim().toLowerCase());
-      const matchedIds: string[] = [];
+    const params = new URLSearchParams(window.location.search);
+    const title  = params.get("title");
+    const price  = params.get("price");
+    const pills  = params.get("pills");
+    const canvas = params.get("canvas");
 
-      allPills.forEach((pill) => {
-        const isMatched = rawItems.some((item) => {
-          if (!item) return false;
-          return (
-            item === pill.id.toLowerCase() ||
-            item === pill.label.toLowerCase() ||
-            item.includes(pill.id.toLowerCase()) ||
-            pill.label.toLowerCase().includes(item)
-          );
-        });
+    setTitleQuery(title);
+    setPriceQuery(price);
+    setPillsQuery(pills);
 
-        if (isMatched) {
-          matchedIds.push(pill.id);
-        }
-      });
+    // Detect canvas flow: has a canvas param OR price === "Growth Canvas"
+    if (canvas || price === "Growth Canvas") {
+      setIsCanvasFlow(true);
+    }
 
-      if (matchedIds.length > 0) {
-        setActivePillIds(matchedIds);
-      } else {
-        setActivePillIds(rawItems);
-      }
-    } else if (titleQuery) {
-      const lower = titleQuery.toLowerCase();
-      const matchedIds: string[] = [];
+    // Build active pills from ?pills= param (area titles from canvas or legacy pill ids)
+    const rawSource = pills || title || "";
+    if (!rawSource) return;
 
-      allPills.forEach((pill) => {
-        if (
-          lower.includes(pill.id.toLowerCase()) ||
-          lower.includes(pill.label.toLowerCase())
-        ) {
-          matchedIds.push(pill.id);
-        }
-      });
+    const tokens = rawSource.split(",").map((t) => t.trim().toLowerCase());
+    const matched = new Set<string>();
 
-      if (matchedIds.length > 0) {
-        setActivePillIds(matchedIds);
+    for (const pill of allPills) {
+      for (const token of tokens) {
+        const tokenClean = token.replace(/[&]/g, "and");
+        const hits = pill.keywords.some((kw) =>
+          token.includes(kw) || kw.includes(token) || tokenClean.includes(kw)
+        );
+        if (hits) matched.add(pill.id);
       }
     }
-  }, [titleQuery, pillsQuery]);
+
+    if (matched.size > 0) setActivePillIds(Array.from(matched));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const togglePill = (id: string) => {
-    if (activePillIds.includes(id)) {
-      setActivePillIds(activePillIds.filter((p) => p !== id));
-    } else {
-      setActivePillIds([...activePillIds, id]);
-    }
+    setActivePillIds((prev) =>
+      prev.includes(id) ? prev.filter((p) => p !== id) : [...prev, id]
+    );
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -95,10 +88,10 @@ export function ContactForm() {
       .map((p) => p.label)
       .join(", ");
 
-    // Construct mailto link
     const subject = titleQuery
       ? `Axudar Group Enquiry - ${titleQuery}`
       : `Axudar Group Enquiry - Help Topics: ${selectedTopics || "General"}`;
+
     const body = `Hello Axudar Team,\n\n${titleQuery ? `Enquiry Subject / Package: ${titleQuery}\n\n` : ""}My Details:\nName: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nPhone: ${phone || "N/A"}\n\nWhat can we help with:\n${selectedTopics || "None selected"}\n\nMessage/Background:\n${message}\n\nPrepared via Axudar Contact Web App.`;
 
     window.location.href = `mailto:hello@axudargroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;

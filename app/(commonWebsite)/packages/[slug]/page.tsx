@@ -1,29 +1,30 @@
 import { notFound } from "next/navigation";
-import { areas } from "@/components/home/areasData";
-import { GrowthCanvasSelector } from "@/components/packages/GrowthCanvasSelector";
+import { packagesData } from "@/components/packages/data";
+import { PackageDetailView } from "@/components/packages/PackageDetailView";
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  return areas.map((a) => ({ slug: a.id }));
+  return Object.keys(packagesData).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const area = areas.find((a) => a.id === slug);
-  if (!area) return {};
+  const data = packagesData[slug];
+  if (!data) return {};
   return {
-    title: `${area.title} | Growth Canvas | Axudar Group`,
-    description: area.shortDescription,
+    title: `${data.title} | Axudar Group`,
+    description: data.description,
   };
 }
 
-export default async function AreaPage({ params }: Props) {
+export default async function PackageDetailPage({ params }: Props) {
   const { slug } = await params;
-  const area = areas.find((a) => a.id === slug);
-  if (!area) notFound();
+  const data = packagesData[slug];
+  if (!data) notFound();
 
-  return <GrowthCanvasSelector primaryArea={area} />;
+  return <PackageDetailView data={data} />;
 }
+

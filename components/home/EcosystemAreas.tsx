@@ -90,23 +90,19 @@ export function EcosystemAreas() {
                   <div className="h-px bg-neutral-100 my-6" />
 
                   {/* Action Buttons */}
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-between gap-3 pt-2">
                     <Link
-                      href={area.href}
+                      href={`/packages/${area.id === "social-media" ? "social-content-growth" : area.id}`}
                       className="text-[10.5px] font-mono font-bold uppercase tracking-widest text-emerald-600 hover:text-emerald-700 transition-colors duration-150"
                     >
                       Explore this area →
                     </Link>
-                    <button
-                      onClick={() => toggleCanvas(area.id)}
-                      className={`ml-auto text-[10px] font-mono font-bold uppercase tracking-widest px-4 py-2 border rounded-sm transition-all duration-150 ${
-                        inCanvas
-                          ? "bg-[#03182B] text-white border-[#03182B]"
-                          : "bg-white text-[#03182B] border-neutral-300 hover:border-neutral-500"
-                      }`}
+                    <Link
+                      href={`/area/${area.id}`}
+                      className="text-[10px] font-mono font-bold uppercase tracking-widest px-3.5 py-2 border rounded-sm transition-all duration-150 bg-white text-[#03182B] border-neutral-300 hover:border-neutral-500 hover:bg-neutral-50 shrink-0"
                     >
-                      {inCanvas ? "✓ Added" : "+ Add to my Growth Canvas"}
-                    </button>
+                      + Add to my Growth Canvas
+                    </Link>
                   </div>
                 </div>
               </div>
