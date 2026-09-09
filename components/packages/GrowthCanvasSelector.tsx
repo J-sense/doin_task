@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { areas, AreaData } from "@/components/home/areasData";
 
@@ -36,19 +36,22 @@ function BackArrow({ className }: { className?: string }) {
 
 export function GrowthCanvasSelector({ primaryArea }: Props) {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const supporting = areas.filter((a) => a.id !== primaryArea.id);
-
-  // Pre-populate from ?canvas= query param (set by OutcomeSelector)
-  const initialSelected = (() => {
-    const param = searchParams.get("canvas");
-    if (!param) return [primaryArea.id];
-    const ids = param.split(",").filter((id) => areas.some((a) => a.id === id));
-    return Array.from(new Set([primaryArea.id, ...ids]));
-  })();
-
-  const [selected, setSelected] = useState<string[]>(initialSelected);
+  const [selected, setSelected] = useState<string[]>([primaryArea.id]);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Read ?canvas= from URL on mount (avoids useSearchParams + Suspense requirement)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const canvasParam = params.get("canvas");
+    if (!canvasParam) return;
+    const ids = canvasParam
+      .split(",")
+      .filter((id) => areas.some((a) => a.id === id));
+    if (ids.length) {
+      setSelected(Array.from(new Set([primaryArea.id, ...ids])));
+    }
+  }, [primaryArea.id]);
 
   const toggle = (id: string) => {
     if (id === primaryArea.id) return;
