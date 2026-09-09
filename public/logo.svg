@@ -1,0 +1,22 @@
+<svg width="100" height="38" viewBox="0 0 100 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="globe-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0ea5e9" />
+      <stop offset="50%" stop-color="#00dfb6" />
+      <stop offset="100%" stop-color="#0ea5e9" />
+    </linearGradient>
+  </defs>
+  <!-- Globe Icon -->
+  <g transform="translate(0, 1)">
+    <path d="M18 2C24.5 9 24.5 27 18 34" stroke="url(#globe-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+    <path d="M18 2C11.5 9 11.5 27 18 34" stroke="url(#globe-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.8" />
+    <path d="M6 10C12 14 24 14 30 10" stroke="url(#globe-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    <path d="M3 18C10 22 26 22 33 18" stroke="url(#globe-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.9" />
+    <path d="M6 26C12 30 24 30 30 26" stroke="url(#globe-grad)" stroke-width="1.5" stroke-linecap="round" opacity="0.6" />
+    <circle cx="18" cy="18" r="16" stroke="url(#globe-grad)" stroke-width="1" stroke-dasharray="3 3" opacity="0.2" />
+  </g>
+  <!-- Text Elements -->
+  <text x="44" y="15" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="900" letter-spacing="0.05em">Axudar</text>
+  <text x="91" y="10" fill="#00dfb6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="7" font-weight="900">TM</text>
+  <text x="44" y="29" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="9" font-weight="300" letter-spacing="0.18em">GROUP</text>
+</svg>
