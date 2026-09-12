@@ -116,11 +116,10 @@ export function EcosystemAreas() {
             <button
               key={tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-              className={`text-[10px] font-mono font-bold uppercase tracking-widest px-5 py-2.5 border rounded-sm transition-all duration-150 ${
-                activeTag === tag
+              className={`text-[10px] font-mono font-bold uppercase tracking-widest px-5 py-2.5 border rounded-sm transition-all duration-150 ${activeTag === tag
                   ? "bg-[#03182B] text-white border-[#03182B]"
                   : "bg-white text-neutral-400 border-neutral-200 hover:border-neutral-400 hover:text-neutral-600"
-              }`}
+                }`}
             >
               {tag}
             </button>

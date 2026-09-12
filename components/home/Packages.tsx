@@ -14,7 +14,7 @@ export function Packages() {
   const packagesList: PackageData[] = [
     {
       title: "Social & Content Growth",
-      href: "/packages/social-content-growth",
+      href: "/readyMadePackageDetails/social-content-growth",
       price: "£649",
       vatText: "+ vat per month",
       bestFor:
@@ -29,7 +29,7 @@ export function Packages() {
     },
     {
       title: "SEO & Search Growth",
-      href: "/packages/seo-ai-visibility",
+      href: "/readyMadePackageDetails/seo-ai-visibility",
       price: "£649",
       vatText: "+ vat per month",
       bestFor:
@@ -73,15 +73,15 @@ export function Packages() {
             <div
               key={idx}
               className={`flex flex-col justify-between rounded-xl overflow-hidden border transition-all duration-300 ${pkg.isFeatured
-                  ? "border-[#00dfb6] shadow-[0_4px_20px_rgba(0,223,182,0.08)] bg-white"
-                  : "border-neutral-200/60 bg-white"
+                ? "border-[#00dfb6] shadow-[0_4px_20px_rgba(0,223,182,0.08)] bg-white"
+                : "border-neutral-200/60 bg-white"
                 }`}
             >
               {/* Header Box */}
               <div
                 className={`px-8 py-6 flex flex-col items-start ${pkg.isFeatured
-                    ? "bg-[#00dfb6] text-[#03182B]"
-                    : "bg-[#03182B] text-white"
+                  ? "bg-[#00dfb6] text-[#03182B]"
+                  : "bg-[#03182B] text-white"
                   }`}
               >
                 <span className="font-mono text-[11px] font-extrabold uppercase tracking-widest mb-1.5 opacity-90">
@@ -103,8 +103,8 @@ export function Packages() {
                 <div>
                   <div
                     className={`p-4 border-l-[3px] mb-8 ${pkg.isFeatured
-                        ? "bg-[#F8FAFC] border-[#00dfb6]"
-                        : "bg-[#F8FAFC] border-[#03182B]"
+                      ? "bg-[#F8FAFC] border-[#00dfb6]"
+                      : "bg-[#F8FAFC] border-[#03182B]"
                       }`}
                   >
                     <span
@@ -146,11 +146,10 @@ export function Packages() {
                   </Link>
                   <Link
                     href={`/contact?title=${encodeURIComponent(pkg.title)}&price=${encodeURIComponent(pkg.price + " " + pkg.vatText)}`}
-                    className={`w-full font-mono text-[13px] font-bold uppercase tracking-widest py-3.5 rounded-[3px] transition-colors duration-200 text-center block ${
-                      pkg.isFeatured
+                    className={`w-full font-mono text-[13px] font-bold uppercase tracking-widest py-3.5 rounded-[3px] transition-colors duration-200 text-center block ${pkg.isFeatured
                         ? "bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B]"
                         : "bg-white border border-[#03182B] hover:bg-neutral-50 text-[#03182B]"
-                    }`}
+                      }`}
                   >
                     Enquire →
                   </Link>

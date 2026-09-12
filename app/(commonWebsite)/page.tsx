@@ -21,7 +21,7 @@ export default function page() {
       <EcosystemAreas />
       <OutcomeSelector />
       <GrowthSupport />
-      <GrowthCanvas />
+      {/* <GrowthCanvas /> */}
       <Packages />
       <ActiveOutcomes />
       <ActionRoute />

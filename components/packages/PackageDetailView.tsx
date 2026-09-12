@@ -38,10 +38,10 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
       {/* Top Header Spacing + Main Content */}
       <div className="pt-10 sm:pt-14 md:pt-16 pb-20 px-6 md:px-12 lg:px-20 max-w-[1440px] mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          
+
           {/* Left Column (Package Detail Information) */}
           <div className="lg:col-span-6 xl:col-span-7 flex flex-col items-start pr-0 lg:pr-4">
-            
+
             {/* Title */}
             <h1 className="font-sans font-black text-[40px] sm:text-[54px] lg:text-[66px] leading-[1.02] text-[#03182B] uppercase tracking-tight mb-6">
               {data.title}
@@ -110,7 +110,7 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
           <div className="lg:col-span-6 xl:col-span-5 w-full">
             <div className="bg-white border border-neutral-100/90 rounded-xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                
+
                 {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
