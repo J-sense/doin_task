@@ -43,7 +43,7 @@ export function Header() {
         <Link href="/" className="flex items-center group">
           <div className="relative h-[38px] w-[100px] transition-transform duration-500 group-hover:scale-102">
             <Image
-              src="/logo.svg"
+              src="/mainLogo.png"
               alt="Axudar Group Logo"
               width={100}
               height={38}
@@ -63,9 +63,8 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`font-sans font-semibold text-[14px] leading-[14.68px] tracking-[0.49px] transition-colors ${
-                    isActive ? "text-[#00dfb6]" : "text-slate-300 hover:text-[#00dfb6]"
-                  }`}
+                  className={`font-sans font-semibold text-[14px] leading-[14.68px] tracking-[0.49px] transition-colors ${isActive ? "text-[#00dfb6]" : "text-slate-300 hover:text-[#00dfb6]"
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -103,9 +102,8 @@ export function Header() {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-lg font-semibold tracking-wide transition-colors ${
-                    isActive ? "text-[#00dfb6]" : "text-slate-200 hover:text-[#00dfb6]"
-                  }`}
+                  className={`text-lg font-semibold tracking-wide transition-colors ${isActive ? "text-[#00dfb6]" : "text-slate-200 hover:text-[#00dfb6]"
+                    }`}
                 >
                   {link.name}
                 </Link>

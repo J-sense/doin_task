@@ -98,7 +98,7 @@ export function GrowthCanvas() {
         {/* Header Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
           <div className="lg:col-span-7">
-            <h2 className="font-sans font-black text-[28px] sm:text-[36px] lg:text-[40px] leading-[1.1] text-[#262626] uppercase tracking-tight">
+            <h2 className=" font-black text-[28px] sm:text-[36px] lg:text-[40px] leading-[1.1] text-[#262626] uppercase tracking-tight">
               Start with the outcome.
               <br />
               Shape the right support.
@@ -119,7 +119,7 @@ export function GrowthCanvas() {
             {/* Left Side: interactive selector */}
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
-                <h3 className="text-[#03182B] font-sans font-bold text-sm sm:text-base mb-4">
+                <h3 className="text-[#03182B]  font-bold text-sm sm:text-base mb-4">
                   What would you like to achieve?
                 </h3>
 
@@ -130,7 +130,7 @@ export function GrowthCanvas() {
                     onChange={(e) =>
                       setSelectedOutcome(e.target.value as OutcomeType)
                     }
-                    className="w-full bg-white border border-neutral-200 rounded-lg px-4 py-4 pr-10 font-sans text-sm text-[#03182B] font-medium appearance-none cursor-pointer focus:outline-none focus:border-[#00dfb6] shadow-sm"
+                    className="w-full bg-white border border-neutral-200 rounded-lg px-4 py-4 pr-10  text-sm text-[#03182B] font-medium appearance-none cursor-pointer focus:outline-none focus:border-[#00dfb6] shadow-sm"
                   >
                     {outcomes.map((o) => (
                       <option key={o} value={o}>
@@ -165,7 +165,7 @@ export function GrowthCanvas() {
                       <button
                         key={pill.id}
                         onClick={() => togglePill(pill.id)}
-                        className={`px-4 py-3 rounded-[5px] font-sans text-[10.5px] font-bold uppercase tracking-wider transition-all duration-200 select-none ${isActive
+                        className={`px-4 py-3 rounded-[5px]  text-[10.5px] font-bold uppercase tracking-wider transition-all duration-200 select-none ${isActive
                           ? "bg-[#03182B] text-white border border-[#03182B] shadow-sm hover:bg-[#0c1a24]"
                           : "bg-[#F8FAFC] border border-neutral-200/80 text-neutral-400 hover:border-neutral-300 hover:text-neutral-500"
                           }`}
@@ -181,10 +181,10 @@ export function GrowthCanvas() {
             {/* Right Side: Recommendation Board */}
             <div className="lg:col-span-5 bg-white border border-neutral-200/50 rounded-xl p-6 sm:p-8 flex flex-col justify-between shadow-sm">
               <div>
-                <span className="text-[#00dfb6] text-[8px] font-sans font-bold uppercase tracking-[2.75px] block mb-2">
+                <span className="text-[#00dfb6] text-[8px]  font-bold uppercase tracking-[2.75px] block mb-2">
                   YOUR GROWTH CANVAS
                 </span>
-                <h4 className="text-[#03182B] font-sans font-black text-base sm:text-lg uppercase tracking-tight mb-6">
+                <h4 className="text-[#03182B]  font-black text-base sm:text-lg uppercase tracking-tight mb-6">
                   YOUR RECOMMENDED SUPPORT
                 </h4>
 
@@ -197,17 +197,17 @@ export function GrowthCanvas() {
                         key={p.id}
                         className="flex items-center gap-4 bg-[#F8FAFC] border-l-[3px] border-emerald-500 px-4 py-3.5 rounded-r-md transition-all duration-300 animate-fadeIn"
                       >
-                        <span className="text-emerald-500 font-sans font-black text-[10px] tracking-wide">
+                        <span className="text-emerald-500  font-black text-[10px] tracking-wide">
                           {String(idx + 1).padStart(2, "0")}
                         </span>
-                        <span className="text-[#03182B] font-sans font-semibold text-xs">
+                        <span className="text-[#03182B]  font-semibold text-xs">
                           {p.label}
                         </span>
                       </div>
                     ))}
                   {activePillIds.length === 0 && (
                     <div className="flex items-center justify-center h-[160px] border border-dashed border-neutral-200 rounded-lg">
-                      <span className="text-neutral-400 font-sans text-xs">
+                      <span className="text-neutral-400  text-xs">
                         Select options to build your custom support canvas.
                       </span>
                     </div>
@@ -222,9 +222,9 @@ export function GrowthCanvas() {
                 )}&price=${encodeURIComponent(
                   "Custom Strategy & Execution"
                 )}&pills=${encodeURIComponent(activePillIds.join(","))}`}
-                className="w-full bg-[#00dfb6] hover:bg-[#18d1ad] transition-colors duration-200 text-[#03182B] font-sans font-bold text-xs uppercase tracking-widest py-4 rounded-lg flex items-center justify-center gap-2 mt-8 text-center"
+                className="w-full bg-[#0DAE87] hover:bg-[#18d1ad] transition-colors duration-200 text-[#03182B]  font-bold text-xs uppercase tracking-widest py-4 rounded-lg flex items-center justify-center gap-2 mt-8 text-center"
               >
-                <span>Discuss my Canvas</span>
+                <span className="text-[#00142D]">Discuss my Canvas</span>
                 <span>➔</span>
               </Link>
             </div>

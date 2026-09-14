@@ -11,18 +11,18 @@ interface Outcome {
 }
 
 const outcomes: Outcome[] = [
-  { id: "win-customers",     label: "Win more customers",       areaIds: ["business-growth", "marketing"] },
-  { id: "increase-revenue",  label: "Increase revenue",          areaIds: ["business-growth"] },
-  { id: "improve-profit",    label: "Improve profitability",     areaIds: ["business-growth", "strategy-planning"] },
-  { id: "more-enquiries",    label: "Generate more enquiries",   areaIds: ["marketing", "seo-ai-visibility"] },
-  { id: "convert-enquiries", label: "Convert more enquiries",    areaIds: ["website-conversion", "marketing"] },
+  { id: "win-customers", label: "Win more customers", areaIds: ["business-growth", "marketing"] },
+  { id: "increase-revenue", label: "Increase revenue", areaIds: ["business-growth"] },
+  { id: "improve-profit", label: "Improve profitability", areaIds: ["business-growth", "strategy-planning"] },
+  { id: "more-enquiries", label: "Generate more enquiries", areaIds: ["marketing", "seo-ai-visibility"] },
+  { id: "convert-enquiries", label: "Convert more enquiries", areaIds: ["website-conversion", "marketing"] },
   { id: "online-visibility", label: "Improve online visibility", areaIds: ["seo-ai-visibility", "social-media"] },
-  { id: "improve-website",   label: "Improve our website",       areaIds: ["website-conversion"] },
-  { id: "improve-marketing", label: "Improve our marketing",     areaIds: ["marketing", "social-media"] },
-  { id: "social-presence",   label: "Grow social presence",      areaIds: ["social-media", "marketing"] },
-  { id: "clearer-strategy",  label: "Create a clearer strategy", areaIds: ["strategy-planning"] },
-  { id: "scale-business",    label: "Scale the business",        areaIds: ["business-growth", "strategy-planning"] },
-  { id: "not-sure",          label: "Not sure where to start",   areaIds: ["business-growth"] },
+  { id: "improve-website", label: "Improve our website", areaIds: ["website-conversion"] },
+  { id: "improve-marketing", label: "Improve our marketing", areaIds: ["marketing", "social-media"] },
+  { id: "social-presence", label: "Grow social presence", areaIds: ["social-media", "marketing"] },
+  { id: "clearer-strategy", label: "Create a clearer strategy", areaIds: ["strategy-planning"] },
+  { id: "scale-business", label: "Scale the business", areaIds: ["business-growth", "strategy-planning"] },
+  { id: "not-sure", label: "Not sure where to start", areaIds: ["business-growth"] },
 ];
 
 function deriveAreas(selectedIds: string[]) {
@@ -40,16 +40,12 @@ function deriveAreas(selectedIds: string[]) {
   return { primary: ranked[0].id, canvas: ranked.map((a) => a.id) };
 }
 
-/* Split outcomes into two columns */
-const col1 = outcomes.filter((_, i) => i % 2 === 0);
-const col2 = outcomes.filter((_, i) => i % 2 === 1);
-
 export function OutcomeSelector() {
   const router = useRouter();
   const [selected, setSelected] = useState<string[]>([]);
 
   const toggle = (id: string) =>
-    setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]);
+    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
   const { primary, canvas } = useMemo(() => deriveAreas(selected), [selected]);
   const suggestedAreas = useMemo(() => areas.filter((a) => canvas.includes(a.id)), [canvas]);
@@ -59,20 +55,23 @@ export function OutcomeSelector() {
     router.push(`/area/${primary}?${params.toString()}`);
   };
 
-  return (
-    <section className="w-full bg-white py-20 lg:py-28 px-6 md:px-12 border-t border-neutral-100">
-      <div className="mx-auto max-w-[1700px]">
+  const gridOutcomes = outcomes.filter((o) => o.id !== "not-sure");
+  const fullWidthOutcome = outcomes.find((o) => o.id === "not-sure");
 
-        {/* Section header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mb-10">
-          <div>
-            <h2 className="text-[#03182B] font-sans font-black text-[24px] sm:text-[30px] leading-[1.15] tracking-tight">
+  return (
+    <section className="w-full bg-white py-16 md:py-24 px-6 md:px-12">
+      <div className="mx-auto max-w-[1400px]">
+
+        {/* ── Top Section Header ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+          <div className="lg:col-span-6">
+            <h2 className="text-[#111111] font-sans font-extrabold text-[28px] sm:text-[36px] lg:text-[40px] leading-[1.1] tracking-tight">
               Start with the outcome.<br />
               Shape the right support.
             </h2>
           </div>
-          <div className="lg:pt-1">
-            <p className="text-neutral-500 text-[13.5px] font-light leading-relaxed max-w-lg">
+          <div className="lg:col-span-6 lg:pl-12 lg:pt-1">
+            <p className="text-neutral-500 text-[14px] sm:text-[15px] font-normal leading-relaxed max-w-xl">
               You do not need to know which service you need. Choose the change
               you want, review Axudar&apos;s suggested support areas, then add or
               remove anything before the first conversation.
@@ -80,160 +79,157 @@ export function OutcomeSelector() {
           </div>
         </div>
 
-        {/* Card */}
-        <div className="border border-neutral-200 rounded-2xl overflow-hidden">
-          <div className="flex flex-col lg:flex-row">
+        {/* ── Main Canvas Wrapper Card ── */}
+        <div className="bg-[#f8f9fa] rounded-2xl p-6 sm:p-10 lg:p-12">
 
-            {/* ── LEFT: checkboxes ── */}
-            <div className="flex-1 bg-white">
-              {/* Card inner label */}
-              <div className="px-6 sm:px-8 pt-6 pb-4 border-b border-neutral-100">
-                <p className="text-[12px] font-sans font-semibold text-neutral-600">
-                  What would you like to achieve?
-                </p>
-              </div>
+          <h3 className="text-[16px] font-sans font-bold text-[#111111] mb-6">
+            What would you like to achieve?
+          </h3>
 
-              {/* 2-col checkbox grid */}
-              <div className="flex divide-x divide-neutral-100">
-                {/* Column 1 */}
-                <div className="flex-1 flex flex-col divide-y divide-neutral-100">
-                  {col1.map((outcome) => {
-                    const checked = selected.includes(outcome.id);
-                    return (
-                      <button
-                        key={outcome.id}
-                        onClick={() => toggle(outcome.id)}
+          <div className="flex flex-col lg:flex-row gap-8 items-start">
+
+            {/* ── LEFT: Checkboxes area ── */}
+            <div className="flex-1 w-full space-y-3">
+
+              {/* 2-Column Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {gridOutcomes.map((outcome) => {
+                  const checked = selected.includes(outcome.id);
+                  return (
+                    <button
+                      key={outcome.id}
+                      type="button"
+                      onClick={() => toggle(outcome.id)}
+                      className={[
+                        "flex items-center gap-3.5 px-5 py-4 rounded-xs border text-left transition-all duration-150 bg-white",
+                        checked
+                          ? "border-emerald-500 ring-1 ring-emerald-500 shadow-xs"
+                          : "border-neutral-200/80 hover:border-neutral-300 shadow-[0_1px_2px_rgba(0,0,0,0.02)]",
+                      ].join(" ")}
+                    >
+                      <div
                         className={[
-                          "flex items-center gap-3 px-6 sm:px-8 py-4 text-left w-full transition-colors duration-150",
-                          checked ? "bg-neutral-50" : "bg-white hover:bg-neutral-50/60",
+                          "w-4 h-4 rounded-2xs border flex items-center justify-center shrink-0 transition-all duration-150",
+                          checked
+                            ? "bg-emerald-500 border-emerald-500"
+                            : "border-neutral-300 bg-white",
                         ].join(" ")}
                       >
-                        <div
-                          className={[
-                            "w-4 h-4 rounded-sm border flex items-center justify-center shrink-0 transition-all duration-150",
-                            checked
-                              ? "bg-emerald-500 border-emerald-500"
-                              : "border-neutral-300 bg-white",
-                          ].join(" ")}
-                        >
-                          {checked && (
-                            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          )}
-                        </div>
-                        <span className={[
-                          "text-[13px] font-sans",
-                          checked ? "text-[#03182B] font-medium" : "text-neutral-600",
-                        ].join(" ")}>
-                          {outcome.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Column 2 */}
-                <div className="flex-1 flex flex-col divide-y divide-neutral-100">
-                  {col2.map((outcome) => {
-                    const checked = selected.includes(outcome.id);
-                    return (
-                      <button
-                        key={outcome.id}
-                        onClick={() => toggle(outcome.id)}
-                        className={[
-                          "flex items-center gap-3 px-6 sm:px-8 py-4 text-left w-full transition-colors duration-150",
-                          checked ? "bg-neutral-50" : "bg-white hover:bg-neutral-50/60",
-                        ].join(" ")}
-                      >
-                        <div
-                          className={[
-                            "w-4 h-4 rounded-sm border flex items-center justify-center shrink-0 transition-all duration-150",
-                            checked
-                              ? "bg-emerald-500 border-emerald-500"
-                              : "border-neutral-300 bg-white",
-                          ].join(" ")}
-                        >
-                          {checked && (
-                            <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          )}
-                        </div>
-                        <span className={[
-                          "text-[13px] font-sans",
-                          checked ? "text-[#03182B] font-medium" : "text-neutral-600",
-                        ].join(" ")}>
-                          {outcome.label}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
+                        {checked && (
+                          <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        )}
+                      </div>
+                      <span className={[
+                        "text-[13.5px] font-sans transition-colors",
+                        checked ? "text-[#111111] font-semibold" : "text-neutral-700 font-medium",
+                      ].join(" ")}>
+                        {outcome.label}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
+
+              {/* Full Width Item ("Not sure where to start") */}
+              {fullWidthOutcome && (
+                <button
+                  key={fullWidthOutcome.id}
+                  type="button"
+                  onClick={() => toggle(fullWidthOutcome.id)}
+                  className={[
+                    "flex items-center gap-3.5 px-5 py-4 rounded-xs border text-left transition-all duration-150 bg-white w-full",
+                    selected.includes(fullWidthOutcome.id)
+                      ? "border-emerald-500 ring-1 ring-emerald-500 shadow-xs"
+                      : "border-neutral-200/80 hover:border-neutral-300 shadow-[0_1px_2px_rgba(0,0,0,0.02)]",
+                  ].join(" ")}
+                >
+                  <div
+                    className={[
+                      "w-4 h-4 rounded-2xs border flex items-center justify-center shrink-0 transition-all duration-150",
+                      selected.includes(fullWidthOutcome.id)
+                        ? "bg-emerald-500 border-emerald-500"
+                        : "border-neutral-300 bg-white",
+                    ].join(" ")}
+                  >
+                    {selected.includes(fullWidthOutcome.id) && (
+                      <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    )}
+                  </div>
+                  <span className={[
+                    "text-[13.5px] font-sans transition-colors",
+                    selected.includes(fullWidthOutcome.id) ? "text-[#111111] font-semibold" : "text-neutral-700 font-medium",
+                  ].join(" ")}>
+                    {fullWidthOutcome.label}
+                  </span>
+                </button>
+              )}
+
             </div>
 
-            {/* ── RIGHT: dark canvas panel ── */}
-            <div className="lg:w-[300px] xl:w-[340px] bg-[#03182B] shrink-0 flex flex-col">
-              <div className="flex-1 p-7 flex flex-col">
-
-                <p className="text-emerald-500 font-mono font-bold text-[9px] uppercase tracking-[3px] mb-3">
+            {/* ── RIGHT: Dark Canvas Card Panel ── */}
+            <div className="w-full lg:w-[320px] xl:w-[350px] bg-black text-white shrink-0 rounded-md p-6 sm:p-7 shadow-2xl flex flex-col justify-between min-h-[220px]">
+              <div>
+                <p className="text-[#00c988] font-mono font-bold text-[9px] uppercase tracking-[2.5px] mb-3">
                   Your Growth Canvas
                 </p>
 
-                <h3 className="text-white font-black text-[16px] uppercase leading-tight tracking-tight mb-6">
+                <h4 className="text-white font-extrabold text-[16px] sm:text-[18px] uppercase leading-tight tracking-tight mb-5">
                   Your Recommended<br />Support
-                </h3>
+                </h4>
 
-                {/* Suggested area list */}
-                <div className="flex-1 flex flex-col mb-6 min-h-[80px]">
-                  {selected.length === 0 ? (
-                    <p className="text-white/25 text-[12px] font-light leading-relaxed">
-                      Select outcomes on the left to see your recommended areas.
-                    </p>
-                  ) : (
-                    suggestedAreas.map((area, i) => (
+                {/* Dynamically populated list */}
+                <div className="space-y-2.5 mb-6">
+                  {suggestedAreas.map((area, i) => {
+                    const isPrimary = area.id === primary;
+                    return (
                       <div
                         key={area.id}
-                        className="flex items-center gap-3 border-b border-white/[0.07] py-3"
+                        className="flex items-center justify-between gap-2.5 border-b border-neutral-800/80 pb-2"
                       >
-                        <span className="text-white/30 font-mono font-bold text-[10px] w-5 shrink-0">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-white font-medium text-[12.5px] leading-snug truncate">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <span className="text-[#00c988] font-mono text-[10px] shrink-0">
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
+                          <p className="text-white text-[12px] font-medium truncate">
                             {area.title}
                           </p>
-                          {i === 0 && (
-                            <span className="text-emerald-400/60 text-[8px] font-mono font-bold uppercase tracking-widest">
-                              Primary
-                            </span>
-                          )}
                         </div>
+
+                        {/* Primary Tag */}
+                        {isPrimary && (
+                          <span className="text-[#00c988] bg-[#00c988]/10 border border-[#00c988]/30 text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-xs shrink-0">
+                            Primary
+                          </span>
+                        )}
                       </div>
-                    ))
-                  )}
+                    );
+                  })}
                 </div>
-
-                {/* CTA button */}
-                <button
-                  onClick={handleDiscuss}
-                  disabled={selected.length === 0}
-                  className={[
-                    "w-full flex items-center justify-between font-mono font-bold text-[10.5px] uppercase tracking-widest px-5 py-4 transition-all duration-150",
-                    selected.length > 0
-                      ? "bg-emerald-500 hover:bg-emerald-600 text-white cursor-pointer"
-                      : "bg-white/10 text-white/30 cursor-not-allowed",
-                  ].join(" ")}
-                >
-                  <span>Discuss My Canvas</span>
-                  <span className="text-base leading-none">×</span>
-                </button>
-
               </div>
+
+              {/* Action Button */}
+              <button
+                type="button"
+                onClick={handleDiscuss}
+                disabled={selected.length === 0}
+                className={[
+                  "w-full bg-[#0DAE87] flex items-center justify-between font-extrabold text-[16px] uppercase tracking-wider px-4 py-3.5 transition-all duration-150 rounded-2xs",
+                  selected.length > 0
+                    ? "bg-[#00c988] hover:bg-[#00b378] text-black cursor-pointer"
+                    : "bg-[#00c988] opacity-90 text-black cursor-pointer",
+                ].join(" ")}
+              >
+                <span className="text-[#00142D]">Discuss My Canvas</span>
+                <span className="text-xs font-bold">↗</span>
+              </button>
             </div>
 
           </div>
+
         </div>
 
       </div>
