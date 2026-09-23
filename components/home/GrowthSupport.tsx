@@ -10,29 +10,34 @@ interface SupportCard {
 
 const supportCards: SupportCard[] = [
   {
-    id: "1",
+    id: "business-growth",
+    title: "BUSINESS GROWTH",
+    description: "Sales, commercial strategy, pricing, profitability and new business.",
+  },
+  {
+    id: "strategy-planning",
     title: "STRATEGY & PLANNING",
-    description: "Build a cleaner, stronger and more sustainable route to growth.",
+    description: "Business strategy alignment, OKRs, market positioning and priority planning.",
   },
   {
-    id: "2",
-    title: "COMMERCIAL GROWTH",
-    description: "Build a cleaner, stronger and more sustainable route to growth.",
+    id: "marketing",
+    title: "MARKETING",
+    description: "Lead generation, paid media, CRM setup and campaign performance.",
   },
   {
-    id: "3",
+    id: "seo-ai-visibility",
     title: "SEO & AI VISIBILITY",
-    description: "Build a cleaner, stronger and more sustainable route to growth.",
+    description: "Technical SEO audits, AI search engine optimization, keywords and GEO.",
   },
   {
-    id: "4",
+    id: "social-media",
+    title: "SOCIAL MEDIA",
+    description: "Social strategy, content creation, short-form video and community engagement.",
+  },
+  {
+    id: "website-conversion",
     title: "WEBSITE & CONVERSION",
-    description: "Build a cleaner, stronger and more sustainable route to growth.",
-  },
-  {
-    id: "5",
-    title: "CAMPAIGNS & LEADS",
-    description: "Build a cleaner, stronger and more sustainable route to growth.",
+    description: "Website design, landing page funnels, conversion tracking and UX optimization.",
   },
 ];
 
@@ -46,43 +51,23 @@ export function GrowthSupport() {
             CHOOSE WHERE YOU NEED <span className="text-[#00B894]">SUPPORT.</span>
           </h2>
           <p className="mt-4 text-slate-500 text-sm sm:text-base font-normal leading-relaxed max-w-2xl mx-auto">
-            Each service area can be engaged individually or as part of the full Growth Engine. All are available at Foundation, Momentum and Transform levels.
+            Each service area can be engaged individually or as part of the full Growth Engine. All 6 packages are available at Foundation, Momentum and Transform levels.
           </p>
         </div>
 
-        {/* 5 Cards Grid */}
-        <div className="mt-14 max-w-6xl mx-auto space-y-6">
-          {/* Top Row: 3 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {supportCards.slice(0, 3).map((card) => (
+        {/* 6 Package Cards Grid (Informational Only, No Redirection) */}
+        <div className="mt-14 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {supportCards.map((card) => (
               <div
                 key={card.id}
                 className="bg-[#FAFAFA] border border-slate-200/60 rounded-md p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#00B894]/40 hover:shadow-sm transition-all"
               >
                 <div>
-                  <h3 className="font-heading font-extrabold text-sm sm:text-base tracking-wider uppercase text-slate-900 mb-2 font-sans">
+                  <h3 className=" font-extrabold text-sm sm:text-base tracking-wider uppercase text-slate-900 mb-2 font-sans">
                     {card.title}
                   </h3>
-                  <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed font-normal">
-                    {card.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Row: 2 Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {supportCards.slice(3, 5).map((card) => (
-              <div
-                key={card.id}
-                className="bg-[#FAFAFA] border border-slate-200/60 rounded-md p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:border-[#00B894]/40 hover:shadow-sm transition-all"
-              >
-                <div>
-                  <h3 className="font-heading font-extrabold text-sm sm:text-base tracking-wider uppercase text-slate-900 mb-2 font-sans">
-                    {card.title}
-                  </h3>
-                  <p className="text-slate-400 text-xs sm:text-[13px] leading-relaxed font-normal">
+                  <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed font-normal">
                     {card.description}
                   </p>
                 </div>
@@ -96,3 +81,4 @@ export function GrowthSupport() {
 }
 
 export default GrowthSupport;
+

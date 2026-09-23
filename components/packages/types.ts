@@ -3,6 +3,24 @@ export interface IncludedItem {
   description: string;
 }
 
+export interface WhoThisIsForItem {
+  title: string;
+  description: string;
+  icon?: string;
+}
+
+export interface WhatYouCouldReceiveItem {
+  number: string;
+  title: string;
+  description: string;
+}
+
+export interface RelevantOutcomeItem {
+  title: string;
+  subtitle: string;
+  href?: string;
+}
+
 export interface PackageDetailData {
   id: string;
   slug: string;
@@ -10,8 +28,12 @@ export interface PackageDetailData {
   title: string;
   subtitle: string;
   description: string;
-  relevantGoals: string[];
-  whatWeDeliver: string[];
+  relevantGoals?: string[];
+  whatWeDeliver?: string[];
+  whoThisIsForIntro?: string;
+  whoThisIsFor?: WhoThisIsForItem[];
+  whatYouCouldReceive?: WhatYouCouldReceiveItem[];
+  relevantOutcomes?: RelevantOutcomeItem[];
   price?: string;
   vatText?: string;
   minimumTerm?: string;
@@ -20,3 +42,5 @@ export interface PackageDetailData {
   yourResponsibilities?: string[];
   notIncluded?: string[];
 }
+
+

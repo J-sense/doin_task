@@ -123,7 +123,7 @@ export function OutcomeSelector() {
                       </div>
                       <span className={[
                         "text-[13.5px] font-sans transition-colors",
-                        checked ? "text-[#111111] font-semibold" : "text-neutral-700 font-medium",
+                        checked ? "text-[#111111] font-semibold" : "text-[#061B2DBF] font-medium",
                       ].join(" ")}>
                         {outcome.label}
                       </span>

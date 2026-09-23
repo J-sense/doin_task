@@ -12,13 +12,13 @@ export function Hero() {
       <div className="absolute top-[15%] right-[-10%] w-[55%] h-[75%] rounded-full bg-[#0ea5e9]/12 blur-[140px] pointer-events-none" /> */}
 
       {/* Fine-line grid pattern in background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none opacity-20" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[4rem_4rem] pointer-events-none opacity-20" />
 
       <div className="relative mx-auto max-w-[1700px] w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column (Hero Content) */}
         <div className="lg:col-span-6 flex flex-col">
           {/* Main Title Heading */}
-          <h1 className="font-heading font-black text-[34px] sm:text-5xl lg:text-[56px] tracking-tight leading-[1.08] text-white uppercase max-w-md sm:max-w-lg md:max-w-xl lg:max-w-[460px] xl:max-w-[540px] 2xl:max-w-[640px]">
+          <h1 className="font-heading font-black text-[34px] sm:text-5xl lg:text-[56px] tracking-tight leading-[1.08] text-white uppercase max-w-md sm:max-w-lg md:max-w-xl lg:max-w-115 xl:max-w-135 2xl:max-w-160">
             Your <span className="text-[#00dfb6]">Growth</span>
             <br />
             shouldn't live
@@ -27,16 +27,15 @@ export function Hero() {
           </h1>
 
           {/* Descriptive Subtitle */}
-          <p className="mt-6 text-slate-300 text-sm sm:text-base font-light leading-relaxed max-w-md lg:max-w-[400px] xl:max-w-[450px] 2xl:max-w-lg">
-            One connected ecosystem for strategy, marketing, digital and
-            leadership — built around the growth outcomes that matter most.
+          <p className="mt-6 text-[#D4D4D4] text-sm sm:text-base font-light leading-relaxed max-w-md lg:max-w-100 xl:max-w-130 ">
+            One connected ecosystem across business growth, strategy, marketing, SEO & AI visibility, social media and website & conversion — built around the growth outcome that matters most.
           </p>
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto">
             <Link
               href="#ecosystem"
-              className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-[#00dfb6] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#02111c] transition-all hover:bg-[#00f5d4] hover:scale-[1.02] shadow-[0_0_25px_rgba(0,223,182,0.2)] text-center w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-[#00B894] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#02111c] transition-all hover:bg-[#00f5d4] hover:scale-[1.02] shadow-[0_0_25px_rgba(0,223,182,0.2)] text-center w-full sm:w-auto "
             >
               Explore the ecosystem
               <ArrowUpRight className="size-4 stroke-[2.5px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -44,7 +43,7 @@ export function Hero() {
 
             <Link
               href="#contact"
-              className="group inline-flex items-center justify-center gap-1.5 rounded-sm border border-slate-700 bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/5 hover:border-slate-500 hover:scale-[1.02] text-center w-full sm:w-auto"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/5 hover:border-slate-500 hover:scale-[1.02] text-center w-full sm:w-auto border-2 border-[#E5E7EB]"
             >
               Talk to our growth team
               <ArrowUpRight className="size-4 stroke-[2.5px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -52,7 +51,7 @@ export function Hero() {
           </div>
 
           {/* Highlight Stats Section */}
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-800/80">
+          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-1 pt-8 w-3/4">
             {/* Stat 1 */}
             <div className="flex items-center gap-4">
               <span className="font-heading font-black text-4xl text-[#00dfb6]">
@@ -105,7 +104,7 @@ export function Hero() {
             </div>
 
             {/* Central Squircle Badge */}
-            <div className="relative z-10 size-44 p-4 bg-gradient-to-br from-slate-900 to-sky-950 rounded-[61.81px] shadow-[0px_8.466667px_23.2833px_rgba(0,0,0,0.34),inset_0px_0px_0px_3.3866px_rgba(255,255,255,0.02)] outline outline-[0.42px] outline-offset-[-0.42px] outline-white/20 inline-flex flex-col justify-center items-center select-none">
+            <div className="relative z-10 size-44 p-4 bg-gradient-to-br from-slate-900 to-sky-950 rounded-full shadow-[0px_8.466667px_23.2833px_rgba(0,0,0,0.34),inset_0px_0px_0px_3.3866px_rgba(255,255,255,0.02)] outline outline-[0.42px] outline-offset-[-0.42px] outline-white/20 inline-flex flex-col justify-center items-center select-none">
               <div className="w-11 h-4 relative">
                 <div className="left-[0.07px] top-[-0.32px] absolute text-center justify-start text-white text-xs font-extrabold font-sans leading-4">
                   Axudar

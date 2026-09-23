@@ -38,7 +38,7 @@ export function Faq() {
   };
 
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
+    <section id="insights" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
       <div className="mx-auto max-w-7xl">
 
         {/* Layout Grid */}

@@ -31,7 +31,7 @@ export function ActiveOutcomes() {
   ];
 
   return (
-    <section className="relative w-full bg-[#03182B] py-16 lg:py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-white/5">
+    <section id="results" className="relative w-full bg-[#03182B] py-16 lg:py-24 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-white/5">
       {/* Background soft glows to unify with hero theme */}
       <div className="absolute top-[10%] left-[-10%] w-[45%] h-[60%] rounded-full bg-[#00dfb6]/3 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[10%] right-[-10%] w-[45%] h-[60%] rounded-full bg-[#0ea5e9]/3 blur-[120px] pointer-events-none" />

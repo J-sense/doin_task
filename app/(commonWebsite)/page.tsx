@@ -5,6 +5,8 @@ import { OutcomeSelector } from "@/components/home/OutcomeSelector";
 import { GrowthSupport } from "@/components/home/GrowthSupport";
 import { GrowthCanvas } from "@/components/home/GrowthCanvas";
 import { Packages } from "@/components/home/Packages";
+import { BetterWayToGrow } from "@/components/home/BetterWayToGrow";
+import { CustomerJourney } from "@/components/home/CustomerJourney";
 import { ActiveOutcomes } from "@/components/home/ActiveOutcomes";
 import { ActionRoute } from "@/components/home/ActionRoute";
 
@@ -23,8 +25,10 @@ export default function page() {
       <GrowthSupport />
       {/* <GrowthCanvas /> */}
       <Packages />
-      <ActiveOutcomes />
-      <ActionRoute />
+      <BetterWayToGrow />
+      <CustomerJourney />
+      {/* <ActiveOutcomes /> */}
+      {/* <ActionRoute /> */}
       <Testimonials />
       <Faq />
       <ConsultationBanner />
