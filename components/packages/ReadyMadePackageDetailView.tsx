@@ -75,6 +75,9 @@ export function ReadyMadePackageDetailView({
               </p>
 
               <div className="flex items-baseline gap-3 mt-6">
+                <span className="text-[#00dfb6] font-sans font-black text-4xl sm:text-5xl tracking-tight uppercase">
+                  FROM
+                </span>
                 <span className="text-[#00dfb6] font-sans font-black text-4xl sm:text-5xl tracking-tight">
                   {price}
                 </span>
@@ -233,6 +236,10 @@ export function ReadyMadePackageDetailView({
                 </span>
 
                 <div className="flex items-baseline gap-2 mb-1">
+
+                  <span className="font-sans font-black text-3xl sm:text-xl text-[#03182B] uppercase tracking-tight">
+                    FROM
+                  </span>
                   <span className="font-sans font-black text-3xl sm:text-4xl text-[#03182B] uppercase tracking-tight">
                     {price}
                   </span>
@@ -258,12 +265,12 @@ export function ReadyMadePackageDetailView({
               </div>
 
               <div className="flex flex-col gap-3">
-                <h3
-
-                  className="w-full bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B] font-mono text-xs font-bold uppercase tracking-widest py-4 rounded-[4px] transition-colors duration-200 text-center block shadow-xs"
+                <Link
+                  href={contactUrl}
+                  className="w-full bg-[#00dfb6] hover:bg-[#18d1ad] text-[#03182B] font-mono text-xs font-bold uppercase tracking-widest py-4 rounded-[4px] transition-colors duration-200 text-center block shadow-xs cursor-pointer"
                 >
-                  Request This Package →
-                </h3>
+                  Enquire About Package →
+                </Link>
 
                 <Link
                   href={questionUrl}

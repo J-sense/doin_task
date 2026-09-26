@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { areas } from "@/components/home/areasData";
 
@@ -15,12 +15,13 @@ const outcomes: Outcome[] = [
   { id: "increase-revenue", label: "Increase revenue", areaIds: ["business-growth"] },
   { id: "improve-profit", label: "Improve profitability", areaIds: ["business-growth", "strategy-planning"] },
   { id: "more-enquiries", label: "Generate more enquiries", areaIds: ["marketing", "seo-ai-visibility"] },
-  { id: "convert-enquiries", label: "Convert more enquiries", areaIds: ["website-conversion", "marketing"] },
+  { id: "better-quality-enquiries", label: "Generate better quality enquiries", areaIds: ["marketing", "seo-ai-visibility", "strategy-planning"] },
+  { id: "convert-enquiries", label: "Convert more enquiries into customers", areaIds: ["website-conversion", "marketing"] },
   { id: "online-visibility", label: "Improve online visibility", areaIds: ["seo-ai-visibility", "social-media"] },
-  { id: "improve-website", label: "Improve our website", areaIds: ["website-conversion"] },
+  { id: "improve-website", label: "Get more from our website", areaIds: ["website-conversion"] },
   { id: "improve-marketing", label: "Improve our marketing", areaIds: ["marketing", "social-media"] },
-  { id: "social-presence", label: "Grow social presence", areaIds: ["social-media", "marketing"] },
-  { id: "clearer-strategy", label: "Create a clearer strategy", areaIds: ["strategy-planning"] },
+  { id: "social-presence", label: "Build our social presence", areaIds: ["social-media", "marketing"] },
+  { id: "clearer-strategy", label: "Create a clearer growth strategy", areaIds: ["strategy-planning"] },
   { id: "scale-business", label: "Scale the business", areaIds: ["business-growth", "strategy-planning"] },
   { id: "not-sure", label: "Not sure where to start", areaIds: ["business-growth"] },
 ];
@@ -43,16 +44,64 @@ function deriveAreas(selectedIds: string[]) {
 export function OutcomeSelector() {
   const router = useRouter();
   const [selected, setSelected] = useState<string[]>([]);
+  const [manualAdd, setManualAdd] = useState<string[]>([]);
+  const [manualRemove, setManualRemove] = useState<string[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
-  const toggle = (id: string) =>
+  useEffect(() => {
+    const savedOutcomes = sessionStorage.getItem("canvas_outcomes");
+    const savedAdd = sessionStorage.getItem("canvas_add");
+    const savedRemove = sessionStorage.getItem("canvas_remove");
+    if (savedOutcomes) {
+      try { setSelected(JSON.parse(savedOutcomes)); } catch (e) {}
+    }
+    if (savedAdd) {
+      try { setManualAdd(JSON.parse(savedAdd)); } catch (e) {}
+    }
+    if (savedRemove) {
+      try { setManualRemove(JSON.parse(savedRemove)); } catch (e) {}
+    }
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      sessionStorage.setItem("canvas_outcomes", JSON.stringify(selected));
+      sessionStorage.setItem("canvas_add", JSON.stringify(manualAdd));
+      sessionStorage.setItem("canvas_remove", JSON.stringify(manualRemove));
+    }
+  }, [selected, manualAdd, manualRemove, isLoaded]);
+
+  const toggle = (id: string) => {
     setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+  };
 
-  const { primary, canvas } = useMemo(() => deriveAreas(selected), [selected]);
-  const suggestedAreas = useMemo(() => areas.filter((a) => canvas.includes(a.id)), [canvas]);
+  const removeArea = (areaId: string) => {
+    setManualRemove((prev) => [...prev, areaId]);
+    setManualAdd((prev) => prev.filter(id => id !== areaId));
+  };
+
+  const { primary, canvas: derivedCanvas } = useMemo(() => deriveAreas(selected), [selected]);
+  
+  const finalCanvas = useMemo(() => {
+    let result = [...derivedCanvas];
+    for (const addId of manualAdd) {
+      if (!result.includes(addId)) result.push(addId);
+    }
+    result = result.filter(id => !manualRemove.includes(id));
+    return result;
+  }, [derivedCanvas, manualAdd, manualRemove]);
+
+  const suggestedAreas = useMemo(() => areas.filter((a) => finalCanvas.includes(a.id)), [finalCanvas]);
 
   const handleDiscuss = () => {
-    const params = new URLSearchParams({ canvas: canvas.join(",") });
-    router.push(`/area/${primary}?${params.toString()}`);
+    const params = new URLSearchParams();
+    params.set("title", "Growth Canvas");
+    params.set("price", "Custom Strategy & Execution");
+    const pillLabels = suggestedAreas.map((a) => a.title).join(",");
+    params.set("pills", pillLabels);
+    params.set("canvas", finalCanvas.join(","));
+    router.push(`/contact?${params.toString()}`);
   };
 
   const gridOutcomes = outcomes.filter((o) => o.id !== "not-sure");
@@ -82,8 +131,8 @@ export function OutcomeSelector() {
         {/* ── Main Canvas Wrapper Card ── */}
         <div className="bg-[#f8f9fa] rounded-2xl p-6 sm:p-10 lg:p-12">
 
-          <h3 className="text-[16px] font-sans font-bold text-[#111111] mb-6">
-            What would you like to achieve?
+          <h3 className="text-[16px] font-sans font-bold text-[#111111] mb-6 uppercase tracking-wider">
+            WHAT DO YOU WANT TO CHANGE?
           </h3>
 
           <div className="flex flex-col lg:flex-row gap-8 items-start">
@@ -188,23 +237,32 @@ export function OutcomeSelector() {
                     return (
                       <div
                         key={area.id}
-                        className="flex items-center justify-between gap-2.5 border-b border-neutral-800/80 pb-2"
+                        className="bg-white text-[#111111] p-3 rounded-xs flex items-center justify-between gap-2 shadow-xs mb-2"
                       >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          <span className="text-[#00c988] font-mono text-[10px] shrink-0">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <span className="text-[#10b981] font-bold text-[11px] shrink-0">
                             {String(i + 1).padStart(2, "0")}
                           </span>
-                          <p className="text-white text-[12px] font-medium truncate">
+                          <span className="font-bold text-[12px] truncate">
                             {area.title}
-                          </p>
-                        </div>
-
-                        {/* Primary Tag */}
-                        {isPrimary && (
-                          <span className="text-[#00c988] bg-[#00c988]/10 border border-[#00c988]/30 text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-xs shrink-0">
-                            Primary
                           </span>
-                        )}
+                        </div>
+                        
+                        <div className="flex items-center gap-2">
+                          {isPrimary && (
+                            <span className="text-[#00c988] bg-[#00c988]/10 border border-[#00c988]/30 text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-xs shrink-0">
+                              Primary
+                            </span>
+                          )}
+                          <button
+                            type="button"
+                            onClick={() => removeArea(area.id)}
+                            className="text-neutral-400 hover:text-red-500 text-xs px-1 transition-colors"
+                            aria-label="Remove item"
+                          >
+                            ✕
+                          </button>
+                        </div>
                       </div>
                     );
                   })}

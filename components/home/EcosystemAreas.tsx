@@ -5,12 +5,12 @@ import Link from "next/link";
 import { areas } from "@/components/home/areasData";
 
 const allTags = [
-  "STRATEGY & PLANNING",
-  "SEO & AI VISIBILITY",
-  "SOCIAL & CONTENT",
-  "WEBSITE & CONVERSION",
-  "CAMPAIGNS & LEADS",
-  "COMMERCIAL GROWTH",
+  "Strategy",
+  "SEO",
+  "Social Media",
+  "Business Growth",
+  "Marketing",
+  "Website",
 ];
 
 export function EcosystemAreas() {
@@ -91,11 +91,10 @@ export function EcosystemAreas() {
                   {/* Explore Link */}
                   <div className="text-center">
                     <Link
-                      href={`/packages/${
-                        area.id === "social-media"
-                          ? "social-content-growth"
-                          : area.id
-                      }`}
+                      href={`/packages/${area.id === "social-media"
+                        ? "social-content-growth"
+                        : area.id
+                        }`}
                       className="inline-flex items-center justify-center gap-1.5 font-sans font-bold text-[11px] uppercase tracking-widest text-[#009b5a] group-hover:text-white hover:underline transition-colors duration-300"
                     >
                       EXPLORE THIS AREA →
@@ -121,11 +120,10 @@ export function EcosystemAreas() {
             <button
               key={tag}
               onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-              className={`text-[10px] font-mono font-bold uppercase tracking-widest px-5 py-2.5 border rounded-sm transition-all duration-150 cursor-pointer ${
-                activeTag === tag
-                  ? "bg-[#03182B] text-white border-[#03182B]"
-                  : "bg-white text-neutral-400 border-neutral-200 hover:border-neutral-400 hover:text-neutral-600"
-              }`}
+              className={`text-[10px] font-mono font-bold uppercase tracking-widest px-5 py-2.5 border rounded-sm transition-all duration-150 cursor-pointer ${activeTag === tag
+                ? "bg-[#03182B] text-white border-[#03182B]"
+                : "bg-white text-neutral-400 border-neutral-200 hover:border-neutral-400 hover:text-neutral-600"
+                }`}
             >
               {tag}
             </button>

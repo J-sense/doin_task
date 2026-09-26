@@ -22,15 +22,16 @@ export function ContactForm() {
   const [priceQuery, setPriceQuery] = useState<string | null>(null);
   const [pillsQuery, setPillsQuery] = useState<string | null>(null);
   const [isCanvasFlow, setIsCanvasFlow] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Help topics / pill buttons options
   const allPills: PillOption[] = [
-    { id: "strategy",   label: "Strategy & Planning",  keywords: ["strategy", "planning", "strategy & planning"] },
-    { id: "commercial", label: "Commercial Growth",    keywords: ["commercial", "business growth", "business", "revenue", "profitability"] },
-    { id: "seo",        label: "SEO & AI Visibility",  keywords: ["seo", "ai visibility", "seo & ai visibility", "search"] },
-    { id: "social",     label: "Social & Content",     keywords: ["social", "content", "social media", "social & content"] },
-    { id: "website",    label: "Website & Conversion", keywords: ["website", "conversion", "website & conversion", "ux"] },
-    { id: "campaigns",  label: "Campaigns & Leads",    keywords: ["campaigns", "leads", "marketing", "campaigns & leads"] },
+    { id: "strategy", label: "Strategy & Planning", keywords: ["strategy", "planning", "strategy & planning"] },
+    { id: "commercial", label: "Commercial Growth", keywords: ["commercial", "business growth", "business", "revenue", "profitability"] },
+    { id: "seo", label: "SEO & AI Visibility", keywords: ["seo", "ai visibility", "seo & ai visibility", "search"] },
+    { id: "social", label: "Social & Content", keywords: ["social", "content", "social media", "social & content"] },
+    { id: "website", label: "Website & Conversion", keywords: ["website", "conversion", "website & conversion", "ux"] },
+    { id: "campaigns", label: "Campaigns & Leads", keywords: ["campaigns", "leads", "marketing", "campaigns & leads"] },
   ];
 
   // Active pill selection state
@@ -39,9 +40,9 @@ export function ContactForm() {
   // Read query params on mount (avoids useSearchParams + Suspense)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const title  = params.get("title");
-    const price  = params.get("price");
-    const pills  = params.get("pills");
+    const title = params.get("title");
+    const price = params.get("price");
+    const pills = params.get("pills");
     const canvas = params.get("canvas");
 
     setTitleQuery(title);
@@ -71,7 +72,7 @@ export function ContactForm() {
     }
 
     if (matched.size > 0) setActivePillIds(Array.from(matched));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const togglePill = (id: string) => {
@@ -85,16 +86,12 @@ export function ContactForm() {
 
     const selectedTopics = allPills
       .filter((p) => activePillIds.includes(p.id))
-      .map((p) => p.label)
-      .join(", ");
+      .map((p) => p.label);
 
-    const subject = titleQuery
-      ? `Axudar Group Enquiry - ${titleQuery}`
-      : `Axudar Group Enquiry - Help Topics: ${selectedTopics || "General"}`;
+    console.log("Primary Package / Canvas:", titleQuery || "None");
+    console.log("Selected Topics / Other Packages:", selectedTopics);
 
-    const body = `Hello Axudar Team,\n\n${titleQuery ? `Enquiry Subject / Package: ${titleQuery}\n\n` : ""}My Details:\nName: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nPhone: ${phone || "N/A"}\n\nWhat can we help with:\n${selectedTopics || "None selected"}\n\nMessage/Background:\n${message}\n\nPrepared via Axudar Contact Web App.`;
-
-    window.location.href = `mailto:hello@axudargroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setIsSubmitted(true);
   };
 
   return (
@@ -166,21 +163,47 @@ export function ContactForm() {
           <div className="lg:col-span-8 flex justify-center w-full shadow-xl">
             <div className="w-full bg-white border border-[#E5EBEA]/60 rounded-lg p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
 
-              {titleQuery && !titleQuery.toLowerCase().includes("growth canvas") && (
-                <div className="mb-8 p-6 sm:p-8 bg-[#EAFBF5] rounded-md flex flex-col items-start select-none">
-                  <span className="text-[#00B894] text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[2px] mb-3 block">
-                    SELECTED PACKAGE
+              {isSubmitted ? (
+                <div className="flex flex-col items-start py-10 sm:py-16 px-2 sm:px-6">
+                  <div className="w-12 h-12 bg-[#EAFBF5] border border-[#00dfb6]/30 flex items-center justify-center rounded-sm mb-8">
+                    <svg className="w-5 h-5 text-[#00dfb6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-[#00dfb6] font-mono text-[10px] font-bold uppercase tracking-[2.5px] mb-4 block">
+                    ENQUIRY PREPARED
                   </span>
-                  <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#03182B] leading-tight mb-1.5">
-                    {titleQuery}
+                  <h3 className="font-sans font-bold text-[32px] sm:text-[40px] text-[#03182B] leading-tight mb-5">
+                    Your enquiry has been sent.
                   </h3>
-                  <p className="text-neutral-500 font-sans text-xs sm:text-sm font-normal">
-                    {priceQuery || "£649 + VAT / month"}
+                  <p className="text-[#525252] font-sans text-[15px] font-light leading-relaxed mb-10 max-w-[450px]">
+                    Axudar aims to respond within one working day. If your query is urgent, email <a href="mailto:hello@axudargroup.com" className="text-[#00dfb6] hover:underline">hello@axudargroup.com</a>.
                   </p>
+                  <a
+                    href="/"
+                    className="border border-[#E5EBEA] hover:border-[#00dfb6] transition-colors duration-200 text-[#03182B] font-sans font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-sm flex items-center justify-center gap-2 select-none"
+                  >
+                    <span>Return Home</span>
+                    <span>➔</span>
+                  </a>
                 </div>
-              )}
+              ) : (
+                <>
+                  {titleQuery && !titleQuery.toLowerCase().includes("growth canvas") && (
+                    <div className="mb-8 p-6 sm:p-8 bg-[#EAFBF5] rounded-md flex flex-col items-start select-none">
+                      <span className="text-[#00B894] text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[2px] mb-3 block">
+                        SELECTED PACKAGE
+                      </span>
+                      <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#03182B] leading-tight mb-1.5">
+                        {titleQuery}
+                      </h3>
+                      <p className="text-neutral-500 font-sans text-xs sm:text-sm font-normal">
+                        {priceQuery || "From - £649 + VAT / month"}
+                      </p>
+                    </div>
+                  )}
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
                 {/* Name & Email Row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ">
@@ -293,6 +316,8 @@ export function ContactForm() {
                 </div>
 
               </form>
+                </>
+              )}
 
             </div>
           </div>

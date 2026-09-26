@@ -1,68 +1,224 @@
 import { PackageDetailData } from "./types";
 
 export const packagesData: Record<string, PackageDetailData> = {
-  "social-content-growth": {
-    id: "social-content-growth",
-    slug: "social-content-growth",
-    tag: "SOCIAL & CONTENT GROWTH",
-    title: "Social & Content Growth",
-    subtitle: "Consistent visibility that builds trust and creates opportunity.",
-    price: "£649",
-    vatText: "+ VAT / month",
-    minimumTerm: "12 months minimum",
-    introParagraph:
-      "A fully managed social content programme for businesses that want to stay visible, build authority and create a steady stream of opportunities from organic content across the right channels.",
-    whatIsIncluded: [
+  "business-growth": {
+    id: "business-growth",
+    slug: "business-growth",
+    tag: "COMMERCIAL GROWTH",
+    title: "BUSINESS GROWTH",
+    subtitle: "Accelerate revenue, optimize pricing, and build a predictable sales engine.",
+    description: "Growth shouldn't be guesswork. Our Business Growth framework connects strategic, financial, and sales levers to directly impact your bottom line and scale your operations sustainably.",
+    whoThisIsForIntro: "Target Audience: This service is designed for ambitious companies ready to break through their revenue ceilings.",
+    whoThisIsFor: [
       {
-        title: "Initial channel audit, audience review and social media strategy",
-        description:
-          "We understand your starting point before creating anything — audience, tone, platform priority.",
+        title: "Scaling SMBs & Startups",
+        description: "Companies transitioning from early-stage hustle to structured, scalable operations.",
+        icon: "rocket",
       },
       {
-        title: "Monthly content calendar and 12 original branded posts",
-        description:
-          "Written, designed and approved before publishing — aligned to your tone, audience and goals.",
+        title: "Plateaued Businesses",
+        description: "Established businesses experiencing stagnant revenue or struggling with inconsistent profitability.",
+        icon: "alert-circle",
       },
       {
-        title: "Two short-form video or Reel edits using agreed source footage",
-        description:
-          "Edited from footage you provide, with captions, music and platform format.",
+        title: "Leadership Seeking Efficiency",
+        description: "Founders and executives looking to maximize margins and customer lifetime value.",
+        icon: "trending-up",
       },
-      {
-        title: "Posting across up to four agreed channels",
-        description:
-          "LinkedIn, Instagram, Facebook and X — managed and published for you.",
-      },
-      {
-        title: "Performance insight and quarterly review",
-        description:
-          "Clear numbers with honest interpretation and quarterly realignment to business priorities.",
-      },
-    ],
-    yourResponsibilities: [
-      "Supply brand assets: logo, colours, photography, product or team images",
-      "Provide raw video footage for Reel edits (as required)",
-      "Approve the monthly content calendar within agreed timescales",
-      "Share any priority topics, campaigns or business news monthly",
-    ],
-    notIncluded: [
-      "Paid advertising or boosted posts (agreed separately)",
-      "Community management or DM responses",
-      "Photography or video production (supply raw footage)",
-    ],
-    description:
-      "Consistent, high-quality social content builds category authority and keeps your business top of mind when buyers are ready to make a decision.",
-    relevantGoals: [
-      "Build brand authority",
-      "Engage target audience",
-      "Increase social reach",
-      "Generate inbound leads",
     ],
     whatWeDeliver: [
-      "Channel Audit, Audience Review And Social Strategy",
-      "Monthly Content Calendar And 12 Branded Posts",
-      "Short-Form Video / Reel Editing From Source Footage",
-      "Multi-Channel Publishing And Quarterly Performance Reviews",
+      "Comprehensive Commercial Architecture Audit",
+      "Pricing Structure & Profitability Optimization",
+      "Sales Funnel & Acquisition Restructuring",
+      "Actionable 90-Day Revenue Generation Roadmap",
+    ],
+    whatYouCouldReceive: [
+      {
+        number: "01",
+        title: "Predictable Pipeline Generation",
+        description: "A steady, reliable flow of high-value prospects entering your sales ecosystem.",
+      },
+      {
+        number: "02",
+        title: "Higher Profit Margins",
+        description: "Optimized unit economics and pricing models that capture your true market value.",
+      },
+      {
+        number: "03",
+        title: "Scalable Commercial Architecture",
+        description: "Standardized processes that allow your business to grow without breaking.",
+      },
+      {
+        number: "04",
+        title: "Improved Customer Lifetime Value (CLV)",
+        description: "Strategies to retain clients longer and maximize revenue per account.",
+      },
+    ],
+    relevantGoals: [
+      "Win more customers",
+      "Increase revenue",
+      "Improve profitability",
+      "Scale the business"
+    ],
+    relevantOutcomes: [
+      {
+        title: "Build Your Growth Canvas",
+        subtitle: "Map out your custom growth trajectory and align your goals with actionable steps.",
+        href: "/area/business-growth",
+      },
+      {
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation to discuss your commercial roadblocks.",
+        href: "/contact",
+      },
+    ],
+  },
+
+  "strategy-planning": {
+    id: "strategy-planning",
+    slug: "strategy-planning",
+    tag: "STRATEGY & PLANNING",
+    title: "STRATEGY",
+    subtitle: "Align leadership, define priorities, and execute with absolute clarity.",
+    description: "Clear strategic direction eliminates wasted effort. We establish actionable roadmaps that align your entire organization around core growth priorities, ensuring every move counts.",
+    whoThisIsForIntro: "Target Audience: This service is for leadership teams that need focus, alignment, and a clear path forward.",
+    whoThisIsFor: [
+      {
+        title: "Visionary Founders",
+        description: "Leaders with big ideas who need a structured framework to execute them.",
+        icon: "rocket",
+      },
+      {
+        title: "Misaligned Executive Teams",
+        description: "Leadership teams struggling with competing priorities or operational silos.",
+        icon: "alert-circle",
+      },
+      {
+        title: "Pivoting Companies",
+        description: "Businesses entering new competitive markets or fundamentally shifting their core offerings.",
+        icon: "trending-up",
+      },
+    ],
+    whatWeDeliver: [
+      "Leadership Alignment & Discovery Workshops",
+      "Custom OKR & KPI Framework Development",
+      "Competitive Positioning & Market Opportunity Analysis",
+      "Phased Strategic Execution Roadmap",
+    ],
+    whatYouCouldReceive: [
+      {
+        number: "01",
+        title: "Crystal-Clear Organizational Focus",
+        description: "Everyone in your company moving in the exact same direction toward unified goals.",
+      },
+      {
+        number: "02",
+        title: "Reduced Operational Waste",
+        description: "Elimination of low-impact activities, saving time and capital.",
+      },
+      {
+        number: "03",
+        title: "Confident Decision Making",
+        description: "A data-backed strategic foundation that removes guesswork from leadership.",
+      },
+      {
+        number: "04",
+        title: "Rapid Execution Pacing",
+        description: "Agile, 90-day sprint cycles that ensure continuous forward momentum.",
+      },
+    ],
+    relevantGoals: [
+      "Improve profitability",
+      "Generate better quality enquiries",
+      "Create a clearer growth strategy",
+      "Scale the business"
+    ],
+    relevantOutcomes: [
+      {
+        title: "Build Your Growth Canvas",
+        subtitle: "Define your strategic priorities and map out your next bold move.",
+        href: "/area/strategy-planning",
+      },
+      {
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation to align your leadership vision.",
+        href: "/contact",
+      },
+    ],
+  },
+
+  "marketing": {
+    id: "marketing",
+    slug: "marketing",
+    tag: "CAMPAIGNS & LEADS",
+    title: "MARKETING",
+    subtitle: "Turn positioning into qualified inbound demand and active sales opportunities.",
+    description: "A predictable pipeline requires joined-up campaigns. We build robust marketing engines that attract the right audience, nurture their interest, and convert them into high-value leads.",
+    whoThisIsForIntro: "Target Audience: This service is for brands that need to take control of their customer acquisition.",
+    whoThisIsFor: [
+      {
+        title: "Growth-Focused Brands",
+        description: "Companies frustrated by low-quality leads and inefficient marketing spend.",
+        icon: "bar-chart",
+      },
+      {
+        title: "Referral-Dependent Businesses",
+        description: "Organizations looking to build a predictable acquisition engine beyond word-of-mouth.",
+        icon: "alert-circle",
+      },
+      {
+        title: "Scaling Enterprises",
+        description: "Businesses launching new products or entering aggressive growth phases.",
+        icon: "rocket",
+      },
+    ],
+    whatWeDeliver: [
+      "Multi-Channel Acquisition Campaign Design",
+      "Marketing Automation & Nurture Flow Setup",
+      "Paid Media Strategy & Performance Management",
+      "Core Brand Messaging & Value Proposition Refinement",
+    ],
+    whatYouCouldReceive: [
+      {
+        number: "01",
+        title: "Lower Customer Acquisition Cost (CAC)",
+        description: "Optimized campaigns that generate more revenue for every dollar spent.",
+      },
+      {
+        number: "02",
+        title: "Higher Volume of SQLs",
+        description: "A consistent flow of Sales-Qualified Leads ready for your closing team.",
+      },
+      {
+        number: "03",
+        title: "Measurable Marketing ROI",
+        description: "Transparent dashboards showing exactly how marketing impacts your bottom line.",
+      },
+      {
+        number: "04",
+        title: "Enhanced Brand Equity",
+        description: "A stronger, more authoritative presence in your target market.",
+      },
+    ],
+    relevantGoals: [
+      "Win more customers",
+      "Generate more enquiries",
+      "Generate better quality enquiries",
+      "Convert more enquiries into customers",
+      "Improve our marketing",
+      "Build our social presence"
+    ],
+    relevantOutcomes: [
+      {
+        title: "Build Your Growth Canvas",
+        subtitle: "Design a high-converting marketing framework tailored to your audience.",
+        href: "/area/marketing",
+      },
+      {
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation to review your current marketing ROI.",
+        href: "/contact",
+      },
     ],
   },
 
@@ -71,798 +227,316 @@ export const packagesData: Record<string, PackageDetailData> = {
     slug: "seo-ai-visibility",
     tag: "SEO & SEARCH GROWTH",
     title: "SEO & AI VISIBILITY",
-    subtitle: "SEO, GEO, Google and AI search visibility.",
-    price: "£649",
-    vatText: "+ VAT / month",
-    minimumTerm: "12 months minimum",
-    introParagraph:
-      "A structured monthly SEO and GEO programme for businesses with a working website that need stronger qualified visibility, more relevant traffic and clearer measurement.",
-    whoThisIsForIntro:
-      "SEO & AI Visibility is designed for businesses with a working website that need stronger organic visibility, Generative AI indexing, and clearer search measurement.",
+    subtitle: "Dominate Google search and Generative AI platforms.",
+    description: "Buyers find solutions through Google and AI engines like ChatGPT. We ensure your brand is prominently recommended when high-intent prospects are actively searching for your solutions.",
+    whoThisIsForIntro: "Target Audience: This service is for businesses that refuse to be invisible in the modern search landscape.",
     whoThisIsFor: [
       {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal growth and create a clearer commercial structure.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where organic traffic, Google rankings or AI search citations have stalled.",
+        title: "Market Challengers",
+        description: "Businesses actively losing market share to competitors on Google.",
         icon: "alert-circle",
       },
       {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies looking to build sustainable inbound organic demand and reduce reliance on paid ads.",
-        icon: "bar-chart",
-      },
-      {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses expanding into new markets, services or optimizing for ChatGPT, Gemini & Perplexity.",
+        title: "Niche B2B/B2C Brands",
+        description: "Companies lacking visibility in Generative AI tools and LLM citations.",
         icon: "rocket",
       },
-    ],
-    whatIsIncluded: [
       {
-        title: "Technical SEO audit & ongoing health remediation",
-        description:
-          "Full crawl analysis, site speed optimizations, schema markup and technical fix implementation.",
+        title: "Ad-Fatigued Organizations",
+        description: "Businesses heavily dependent on expensive paid ads seeking sustainable organic growth.",
+        icon: "trending-up",
       },
-      {
-        title: "Generative Engine Optimisation (GEO) & AI Search setup",
-        description:
-          "Ensuring your business is accurately indexed, cited and recommended by ChatGPT, Perplexity and Gemini.",
-      },
-      {
-        title: "High-intent keyword strategy & 4 monthly pillar content assets",
-        description:
-          "Targeting decision-stage commercial search queries that attract qualified prospects directly.",
-      },
-      {
-        title: "Google Business Profile & local pack management",
-        description:
-          "Complete local authority setup, citation alignment and ongoing review management.",
-      },
-      {
-        title: "Monthly ranking, traffic & conversion reporting",
-        description:
-          "Transparent numbers tracking real business leads and search engine footprint growth.",
-      },
-    ],
-    yourResponsibilities: [
-      "Provide CMS access to website and Google Analytics / Search Console",
-      "Review and approve monthly content topics within agreed timescales",
-      "Share updates on core business service changes or geographic expansions",
-      "Provide domain and DNS access for schema and search console verification",
-    ],
-    notIncluded: [
-      "Website redesigns or custom web application development",
-      "Paid Google Ads ad spend (managed separately)",
-      "Guaranteed #1 rankings on highly un-targeted head terms",
-    ],
-    description:
-      "Buyers find solutions through Google and generative AI engines. SEO & AI Visibility ensures your brand is prominently recommended when high-intent prospects search.",
-    relevantGoals: [
-      "Improve Google rankings",
-      "Be found in AI search",
-      "Increase organic traffic",
-      "Win more customers",
     ],
     whatWeDeliver: [
-      "Technical SEO Audit And Ongoing Remediation",
-      "AI Search And Generative Engine Optimisation (GEO)",
-      "Google Business Profile And Local Pack Domination",
-      "Search-Optimised Content Strategy And Backlink Cleanup",
+      "Technical SEO Audits & Comprehensive Remediation",
+      "Generative Engine Optimization (GEO) for AI Visibility",
+      "High-Intent Content Clusters & Keyword Domination",
+      "Local Search Authority & Citation Management",
     ],
     whatYouCouldReceive: [
       {
         number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
+        title: "Dominant Organic Search Presence",
+        description: "Top-tier rankings for the commercial keywords that actually drive revenue.",
       },
       {
         number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
+        title: "Consistent Inbound Traffic",
+        description: "A growing baseline of qualified visitors who find you naturally.",
       },
       {
         number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
+        title: "Inclusion in AI-Driven Answers",
+        description: "Ensuring your brand is recommended by ChatGPT, Perplexity, and Gemini.",
       },
       {
         number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
+        title: "Reduced Reliance on Paid Media",
+        description: "Lower overall acquisition costs as organic channels begin to outperform ads.",
       },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
+    ],
+    relevantGoals: [
+      "Generate more enquiries",
+      "Generate better quality enquiries",
+      "Improve online visibility"
     ],
     relevantOutcomes: [
       {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
+        title: "Build Your Growth Canvas",
+        subtitle: "Map out your path to search dominance and AI visibility.",
         href: "/area/seo-ai-visibility",
       },
       {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/seo-ai-visibility",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation for an initial search visibility audit.",
+        href: "/contact",
       },
     ],
   },
 
-  "business-growth": {
-    id: "business-growth",
-    slug: "business-growth",
-    tag: "COMMERCIAL GROWTH",
-    title: "BUSINESS GROWTH",
-    subtitle: "Sales, commercial strategy, pricing, profitability and new business.",
-    description:
-      "Most growth challenges have a commercial root. Business Growth connects the strategic, financial and sales levers that directly affect revenue, margin and new business performance.",
-    whoThisIsForIntro:
-      "Business Growth is designed for businesses that want to improve commercial performance and create a clearer path to sustainable growth.",
-    whoThisIsFor: [
-      {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal growth and create a clearer commercial structure.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where revenue, conversion or customer acquisition has stopped progressing as expected.",
-        icon: "alert-circle",
-      },
-      {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies where revenue, conversion or customer acquisition has stopped progressing as expected.",
-        icon: "bar-chart",
-      },
-      {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses preparing to scale, enter new markets or develop new products and services.",
-        icon: "rocket",
-      },
-    ],
-    relevantGoals: [
-      "Win more customers",
-      "Increase revenue",
-      "Improve profitability",
-      "Scale the business",
-    ],
-    whatWeDeliver: [
-      "Commercial Strategy And Growth Planning",
-      "Competitive Positioning And Market Analysis",
-      "Pricing Review And Profitability Analysis",
-      "Sales Process And Conversion Improvement",
-    ],
-    whatYouCouldReceive: [
-      {
-        number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
-      },
-      {
-        number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
-      },
-      {
-        number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
-      },
-      {
-        number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
-      },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
-    ],
-    relevantOutcomes: [
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/business-growth",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/business-growth",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-    ],
-  },
-  "strategy-planning": {
-    id: "strategy-planning",
-    slug: "strategy-planning",
-    tag: "STRATEGY & PLANNING",
-    title: "STRATEGY",
-    subtitle: "Direction, planning, priorities, positioning and leadership alignment.",
-    description:
-      "Clear strategic direction eliminates wasted effort and aligns teams around core growth priorities. Strategy & Planning establishes actionable roadmaps to scale with clarity.",
-    whoThisIsForIntro:
-      "Strategy & Planning is designed for leadership teams and businesses that want to align priorities, improve execution, and create a clearer path to sustainable growth.",
-    whoThisIsFor: [
-      {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal growth and create a clearer strategic structure.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where growth has plateaued and strategic alignment or reprioritisation is needed.",
-        icon: "alert-circle",
-      },
-      {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies where unit economics, commercial priorities or business model focus needs review.",
-        icon: "bar-chart",
-      },
-      {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses preparing to scale, enter new markets or reposition their core proposition.",
-        icon: "rocket",
-      },
-    ],
-    relevantGoals: [
-      "Define growth strategy",
-      "Align executive team",
-      "Prioritise investments",
-      "Scale the business",
-    ],
-    whatWeDeliver: [
-      "Business Strategy Development And Alignment",
-      "Quarterly Growth Planning And Priority Setting",
-      "OKR And Goal-Setting Framework Implementation",
-      "Market Opportunity And Competitive Positioning",
-    ],
-    whatYouCouldReceive: [
-      {
-        number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
-      },
-      {
-        number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
-      },
-      {
-        number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
-      },
-      {
-        number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
-      },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
-    ],
-    relevantOutcomes: [
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/strategy-planning",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/strategy-planning",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-    ],
-  },
-  strategy: {
-    id: "strategy-planning",
-    slug: "strategy-planning",
-    tag: "STRATEGY & PLANNING",
-    title: "STRATEGY",
-    subtitle: "Direction, planning, priorities, positioning and leadership alignment.",
-    description:
-      "Clear strategic direction eliminates wasted effort and aligns teams around core growth priorities. Strategy & Planning establishes actionable roadmaps to scale with clarity.",
-    whoThisIsForIntro:
-      "Strategy & Planning is designed for leadership teams and businesses that want to align priorities, improve execution, and create a clearer path to sustainable growth.",
-    whoThisIsFor: [
-      {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal growth and create a clearer strategic structure.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where growth has plateaued and strategic alignment or reprioritisation is needed.",
-        icon: "alert-circle",
-      },
-      {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies where unit economics, commercial priorities or business model focus needs review.",
-        icon: "bar-chart",
-      },
-      {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses preparing to scale, enter new markets or reposition their core proposition.",
-        icon: "rocket",
-      },
-    ],
-    relevantGoals: [
-      "Define growth strategy",
-      "Align executive team",
-      "Prioritise investments",
-      "Scale the business",
-    ],
-    whatWeDeliver: [
-      "Business Strategy Development And Alignment",
-      "Quarterly Growth Planning And Priority Setting",
-      "OKR And Goal-Setting Framework Implementation",
-      "Market Opportunity And Competitive Positioning",
-    ],
-    whatYouCouldReceive: [
-      {
-        number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
-      },
-      {
-        number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
-      },
-      {
-        number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
-      },
-      {
-        number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
-      },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
-    ],
-    relevantOutcomes: [
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/strategy-planning",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/strategy-planning",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-    ],
-  },
-  marketing: {
-    id: "marketing",
-    slug: "marketing",
-    tag: "CAMPAIGNS & LEADS",
-    title: "MARKETING",
-    subtitle: "Campaigns, brand messaging, lead generation and pipeline acquisition.",
-    description:
-      "Predictable pipeline requires joined-up campaigns. Marketing & Campaigns turns positioning into qualified inbound demand and active sales opportunities.",
-    whoThisIsForIntro:
-      "Marketing & Campaigns is designed for businesses that want to build a predictable lead engine and scale acquisition through targeted multi-channel campaigns.",
-    whoThisIsFor: [
-      {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal lead generation and build a scalable acquisition framework.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where lead volume, ad performance or sales pipeline has stalled.",
-        icon: "alert-circle",
-      },
-      {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies looking to optimize acquisition costs (CPA), conversion rates and lead quality.",
-        icon: "bar-chart",
-      },
-      {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses expanding into new customer segments or launching new products and services.",
-        icon: "rocket",
-      },
-    ],
-    relevantGoals: [
-      "Generate qualified leads",
-      "Win more customers",
-      "Increase brand awareness",
-      "Improve conversion",
-    ],
-    whatWeDeliver: [
-      "Lead Generation Strategy And Campaign Execution",
-      "Paid Media Planning And Performance Management",
-      "Email Marketing And Nurture Automation",
-      "Conversion Rate Optimisation And Funnel Tracking",
-    ],
-    whatYouCouldReceive: [
-      {
-        number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
-      },
-      {
-        number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
-      },
-      {
-        number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
-      },
-      {
-        number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
-      },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
-    ],
-    relevantOutcomes: [
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/marketing",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/marketing",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-    ],
-  },
   "social-media": {
     id: "social-media",
     slug: "social-media",
     tag: "SOCIAL & CONTENT",
-    title: "SOCIAL MEDIA & CONTENT",
-    subtitle: "Content, social channels, engagement and organic brand authority.",
-    description:
-      "Consistent, high-quality social content builds category authority and keeps your business top of mind when buyers are ready to make a decision.",
-    whoThisIsForIntro:
-      "Social Media & Content is designed for businesses looking to build channel authority, engage high-intent decision makers, and publish content consistently.",
+    title: "SOCIAL MEDIA",
+    subtitle: "Build category authority and engage high-intent decision makers.",
+    description: "Consistent, high-quality social content keeps your business top of mind. We transform your social channels into dynamic engines for brand authority, community engagement, and lead generation.",
+    whoThisIsForIntro: "Target Audience: This service is for brands that want their voice to cut through the digital noise.",
     whoThisIsFor: [
       {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to move beyond informal social posting and build a structured content pipeline.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies where social reach or organic engagement has flattened.",
+        title: "Inconsistent Publishers",
+        description: "Brands struggling with erratic posting schedules and lack of a cohesive voice.",
         icon: "alert-circle",
       },
       {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies looking to optimize content production ROI and generate inbound opportunities.",
-        icon: "bar-chart",
+        title: "Authority Seekers",
+        description: "Companies lacking category dominance and thought leadership in their space.",
+        icon: "trending-up",
       },
       {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses launching short-form video or expanding presence across new social platforms.",
+        title: "Engagement-Starved Brands",
+        description: "Businesses failing to spark conversations with their target demographic.",
         icon: "rocket",
       },
     ],
-    relevantGoals: [
-      "Build brand authority",
-      "Engage target audience",
-      "Increase social reach",
-      "Generate inbound leads",
-    ],
     whatWeDeliver: [
-      "Channel Audit, Audience Review And Social Strategy",
-      "Monthly Content Calendar And 12 Branded Posts",
-      "Short-Form Video / Reel Editing From Source Footage",
-      "Multi-Channel Publishing And Quarterly Performance Reviews",
+      "Data-Driven Social Strategy & Content Calendars",
+      "High-Quality Branded Asset Production (Video/Graphics)",
+      "Multi-Platform Publishing & Community Management",
+      "Quarterly Audience Realignment & Performance Analytics",
     ],
     whatYouCouldReceive: [
       {
         number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
+        title: "Enhanced Category Authority",
+        description: "Positioning your brand as the undisputed thought leader in your industry.",
       },
       {
         number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
+        title: "Active Community Engagement",
+        description: "Building a loyal, interactive audience that champions your brand.",
       },
       {
         number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
+        title: "Top-of-Mind Awareness",
+        description: "Ensuring you are the first choice when prospects are ready to buy.",
       },
       {
         number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
+        title: "Inbound Social Opportunities",
+        description: "A steady stream of DMs and inquiries directly from your social presence.",
       },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
+    ],
+    relevantGoals: [
+      "Improve online visibility",
+      "Improve our marketing",
+      "Build our social presence"
     ],
     relevantOutcomes: [
       {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
+        title: "Build Your Growth Canvas",
+        subtitle: "Define your brand voice and map out a winning social strategy.",
         href: "/area/social-media",
       },
       {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/social-media",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation to review your current social impact.",
+        href: "/contact",
       },
     ],
   },
+
+  "social-content-growth": {
+    id: "social-content-growth",
+    slug: "social-content-growth",
+    tag: "SOCIAL & CONTENT GROWTH",
+    title: "SOCIAL MEDIA GROWTH",
+    subtitle: "A fully managed social content programme for consistent visibility.",
+    price: "£399",
+    vatText: "+ VAT / month",
+    minimumTerm: "12 months minimum",
+    introParagraph: "A fully managed social content programme for businesses that want to stay visible, build authority and create a steady stream of opportunities from organic content.",
+    description: "Consistent, high-quality social content keeps your business top of mind. We transform your social channels into dynamic engines for brand authority and lead generation.",
+    whoThisIsForIntro: "Target Audience: This service is for brands that want their voice to cut through the digital noise.",
+    whoThisIsFor: [
+      {
+        title: "Inconsistent Publishers",
+        description: "Brands struggling with erratic posting schedules and lack of a cohesive voice.",
+        icon: "alert-circle",
+      },
+      {
+        title: "Authority Seekers",
+        description: "Companies lacking category dominance and thought leadership in their space.",
+        icon: "trending-up",
+      },
+      {
+        title: "Engagement-Starved Brands",
+        description: "Businesses failing to spark conversations with their target demographic.",
+        icon: "rocket",
+      },
+    ],
+    whatWeDeliver: [
+      "Data-Driven Social Strategy & Content Calendars",
+      "12 Original Branded Posts Per Month",
+      "Short-Form Video / Reel Editing From Source Footage",
+      "Multi-Channel Publishing Across 4 Platforms",
+    ],
+    whatIsIncluded: [
+      {
+        title: "Initial channel audit and social strategy",
+        description: "We understand your starting point before creating anything.",
+      },
+      {
+        title: "Monthly content calendar (12 posts)",
+        description: "Written, designed, and approved before publishing.",
+      },
+      {
+        title: "Two short-form video edits",
+        description: "Edited from your footage with captions and music.",
+      },
+      {
+        title: "Posting across four channels",
+        description: "LinkedIn, Instagram, Facebook, and X managed for you.",
+      },
+    ],
+    yourResponsibilities: [
+      "Supply brand assets: logo, colours, photography",
+      "Provide raw video footage for Reel edits",
+      "Approve the monthly content calendar",
+    ],
+    notIncluded: [
+      "Paid advertising or boosted posts",
+      "Community management or DM responses",
+      "Photography or video production",
+    ],
+    whatYouCouldReceive: [
+      {
+        number: "01",
+        title: "Enhanced Category Authority",
+        description: "Positioning your brand as the undisputed thought leader in your industry.",
+      },
+      {
+        number: "02",
+        title: "Active Community Engagement",
+        description: "Building a loyal, interactive audience that champions your brand.",
+      },
+      {
+        number: "03",
+        title: "Top-of-Mind Awareness",
+        description: "Ensuring you are the first choice when prospects are ready to buy.",
+      },
+      {
+        number: "04",
+        title: "Inbound Social Opportunities",
+        description: "A steady stream of DMs and inquiries directly from your social presence.",
+      },
+    ],
+    relevantGoals: [
+      "Improve online visibility",
+      "Improve our marketing",
+      "Build our social presence"
+    ],
+    relevantOutcomes: [
+      {
+        title: "Build Your Growth Canvas",
+        subtitle: "Define your brand voice and map out a winning social strategy.",
+        href: "/area/social-content-growth",
+      },
+      {
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free consultation to review your current social impact.",
+        href: "/contact",
+      },
+    ],
+  },
+
   "website-conversion": {
     id: "website-conversion",
     slug: "website-conversion",
     tag: "WEBSITE & CONVERSION",
     title: "WEBSITE & CONVERSION",
-    subtitle: "Website design, UX, landing pages and conversion rate optimisation.",
-    description:
-      "Your website is your primary digital salesperson. Website & Conversion optimizes speed, structure, messaging and UX to convert passive visitors into qualified leads.",
-    whoThisIsForIntro:
-      "Website & Conversion is designed for businesses looking to turn site visitors into qualified enquiries and remove conversion friction.",
+    subtitle: "Optimize your digital storefront to convert passive visitors into qualified leads.",
+    description: "Your website is your primary digital salesperson. We optimize speed, architecture, messaging, and UX to ensure every click has the highest possible chance of converting into a closed deal.",
+    whoThisIsForIntro: "Target Audience: This service is for businesses that need their website to actively generate revenue.",
     whoThisIsFor: [
       {
-        title: "Growing businesses",
-        description:
-          "Businesses looking to replace legacy sites with modern, high-converting digital assets.",
-        icon: "trending-up",
-      },
-      {
-        title: "Businesses facing stalled growth",
-        description:
-          "Companies with decent web traffic but low enquiry volume or high bounce rates.",
+        title: "Outdated Digital Brands",
+        description: "Businesses operating with legacy websites that fail to reflect their true market value.",
         icon: "alert-circle",
       },
       {
-        title: "Businesses reviewing profitability",
-        description:
-          "Companies optimizing funnel UX, user paths, and form conversion efficiency.",
+        title: "High-Traffic, Low-Conversion Sites",
+        description: "Companies experiencing high bounce rates despite strong marketing efforts.",
         icon: "bar-chart",
       },
       {
-        title: "Businesses planning their next stage",
-        description:
-          "Businesses launching new service lines, landing pages or web products.",
+        title: "Launch-Ready Organizations",
+        description: "Brands launching new high-stakes digital products or entering new markets.",
         icon: "rocket",
       },
     ],
-    relevantGoals: [
-      "Modernise website",
-      "Improve conversion",
-      "Increase lead captures",
-      "Enhance user experience",
-    ],
     whatWeDeliver: [
-      "Website Design, Build And Performance Optimisation",
-      "High-Converting Landing Page And Funnel Development",
-      "UX Audit And User Journey Drop-off Remediation",
-      "GA4 Conversion Event Tracking And A/B Testing",
+      "Comprehensive UX/UI Audits & Journey Mapping",
+      "High-Converting Landing Page Design & Build",
+      "Site Speed & Technical Architecture Optimization",
+      "Rigorous A/B Conversion Testing & Analytics",
     ],
     whatYouCouldReceive: [
       {
         number: "01",
-        title: "Business Growth Diagnostic",
-        description: "A comprehensive audit of your current commercial architecture.",
+        title: "Drastically Improved Conversion Rates",
+        description: "More leads, sign-ups, and sales from the traffic you already have.",
       },
       {
         number: "02",
-        title: "Commercial priorities and recommendations",
-        description: "Clear, weighted initiatives mapped to business impact.",
+        title: "Seamless User Journeys",
+        description: "Frictionless navigation that guides users exactly where you want them.",
       },
       {
         number: "03",
-        title: "Pricing / margin improvement plan",
-        description: "Strategic restructuring of pricing models for better profitability.",
+        title: "Reduced Bounce Rates",
+        description: "Engaging, fast-loading pages that keep visitors exploring your offerings.",
       },
       {
         number: "04",
-        title: "Sales and customer acquisition plan",
-        description: "Tactical playbook for generating and closing high-value pipelines.",
+        title: "A 24/7 Digital Salesperson",
+        description: "A website that effectively communicates your value proposition around the clock.",
       },
-      {
-        number: "05",
-        title: "90-day growth action plan",
-        description: "A phased roadmap ensuring immediate traction and long-term vision.",
-      },
-      {
-        number: "06",
-        title: "Commercial performance dashboard",
-        description: "Key metrics setup for ongoing visibility and accountability.",
-      },
+    ],
+    relevantGoals: [
+      "Convert more enquiries into customers",
+      "Get more from our website"
     ],
     relevantOutcomes: [
       {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
+        title: "Build Your Growth Canvas",
+        subtitle: "Architect a website designed purely for lead generation and growth.",
         href: "/area/website-conversion",
       },
       {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
-      },
-      {
-        title: "SEO & AI Visibility Growth",
-        subtitle: "SEO, local and AI visibility support at £799 + VAT per month.",
-        href: "/packages/seo-ai-visibility",
-      },
-      {
-        title: "Growth Canvas",
-        subtitle: "Shape a flexible, joined-up plan around the outcome your business needs.",
-        href: "/area/website-conversion",
-      },
-      {
-        title: "Social & Content Growth",
-        subtitle: "A complete managed social presence at £649 + VAT per month.",
-        href: "/packages/social-content-growth",
+        title: "Speak to an Expert",
+        subtitle: "Schedule a free UX audit of your current digital storefront.",
+        href: "/contact",
       },
     ],
   },

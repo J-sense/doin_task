@@ -16,8 +16,8 @@ interface PackageData {
 export function Packages() {
   const packagesList: PackageData[] = [
     {
-      tag: "01 · READY-MADE",
-      title: "Social & Content Growth",
+      tag: "01",
+      title: "Social Media Growth",
       href: "/readyMadePackageDetails/social-content-growth",
       price: "£399",
       vatText: "+ VAT / month",
@@ -35,10 +35,10 @@ export function Packages() {
       isFeatured: false,
     },
     {
-      tag: "02 · READY-MADE",
+      tag: "02",
       title: "SEO & AI Visibility Growth",
       href: "/readyMadePackageDetails/seo-ai-visibility",
-      price: "From £649",
+      price: "£649",
       vatText: "+ VAT / month",
       description:
         "A practical SEO, local search and GEO programme that helps the right customers find and trust your business in both Google results and AI-generated answers.",
@@ -101,8 +101,11 @@ export function Packages() {
                     {pkg.title}
                   </h3>
                   <div className="flex items-baseline gap-2">
+                    <span className="font-sans text-md font-bold uppercase">
+                      FROM
+                    </span>
                     <span
-                      className={`font-sans font-black text-3xl sm:text-4xl tracking-tight ${pkg.isFeatured ? "text-[#00DFB6]" : "text-[#03182B]"
+                      className={`font-sans font-black text-2xl sm:text-2xl tracking-tight ${pkg.isFeatured ? "text-[#00DFB6]" : "text-[#03182B]"
                         }`}
                     >
                       {pkg.price}

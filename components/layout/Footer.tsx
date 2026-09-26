@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function Footer() {
   const ecosystemLinks = [
-    "Strategy",
-    "Marketing",
-    "Sales",
-    "Technology",
-    "Operations",
-    "Leadership",
+    { label: "Business Growth", href: "/area/business-growth" },
+    { label: "Strategy", href: "/area/strategy-planning" },
+    { label: "Marketing", href: "/area/marketing" },
+    { label: "SEO", href: "/area/seo-ai-visibility" },
+    { label: "Social Media", href: "/area/social-media" },
+    { label: "Website", href: "/area/website-conversion" },
   ];
 
   return (
@@ -99,15 +99,15 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-3">
               {ecosystemLinks.map((link) => (
-                <li key={link}>
+                <li key={link.label}>
                   <Link
-                    href={`#${link.toLowerCase()}`}
+                    href={link.href}
                     className="flex items-center text-slate-400 text-xs sm:text-sm font-light hover:text-white transition-colors duration-200 group"
                   >
                     <span className="text-slate-600 group-hover:text-[#00dfb6] mr-2 select-none">
                       ›
                     </span>
-                    {link}
+                    {link.label}
                   </Link>
                 </li>
               ))}
@@ -129,7 +129,7 @@ export function Footer() {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className="size-5 text-slate-400 mt-0.5 shrink-0"
+                  className="size-5 text-slate-400 mt-0.5 shrink-0 hidden"
                 >
                   <path
                     strokeLinecap="round"
@@ -142,7 +142,7 @@ export function Footer() {
                     d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
                   />
                 </svg>
-                <span className="text-slate-400 text-xs sm:text-sm font-light leading-relaxed max-w-[260px]">
+                <span className="hidden text-slate-400 text-xs sm:text-sm font-light leading-relaxed max-w-[260px]">
                   10808 Foothill Blvd Suite 160-580 Rancho Cucamonga, CA 91730
                 </span>
               </li>
@@ -164,10 +164,10 @@ export function Footer() {
                   />
                 </svg>
                 <a
-                  href="mailto:Support@TreatsIslandvf.com"
+                  href="mailto:hello@axudargroup.com"
                   className="text-slate-400 text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
                 >
-                  Support@TreatsIslandvf.com
+                  hello@axudargroup.com
                 </a>
               </li>
 
@@ -188,10 +188,10 @@ export function Footer() {
                   />
                 </svg>
                 <a
-                  href="tel:8774045656"
+                  href="tel:03301335720"
                   className="text-slate-400 text-xs sm:text-sm font-light hover:text-white transition-colors duration-200"
                 >
-                  877.404.5656
+                  0330 133 5720
                 </a>
               </li>
 

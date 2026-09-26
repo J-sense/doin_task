@@ -28,8 +28,8 @@ export function Header() {
     { name: "Growth Canvas", href: "/#growth-canvas" },
     { name: "What We Do", href: "/#what-we-do", isDropdown: true },
     { name: "How It Works", href: "/#how-it-works" },
-    { name: "Results", href: "/#results" },
-    { name: "Insights", href: "/#insights" },
+    { name: "Results", href: "/results" },
+    { name: "Insights", href: "/insights" },
     { name: "Contact", href: "/contact" },
   ];
 

@@ -92,6 +92,7 @@ function renderIcon(iconName?: string) {
 
 export function PackageDetailView({ data }: PackageDetailViewProps) {
   const router = useRouter();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -102,16 +103,9 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const params = new URLSearchParams({
-      title: data.title,
-      name: formData.name,
-      email: formData.email,
-      company: formData.company,
-      phone: formData.phone,
-      message: formData.message,
-      pills: data.title,
-    });
-    router.push(`/contact?${params.toString()}`);
+    console.log("Primary Package / Canvas:", data.title);
+    console.log("Form Data:", formData);
+    setIsSubmitted(true);
   };
 
   return (
@@ -144,11 +138,11 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
               Add to My Canvas →
             </Link>
 
-            {/* WHO THIS IS FOR Section */}
+            {/* Target Audience Section */}
             {data.whoThisIsFor && data.whoThisIsFor.length > 0 && (
               <div className="w-full mb-10">
                 <h2 className="font-sans font-bold text-2xl sm:text-[26px] text-[#03182B] tracking-tight mb-3">
-                  Who this is for
+                  Target Audience
                 </h2>
                 {data.whoThisIsForIntro && (
                   <p className="text-[#525252] font-sans font-light text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
@@ -176,55 +170,51 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
               </div>
             )}
 
-            {/* RELEVANT GOALS Section (Fallback if whoThisIsFor is not provided) */}
-            {(!data.whoThisIsFor || data.whoThisIsFor.length === 0) &&
-              data.relevantGoals &&
-              data.relevantGoals.length > 0 && (
-                <div className="mb-10 w-full">
-                  <span className="text-neutral-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3.5 block">
-                    RELEVANT GOALS
-                  </span>
-                  <div className="flex flex-wrap gap-2.5">
-                    {data.relevantGoals.map((goal, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-white border border-neutral-200 text-neutral-600 font-sans text-xs px-4 py-2 rounded-xs shadow-2xs select-none"
-                      >
-                        {goal}
-                      </div>
-                    ))}
-                  </div>
+            {/* RELEVANT GOALS Section */}
+            {data.relevantGoals && data.relevantGoals.length > 0 && (
+              <div className="mb-10 w-full">
+                <span className="text-neutral-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3.5 block">
+                  RELEVANT GOALS
+                </span>
+                <div className="flex flex-wrap gap-2.5">
+                  {data.relevantGoals.map((goal, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-neutral-200 text-neutral-600 font-sans text-xs px-4 py-2 rounded-xs shadow-2xs select-none"
+                    >
+                      {goal}
+                    </div>
+                  ))}
                 </div>
-              )}
+              </div>
+            )}
 
-            {/* WHAT WE DELIVER Section (Fallback if whoThisIsFor is not provided) */}
-            {(!data.whoThisIsFor || data.whoThisIsFor.length === 0) &&
-              data.whatWeDeliver &&
-              data.whatWeDeliver.length > 0 && (
-                <div className="mb-10 w-full">
-                  <span className="text-neutral-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4 block">
-                    WHAT WE DELIVER
-                  </span>
-                  <ul className="flex flex-col gap-3">
-                    {data.whatWeDeliver.map((item, idx) => (
-                      <li key={idx} className="flex items-center gap-2.5">
-                        <span className="text-[#00dfb6] font-bold text-sm leading-none">
-                          ✓
-                        </span>
-                        <span className="text-[#03182B] text-xs font-semibold uppercase tracking-tight">
-                          {item}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+            {/* WHAT WE DELIVER / What Axudar Will Do Section */}
+            {data.whatWeDeliver && data.whatWeDeliver.length > 0 && (
+              <div className="mb-10 w-full">
+                <h2 className="font-sans font-bold text-2xl sm:text-[26px] text-[#03182B] tracking-tight mb-6">
+                  What Axudar Will Do
+                </h2>
+                <ul className="flex flex-col gap-3">
+                  {data.whatWeDeliver.map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2.5">
+                      <span className="text-[#00dfb6] font-bold text-sm leading-none">
+                        ✓
+                      </span>
+                      <span className="text-[#03182B] text-xs font-semibold uppercase tracking-tight">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
-            {/* WHAT YOU COULD RECEIVE Section */}
+            {/* WHAT YOU COULD RECEIVE / Client Benefits & Outcomes Section */}
             {data.whatYouCouldReceive && data.whatYouCouldReceive.length > 0 && (
               <div className="w-full mt-8 mb-10">
                 <h2 className="font-sans font-bold text-2xl sm:text-[26px] text-[#03182B] tracking-tight mb-6">
-                  What You Could Receive
+                  Client Benefits & Outcomes
                 </h2>
                 <div className="flex flex-col">
                   {data.whatYouCouldReceive.map((item, idx) => (
@@ -253,7 +243,32 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
           {/* Right Column (Enquiry Form Card) */}
           <div className="lg:col-span-6 xl:col-span-5 w-full sticky top-28">
             <div className="bg-white border border-neutral-100/90 rounded-xl p-6 sm:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.06)]">
-              <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              {isSubmitted ? (
+                <div className="flex flex-col items-start py-10 sm:py-12 px-2 sm:px-4">
+                  <div className="w-12 h-12 bg-[#EAFBF5] border border-[#00dfb6]/30 flex items-center justify-center rounded-sm mb-8">
+                    <svg className="w-5 h-5 text-[#00dfb6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <span className="text-[#00dfb6] font-mono text-[10px] font-bold uppercase tracking-[2.5px] mb-4 block">
+                    ENQUIRY PREPARED
+                  </span>
+                  <h3 className="font-sans font-bold text-[32px] sm:text-[40px] text-[#03182B] leading-tight mb-5">
+                    Your enquiry has been sent.
+                  </h3>
+                  <p className="text-[#525252] font-sans text-[15px] font-light leading-relaxed mb-10 max-w-[450px]">
+                    Axudar aims to respond within one working day. If your query is urgent, email <a href="mailto:hello@axudargroup.com" className="text-[#00dfb6] hover:underline">hello@axudargroup.com</a>.
+                  </p>
+                  <a
+                    href="/"
+                    className="border border-[#E5EBEA] hover:border-[#00dfb6] transition-colors duration-200 text-[#03182B] font-sans font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-sm flex items-center justify-center gap-2 select-none"
+                  >
+                    <span>Return Home</span>
+                    <span>➔</span>
+                  </a>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-6">
                 {/* Row 1: Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -351,6 +366,7 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
                   You will be able to review the information before it is sent.
                 </p>
               </form>
+              )}
             </div>
           </div>
         </div>

@@ -11,13 +11,13 @@ export function Challenge() {
   const steps: ChallengeStep[] = [
     {
       number: "01",
-      title: "Strategy & Planning",
+      title: "Strategy",
       description: "Improving commercial performance and creating a clearer route to sustainable growth.",
       showArrow: true,
     },
     {
       number: "02",
-      title: "SEO & AI Visibility",
+      title: "Business Growth",
       description: "Direction and priorities.",
       showArrow: true,
     },
@@ -29,7 +29,7 @@ export function Challenge() {
     },
     {
       number: "04",
-      title: "SEO & AI",
+      title: "SEO",
       description: "VISIBILITY Search and AI discovery.",
       showArrow: true,
     },
@@ -41,7 +41,7 @@ export function Challenge() {
     },
     {
       number: "06",
-      title: "WEBSITE & CONVERSION",
+      title: "WEBSITE ",
       description: "Turn attention into action.",
       showArrow: false,
     },

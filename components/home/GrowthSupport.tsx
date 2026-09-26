@@ -16,7 +16,7 @@ const supportCards: SupportCard[] = [
   },
   {
     id: "strategy-planning",
-    title: "STRATEGY & PLANNING",
+    title: "STRATEGY",
     description: "Business strategy alignment, OKRs, market positioning and priority planning.",
   },
   {
@@ -26,7 +26,7 @@ const supportCards: SupportCard[] = [
   },
   {
     id: "seo-ai-visibility",
-    title: "SEO & AI VISIBILITY",
+    title: "SEO",
     description: "Technical SEO audits, AI search engine optimization, keywords and GEO.",
   },
   {
@@ -36,7 +36,7 @@ const supportCards: SupportCard[] = [
   },
   {
     id: "website-conversion",
-    title: "WEBSITE & CONVERSION",
+    title: "WEBSITE",
     description: "Website design, landing page funnels, conversion tracking and UX optimization.",
   },
 ];

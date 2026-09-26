@@ -19,7 +19,7 @@ export const areas: AreaData[] = [
     number: "01",
     title: "Business Growth",
     shortDescription: "Sales, commercial strategy, pricing, profitability and new business.",
-    tag: "COMMERCIAL GROWTH",
+    tag: "Business Growth",
     href: "/area/business-growth",
     sections: [
       {
@@ -45,7 +45,7 @@ export const areas: AreaData[] = [
     number: "02",
     title: "Strategy & Planning",
     shortDescription: "Direction, planning, priorities and positioning.",
-    tag: "STRATEGY & PLANNING",
+    tag: "Strategy",
     href: "/area/strategy-planning",
     sections: [
       {
@@ -71,7 +71,7 @@ export const areas: AreaData[] = [
     number: "03",
     title: "Marketing",
     shortDescription: "Campaigns, brand, messaging and content.",
-    tag: "CAMPAIGNS & LEADS",
+    tag: "Marketing",
     href: "/area/marketing",
     sections: [
       {
@@ -95,9 +95,9 @@ export const areas: AreaData[] = [
   {
     id: "seo-ai-visibility",
     number: "04",
-    title: "SEO & AI Visibility",
+    title: "SEO ",
     shortDescription: "SEO, GEO, Google and AI search visibility.",
-    tag: "SEO & AI VISIBILITY",
+    tag: "SEO",
     href: "/area/seo-ai-visibility",
     sections: [
       {
@@ -123,7 +123,7 @@ export const areas: AreaData[] = [
     number: "05",
     title: "Social Media",
     shortDescription: "Content, channels, engagement and organic visibility.",
-    tag: "SOCIAL & CONTENT",
+    tag: "Social Media",
     href: "/area/social-media",
     sections: [
       {
@@ -147,9 +147,9 @@ export const areas: AreaData[] = [
   {
     id: "website-conversion",
     number: "06",
-    title: "Website & Conversion",
+    title: "Website",
     shortDescription: "Website, UX, landing pages and conversion.",
-    tag: "WEBSITE & CONVERSION",
+    tag: "Website",
     href: "/area/website-conversion",
     sections: [
       {

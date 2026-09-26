@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { areas } from "@/components/home/areasData";
-import { GrowthCanvasSelector } from "@/components/packages/GrowthCanvasSelector";
+import { OutcomeSelector } from "@/components/home/OutcomeSelector";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,5 +25,9 @@ export default async function AreaPage({ params }: Props) {
   const area = areas.find((a) => a.id === slug);
   if (!area) notFound();
 
-  return <GrowthCanvasSelector primaryArea={area} />;
+  return (
+    <div className="min-h-screen bg-white">
+      <OutcomeSelector />
+    </div>
+  );
 }
