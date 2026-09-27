@@ -28,7 +28,8 @@ const steps: JourneyStep[] = [
 
 export function CustomerJourney() {
   return (
-    <section className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
+    <section id="how-it-works" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
+
       <div className="mx-auto max-w-[1500px] w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Left Column: Heading & Subtitle */}
         <div className="lg:col-span-5 flex flex-col justify-center">

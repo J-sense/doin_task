@@ -53,13 +53,13 @@ export function OutcomeSelector() {
     const savedAdd = sessionStorage.getItem("canvas_add");
     const savedRemove = sessionStorage.getItem("canvas_remove");
     if (savedOutcomes) {
-      try { setSelected(JSON.parse(savedOutcomes)); } catch (e) {}
+      try { setSelected(JSON.parse(savedOutcomes)); } catch (e) { }
     }
     if (savedAdd) {
-      try { setManualAdd(JSON.parse(savedAdd)); } catch (e) {}
+      try { setManualAdd(JSON.parse(savedAdd)); } catch (e) { }
     }
     if (savedRemove) {
-      try { setManualRemove(JSON.parse(savedRemove)); } catch (e) {}
+      try { setManualRemove(JSON.parse(savedRemove)); } catch (e) { }
     }
     setIsLoaded(true);
   }, []);
@@ -82,7 +82,7 @@ export function OutcomeSelector() {
   };
 
   const { primary, canvas: derivedCanvas } = useMemo(() => deriveAreas(selected), [selected]);
-  
+
   const finalCanvas = useMemo(() => {
     let result = [...derivedCanvas];
     for (const addId of manualAdd) {
@@ -108,8 +108,9 @@ export function OutcomeSelector() {
   const fullWidthOutcome = outcomes.find((o) => o.id === "not-sure");
 
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-6 md:px-12">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="growth-canvas" className="w-full bg-white py-16 md:py-24 px-6 md:px-12">
+      <div id="canvas" className="mx-auto max-w-[1400px]">
+
 
         {/* ── Top Section Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
@@ -247,7 +248,7 @@ export function OutcomeSelector() {
                             {area.title}
                           </span>
                         </div>
-                        
+
                         <div className="flex items-center gap-2">
                           {isPrimary && (
                             <span className="text-[#00c988] bg-[#00c988]/10 border border-[#00c988]/30 text-[8px] font-mono font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-xs shrink-0">
