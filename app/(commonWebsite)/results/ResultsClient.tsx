@@ -84,25 +84,24 @@ const filters = [
 export default function ResultsClient() {
   const [activeFilter, setActiveFilter] = useState('ALL');
 
-  const filteredStudies = activeFilter === 'ALL' 
-    ? caseStudies 
+  const filteredStudies = activeFilter === 'ALL'
+    ? caseStudies
     : caseStudies.filter(study => study.tags.includes(activeFilter));
 
   return (
     <>
       {/* Filter Bar */}
-      <section className="border-b border-gray-200 bg-white sticky top-[71px] z-10 shadow-sm">
+      <section className="border-b border-gray-200 bg-white sticky top-[71px] z-10 ">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-4 overflow-x-auto scrollbar-hide">
           <div className="flex items-center gap-6 md:gap-10 min-w-max">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter)}
-                className={`text-[11px] font-bold uppercase tracking-widest ${
-                  activeFilter === filter
-                    ? 'bg-[#0f172a] text-white px-5 py-2.5 rounded-sm'
-                    : 'text-gray-400 hover:text-gray-900 transition-colors py-2.5'
-                }`}
+                className={`text-[11px] font-bold uppercase  ${activeFilter === filter
+                  ? 'bg-[#061B2D] text-white px-5 py-2.5 rounded-sm'
+                  : 'text-gray-400 hover:text-gray-900 transition-colors py-2.5'
+                  }`}
               >
                 {filter}
               </button>
@@ -121,15 +120,11 @@ export default function ResultsClient() {
                 <div className="bg-[#0b1325] p-8 text-white">
                   <div className="flex flex-wrap gap-2 mb-8">
                     {study.tags.map(tag => (
-                      <span key={tag} className="text-[9px] uppercase font-semibold tracking-wider text-[#00e599] border border-[#00e599]/30 rounded-sm px-2.5 py-1">
+                      <span key={tag} className="text-[9px] uppercase font-semibold tracking-wider text-[#08B9A8] border border-[#08B9A84D] rounded px-3.5 py-2">
                         {tag}
                       </span>
                     ))}
-                    {study.isExample && (
-                      <span className="text-[9px] uppercase font-semibold tracking-wider text-amber-400 border border-amber-400/30 rounded-sm px-2.5 py-1 bg-amber-400/10">
-                        EXAMPLE
-                      </span>
-                    )}
+
                   </div>
                   <h3 className="text-[22px] font-bold mb-1.5 leading-snug">{study.title}</h3>
                   <p className="text-gray-400 text-xs tracking-wide">{study.subtitle}</p>
@@ -138,22 +133,22 @@ export default function ResultsClient() {
                 {/* Card Body (White) */}
                 <div className="p-8 flex-grow flex flex-col">
                   <div className="mb-6">
-                    <h4 className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-2">The Problem</h4>
+                    <h4 className="text-[12px] uppercase font-bold  text-[#262626] mb-2">The Problem</h4>
                     <p className="text-[13px] text-gray-600 leading-relaxed">{study.challenge}</p>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#00e599] mb-2">Growth Canvas Plan</h4>
+                    <h4 className="text-[12px] uppercase font-bold  text-[#00e599] mb-2">Growth Canvas Plan</h4>
                     <p className="text-[13px] text-gray-600 leading-relaxed font-semibold">{study.plan}</p>
                   </div>
-                  
+
                   <div className="mb-8">
-                    <h4 className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-2">What Axudar Did</h4>
+                    <h4 className="text-[12px] uppercase font-bold  text-gray-400 mb-2">What Axudar Did</h4>
                     <p className="text-[13px] text-gray-600 leading-relaxed">{study.changed}</p>
                   </div>
 
                   <div className="mt-auto pt-6 border-t border-gray-100/60">
-                    <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#00e599] mb-3">Result</h4>
+                    <h4 className="text-[12px] uppercase font-bold  text-[#00e599] mb-3">Result</h4>
                     <p className="text-[13px] font-bold text-gray-900 leading-relaxed">{study.result}</p>
                   </div>
                 </div>
