@@ -34,18 +34,18 @@ export function Hero() {
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center w-full sm:w-auto">
             <Link
-              href="#ecosystem"
+              href="#growth-canvas"
               className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-[#00B894] px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#02111c] transition-all hover:bg-[#00f5d4] hover:scale-[1.02] shadow-[0_0_25px_rgba(0,223,182,0.2)] text-center w-full sm:w-auto "
             >
-              Explore the ecosystem
+              Build Your Growth Canvas
               <ArrowUpRight className="size-4 stroke-[2.5px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
 
             <Link
-              href="#contact"
+              href="#what-we-do"
               className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/5 hover:border-slate-500 hover:scale-[1.02] text-center w-full sm:w-auto border-2 border-[#E5E7EB]"
             >
-              Talk to our growth team
+              Discover Our Ecosystem
               <ArrowUpRight className="size-4 stroke-[2.5px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
@@ -55,7 +55,7 @@ export function Hero() {
             {/* Stat 1 */}
             <div className="flex items-center gap-4">
               <span className="font-heading font-black text-4xl text-[#00dfb6]">
-                5
+                6
               </span>
               <div className="flex flex-col text-[9px] font-bold uppercase tracking-widest text-slate-400 leading-tight">
                 <span>Connected</span>
