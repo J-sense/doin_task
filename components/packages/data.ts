@@ -225,8 +225,10 @@ export const packagesData: Record<string, PackageDetailData> = {
   "seo-ai-visibility": {
     id: "seo-ai-visibility",
     slug: "seo-ai-visibility",
-    tag: "SEO & SEARCH GROWTH",
-    title: "SEO & AI VISIBILITY",
+    tag: "SEO & AI VISIBILITY GROWTH",
+    title: "SEO & AI VISIBILITY GROWTH",
+    price: "£649",
+    vatText: "+ VAT / month",
     subtitle: "Dominate Google search and Generative AI platforms.",
     description: "Buyers find solutions through Google and AI engines like ChatGPT. We ensure your brand is prominently recommended when high-intent prospects are actively searching for your solutions.",
     whoThisIsForIntro: "Target Audience: This service is for businesses that refuse to be invisible in the modern search landscape.",

@@ -185,7 +185,7 @@ export function Packages() {
                 <Link
                   href={`/packages/enquiry?title=${encodeURIComponent(
                     pkg.title
-                  )}&price=${encodeURIComponent(pkg.price + " " + pkg.vatText)}`}
+                  )}&price=${encodeURIComponent("FROM " + pkg.price + " " + pkg.vatText)}`}
                   className={`w-full font-sans text-xs font-bold uppercase tracking-wider py-4 px-6 rounded-sm flex items-center justify-between transition-colors duration-200 ${pkg.isFeatured
                     ? "bg-[#00DFB6] hover:bg-[#18D1AD] text-[#03182B]"
                     : "bg-white border border-neutral-200 hover:border-neutral-300 text-[#03182B]"
