@@ -2,12 +2,12 @@ import Link from "next/link";
 
 export function Footer() {
   const ecosystemLinks = [
-    { label: "Business Growth", href: "/area/business-growth" },
-    { label: "Strategy", href: "/area/strategy-planning" },
-    { label: "Marketing", href: "/area/marketing" },
-    { label: "SEO", href: "/area/seo-ai-visibility" },
-    { label: "Social Media", href: "/area/social-media" },
-    { label: "Website", href: "/area/website-conversion" },
+    { label: "Business Growth", href: "/packages/business-growth" },
+    { label: "Strategy & Planning", href: "/packages/strategy-planning" },
+    { label: "Marketing", href: "/packages/marketing" },
+    { label: "SEO & AI Visibility", href: "/packages/seo-ai-visibility" },
+    { label: "Social Media", href: "/packages/social-media" },
+    { label: "Website & Conversion", href: "/packages/website-conversion" },
   ];
 
   return (

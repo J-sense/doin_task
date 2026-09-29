@@ -16,7 +16,7 @@ export function Header() {
 
   const dropdownItems = [
     { name: "Business Growth", href: "/packages/business-growth" },
-    { name: "Strategy", href: "/packages/strategy-planning" },
+    { name: "Strategy & Planning", href: "/packages/strategy-planning" },
     { name: "Marketing", href: "/packages/marketing" },
     { name: "SEO & AI Visibility", href: "/seo-geo" },
     { name: "Social Media", href: "/packages/social-content-growth" },

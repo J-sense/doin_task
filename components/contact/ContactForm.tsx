@@ -148,14 +148,7 @@ export function ContactForm() {
                 </a>
               </div>
 
-              <div className="flex flex-col gap-1">
-                <span className="text-[#061B2D8C] text-[12px] font-mono uppercase tracking-widest font-semibold">
-                  Location
-                </span>
-                <span className="text-[#03182B] font-sans font-bold text-xs">
-                  United Kingdom · Working Internationally
-                </span>
-              </div>
+
             </div>
           </div>
 
