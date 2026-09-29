@@ -269,103 +269,103 @@ export function PackageDetailView({ data }: PackageDetailViewProps) {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                {/* Row 1: Name & Email */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {/* Row 1: Name & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                        NAME *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Full name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
+                        className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                        EMAIL *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        placeholder="hello@company.com"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 2: Company & Phone */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                        COMPANY
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="Business name"
+                        value={formData.company}
+                        onChange={(e) =>
+                          setFormData({ ...formData, company: e.target.value })
+                        }
+                        className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                        PHONE
+                      </label>
+                      <input
+                        type="tel"
+                        placeholder="+44..."
+                        value={formData.phone}
+                        onChange={(e) =>
+                          setFormData({ ...formData, phone: e.target.value })
+                        }
+                        className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 3: Message */}
                   <div>
                     <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
-                      NAME *
+                      MESSAGE
                     </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Full name"
-                      value={formData.name}
+                    <textarea
+                      rows={4}
+                      placeholder="Any additional context, questions or background..."
+                      value={formData.message}
                       onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
+                        setFormData({ ...formData, message: e.target.value })
                       }
-                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
+                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs p-4 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all resize-none"
                     />
                   </div>
 
-                  <div>
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
-                      EMAIL *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="hello@company.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
+                  {/* Prepare My Enquiry Button */}
+                  <button
+                    type="submit"
+                    className="w-full bg-white border border-[#00dfb6] hover:bg-[#00dfb6]/10 text-[#00ab8a] font-mono text-xs font-bold uppercase tracking-widest py-4 rounded-xs transition-colors duration-150 flex items-center justify-center gap-2 mt-2 cursor-pointer"
+                  >
+                    Prepare My Enquiry →
+                  </button>
 
-                {/* Row 2: Company & Phone */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
-                      COMPANY
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Business name"
-                      value={formData.company}
-                      onChange={(e) =>
-                        setFormData({ ...formData, company: e.target.value })
-                      }
-                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
-                      PHONE
-                    </label>
-                    <input
-                      type="tel"
-                      placeholder="+44..."
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
-                      className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs px-4 py-3 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all"
-                    />
-                  </div>
-                </div>
-
-                {/* Row 3: Message */}
-                <div>
-                  <label className="text-[10px] font-mono font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
-                    MESSAGE
-                  </label>
-                  <textarea
-                    rows={4}
-                    placeholder="Any additional context, questions or background..."
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    className="w-full bg-[#FAFAFA] border border-neutral-200/90 rounded-xs p-4 text-xs text-neutral-800 placeholder-neutral-300 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all resize-none"
-                  />
-                </div>
-
-                {/* Prepare My Enquiry Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-white border border-[#00dfb6] hover:bg-[#00dfb6]/10 text-[#00ab8a] font-mono text-xs font-bold uppercase tracking-widest py-4 rounded-xs transition-colors duration-150 flex items-center justify-center gap-2 mt-2 cursor-pointer"
-                >
-                  Prepare My Enquiry →
-                </button>
-
-                {/* Footer Disclaimer */}
-                <p className="text-[#737373] text-[11px] font-sans text-center font-light leading-relaxed">
-                  You will be able to review the information before it is sent.
-                </p>
-              </form>
+                  {/* Footer Disclaimer */}
+                  <p className="text-[#737373] text-[11px] font-sans text-center font-light leading-relaxed">
+                    You will be able to review the information before it is sent.
+                  </p>
+                </form>
               )}
             </div>
           </div>

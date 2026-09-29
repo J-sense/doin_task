@@ -27,7 +27,7 @@ export default async function AreaPage({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-white">
-      <OutcomeSelector />
+      <OutcomeSelector initialSlug={area.id} />
     </div>
   );
 }

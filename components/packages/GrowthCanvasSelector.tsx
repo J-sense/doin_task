@@ -26,10 +26,22 @@ function BackArrow({ className }: { className?: string }) {
   );
 }
 
+const defaultSupportingMap: Record<string, string[]> = {
+  "business-growth": ["strategy-planning", "marketing"],
+  "strategy-planning": ["business-growth", "marketing"],
+  "marketing": ["seo-ai-visibility", "website-conversion"],
+  "seo-ai-visibility": ["marketing", "website-conversion"],
+  "social-media": ["marketing", "website-conversion"],
+  "website-conversion": ["marketing", "seo-ai-visibility"],
+};
+
 export function GrowthCanvasSelector({ primaryArea }: Props) {
   const router = useRouter();
   const supporting = areas.filter((a) => a.id !== primaryArea.id);
-  const [selected, setSelected] = useState<string[]>([primaryArea.id]);
+  const [selected, setSelected] = useState<string[]>(() => [
+    primaryArea.id,
+    ...(defaultSupportingMap[primaryArea.id] || []),
+  ]);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   // Read ?canvas= from URL on mount

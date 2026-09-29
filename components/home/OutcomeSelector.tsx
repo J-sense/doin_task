@@ -27,7 +27,7 @@ const outcomes: Outcome[] = [
 ];
 
 function deriveAreas(selectedIds: string[]) {
-  if (!selectedIds.length) return { primary: "business-growth", canvas: [] as string[] };
+  if (!selectedIds.length) return { primary: "", canvas: [] as string[] };
   const votes: Record<string, number> = {};
   for (const sid of selectedIds) {
     const o = outcomes.find((o) => o.id === sid);
@@ -37,31 +37,74 @@ function deriveAreas(selectedIds: string[]) {
   const ranked = areas
     .filter((a) => votes[a.id])
     .sort((a, b) => (votes[b.id] ?? 0) - (votes[a.id] ?? 0));
-  if (!ranked.length) return { primary: "business-growth", canvas: [] as string[] };
+  if (!ranked.length) return { primary: "", canvas: [] as string[] };
   return { primary: ranked[0].id, canvas: ranked.map((a) => a.id) };
 }
 
-export function OutcomeSelector() {
+interface OutcomeSelectorProps {
+  initialSlug?: string;
+}
+
+export function OutcomeSelector({ initialSlug }: OutcomeSelectorProps = {}) {
   const router = useRouter();
-  const [selected, setSelected] = useState<string[]>([]);
-  const [manualAdd, setManualAdd] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>(() => {
+    if (initialSlug) {
+      const relevant = outcomes
+        .filter((o) => o.areaIds.includes(initialSlug))
+        .map((o) => o.id);
+      if (relevant.length) return relevant;
+    }
+    return [];
+  });
+  const [manualAdd, setManualAdd] = useState<string[]>(() =>
+    initialSlug ? [initialSlug] : []
+  );
   const [manualRemove, setManualRemove] = useState<string[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const savedOutcomes = sessionStorage.getItem("canvas_outcomes");
-    const savedAdd = sessionStorage.getItem("canvas_add");
-    const savedRemove = sessionStorage.getItem("canvas_remove");
-    if (savedOutcomes) {
-      try { setSelected(JSON.parse(savedOutcomes)); } catch (e) { }
-    }
-    if (savedAdd) {
-      try { setManualAdd(JSON.parse(savedAdd)); } catch (e) { }
-    }
-    if (savedRemove) {
-      try { setManualRemove(JSON.parse(savedRemove)); } catch (e) { }
+    if (initialSlug) {
+      const relevant = outcomes
+        .filter((o) => o.areaIds.includes(initialSlug))
+        .map((o) => o.id);
+      if (relevant.length) {
+        setSelected(relevant);
+      }
+      setManualAdd([initialSlug]);
+      setManualRemove([]);
+    } else {
+      const savedOutcomes = sessionStorage.getItem("canvas_outcomes");
+      const savedAdd = sessionStorage.getItem("canvas_add");
+      const savedRemove = sessionStorage.getItem("canvas_remove");
+      if (savedOutcomes) {
+        try { setSelected(JSON.parse(savedOutcomes)); } catch (e) { }
+      }
+      if (savedAdd) {
+        try { setManualAdd(JSON.parse(savedAdd)); } catch (e) { }
+      }
+      if (savedRemove) {
+        try { setManualRemove(JSON.parse(savedRemove)); } catch (e) { }
+      }
     }
     setIsLoaded(true);
+  }, [initialSlug]);
+
+  useEffect(() => {
+    const syncCanvas = () => {
+      const savedAdd = sessionStorage.getItem("canvas_add");
+      if (savedAdd) {
+        try {
+          const parsed = JSON.parse(savedAdd);
+          if (Array.isArray(parsed)) setManualAdd(parsed);
+        } catch (e) {}
+      }
+    };
+    window.addEventListener("canvas_updated", syncCanvas);
+    window.addEventListener("storage", syncCanvas);
+    return () => {
+      window.removeEventListener("canvas_updated", syncCanvas);
+      window.removeEventListener("storage", syncCanvas);
+    };
   }, []);
 
   useEffect(() => {
@@ -73,12 +116,33 @@ export function OutcomeSelector() {
   }, [selected, manualAdd, manualRemove, isLoaded]);
 
   const toggle = (id: string) => {
-    setSelected((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
+    setSelected((prev) => {
+      const isAdding = !prev.includes(id);
+      const next = isAdding ? [...prev, id] : prev.filter((x) => x !== id);
+      if (isAdding) {
+        const outcomeObj = outcomes.find((o) => o.id === id);
+        if (outcomeObj) {
+          setManualRemove((rm) => rm.filter((aid) => !outcomeObj.areaIds.includes(aid)));
+        }
+      }
+      return next;
+    });
   };
 
   const removeArea = (areaId: string) => {
+    setSelected((prev) =>
+      prev.filter((outcomeId) => {
+        const o = outcomes.find((item) => item.id === outcomeId);
+        return !o || !o.areaIds.includes(areaId);
+      })
+    );
     setManualRemove((prev) => [...prev, areaId]);
-    setManualAdd((prev) => prev.filter(id => id !== areaId));
+    setManualAdd((prev) => {
+      const next = prev.filter((id) => id !== areaId);
+      sessionStorage.setItem("canvas_add", JSON.stringify(next));
+      window.dispatchEvent(new Event("canvas_updated"));
+      return next;
+    });
   };
 
   const { primary, canvas: derivedCanvas } = useMemo(() => deriveAreas(selected), [selected]);
@@ -88,7 +152,7 @@ export function OutcomeSelector() {
     for (const addId of manualAdd) {
       if (!result.includes(addId)) result.push(addId);
     }
-    result = result.filter(id => !manualRemove.includes(id));
+    result = result.filter((id) => !manualRemove.includes(id));
     return result;
   }, [derivedCanvas, manualAdd, manualRemove]);
 
@@ -267,6 +331,13 @@ export function OutcomeSelector() {
                       </div>
                     );
                   })}
+                  {suggestedAreas.length === 0 && (
+                    <div className="py-6 px-3 text-center border border-dashed border-white/20 rounded-xs my-2">
+                      <p className="text-white/60 text-xs font-light">
+                        Select one or more outcomes to see your recommended support.
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -274,15 +345,15 @@ export function OutcomeSelector() {
               <button
                 type="button"
                 onClick={handleDiscuss}
-                disabled={selected.length === 0}
+                disabled={finalCanvas.length === 0}
                 className={[
-                  "w-full bg-[#0DAE87] flex items-center justify-between font-extrabold text-[16px] uppercase tracking-wider px-4 py-3.5 transition-all duration-150 rounded-2xs",
-                  selected.length > 0
+                  "w-full flex items-center justify-between font-extrabold text-[16px] uppercase tracking-wider px-4 py-3.5 transition-all duration-150 rounded-2xs",
+                  finalCanvas.length > 0
                     ? "bg-[#00c988] hover:bg-[#00b378] text-black cursor-pointer"
-                    : "bg-[#00c988] opacity-90 text-black cursor-pointer",
+                    : "bg-[#00c988]/30 text-white/40 cursor-not-allowed",
                 ].join(" ")}
               >
-                <span className="text-[#00142D]">Discuss My Canvas</span>
+                <span className={finalCanvas.length > 0 ? "text-[#00142D]" : "text-white/40"}>Discuss My Canvas</span>
                 <span className="text-xs font-bold">↗</span>
               </button>
             </div>

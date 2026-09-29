@@ -95,9 +95,9 @@ export const areas: AreaData[] = [
   {
     id: "seo-ai-visibility",
     number: "04",
-    title: "SEO ",
+    title: "SEO & AI Visibility",
     shortDescription: "SEO, GEO, Google and AI search visibility.",
-    tag: "SEO",
+    tag: "SEO & AI Visibility",
     href: "/area/seo-ai-visibility",
     sections: [
       {
@@ -147,9 +147,9 @@ export const areas: AreaData[] = [
   {
     id: "website-conversion",
     number: "06",
-    title: "Website",
+    title: "Website & Conversion",
     shortDescription: "Website, UX, landing pages and conversion.",
-    tag: "Website",
+    tag: "Website & Conversion",
     href: "/area/website-conversion",
     sections: [
       {

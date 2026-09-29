@@ -4,21 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { areas } from "@/components/home/areasData";
 
-const allTags = [
-  "Strategy",
-  "SEO",
-  "Social Media",
-  "Business Growth",
-  "Marketing",
-  "Website",
-];
-
 export function EcosystemAreas() {
-  const [activeTag, setActiveTag] = useState<string | null>(null);
   const [canvas, setCanvas] = useState<string[]>([]);
-
-  const filtered =
-    activeTag === null ? areas : areas.filter((a) => a.tag === activeTag);
 
   const toggleCanvas = (id: string) => {
     setCanvas((prev) =>
@@ -45,7 +32,7 @@ export function EcosystemAreas() {
 
         {/* Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 mb-12">
-          {filtered.map((area) => {
+          {areas.map((area) => {
             const inCanvas = canvas.includes(area.id);
 
             let displayTitle = area.title;
@@ -112,22 +99,6 @@ export function EcosystemAreas() {
               </div>
             );
           })}
-        </div>
-
-        {/* Tag Filter Pills */}
-        <div className="flex flex-wrap gap-2.5 mb-8">
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setActiveTag(activeTag === tag ? null : tag)}
-              className={`text-[10px] font-mono font-bold uppercase tracking-widest px-5 py-2.5 border rounded-sm transition-all duration-150 cursor-pointer ${activeTag === tag
-                ? "bg-[#03182B] text-white border-[#03182B]"
-                : "bg-white text-neutral-400 border-neutral-200 hover:border-neutral-400 hover:text-neutral-600"
-                }`}
-            >
-              {tag}
-            </button>
-          ))}
         </div>
 
         {/* Canvas Summary Bar */}
