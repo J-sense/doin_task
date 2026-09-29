@@ -41,7 +41,7 @@ export function EcosystemAreas() {
             return (
               <div
                 key={area.id}
-                className="group flex flex-col justify-between p-8 sm:p-9 min-h-[580px] rounded-none bg-[#f2f3f5] text-[#03182B] hover:bg-[#009b5a] hover:text-white hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer"
+                className="group flex flex-col justify-between p-8 sm:p-9 min-h-[580px] rounded-none bg-[#f2f3f5] text-[#03182B] hover:bg-[#009b5a] hover:text-white hover:shadow-xl transition-all duration-300 ease-in-out "
               >
                 {/* Top Content: Title + Support Sections */}
                 <div className="flex flex-col">

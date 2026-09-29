@@ -56,7 +56,7 @@ export function Packages() {
   ];
 
   return (
-    <section id="ready-made" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
+    <section id="ready-made" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100 cursor-default select-none">
       <div className="mx-auto max-w-[1700px]">
         {/* Header Grid Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
@@ -80,12 +80,12 @@ export function Packages() {
           {packagesList.map((pkg, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between  p-8 sm:p-10 transition-all duration-300 ${pkg.isFeatured
+              className={`flex flex-col justify-between p-8 sm:p-10 transition-all duration-300 !cursor-default ${pkg.isFeatured
                 ? "bg-[#03182B] text-white shadow-xl"
                 : "bg-white border border-[#061B2D99] text-[#03182B]"
                 }`}
             >
-              <div>
+              <div className="!cursor-default">
                 {/* Top Tag & Title */}
                 <div className="border-b border-neutral-200/30 pb-6 mb-6">
                   <span
@@ -180,13 +180,13 @@ export function Packages() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
+              {/* Action Buttons - Pointer active here */}
               <div className="mt-auto pt-4">
                 <Link
                   href={`/packages/enquiry?title=${encodeURIComponent(
                     pkg.title
                   )}&price=${encodeURIComponent("FROM " + pkg.price + " " + pkg.vatText)}`}
-                  className={`w-full font-sans text-xs font-bold uppercase tracking-wider py-4 px-6 rounded-sm flex items-center justify-between transition-colors duration-200 ${pkg.isFeatured
+                  className={`w-full font-sans text-xs font-bold uppercase tracking-wider py-4 px-6 rounded-sm flex items-center justify-between transition-colors duration-200 !cursor-pointer ${pkg.isFeatured
                     ? "bg-[#00DFB6] hover:bg-[#18D1AD] text-[#03182B]"
                     : "bg-white border border-neutral-200 hover:border-neutral-300 text-[#03182B]"
                     }`}
@@ -196,7 +196,7 @@ export function Packages() {
                 </Link>
                 <Link
                   href={pkg.href}
-                  className={`block text-center text-[11px] font-light mt-3 transition-colors duration-200 ${pkg.isFeatured
+                  className={`block text-center text-[11px] font-light mt-3 transition-colors duration-200 !cursor-pointer ${pkg.isFeatured
                     ? "text-slate-400 hover:text-slate-200"
                     : "text-neutral-400 hover:text-neutral-600"
                     }`}
@@ -219,19 +219,19 @@ export function Packages() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="bg-[#FAFAFA] rounded-xl p-8 font-sans sm:p-10 flex flex-col sm:flex-row justify-between items-center gap-6 border border-neutral-100">
+        <div className="bg-[#FAFAFA] rounded-xl p-8 font-sans sm:p-10 flex flex-col sm:flex-row justify-between items-center gap-6 border border-neutral-100 !cursor-default">
           <div className="flex flex-col">
-            <h4 className="text-[#525252] text-lg sm:text-xl  font-bold">
+            <h4 className="text-[#525252] text-lg sm:text-xl font-bold">
               Need more than one growth area?
             </h4>
-            <p className="text-[#737373] text-xs sm:text-sm  mt-1 font-light">
+            <p className="text-[#737373] text-xs sm:text-sm mt-1 font-light">
               Build one joined-up Growth Canvas.
             </p>
           </div>
 
           <Link
             href="/#canvas"
-            className="bg-[#001A33] hover:bg-[#0c1a24] text-white  font-bold text-xs uppercase tracking-widest px-8 py-4  transition-colors duration-200 shrink-0"
+            className="bg-[#001A33] hover:bg-[#0c1a24] text-white font-bold text-xs uppercase tracking-widest px-8 py-4 transition-colors duration-200 shrink-0 !cursor-pointer"
           >
             BUILD YOUR GROWTH CANVAS
           </Link>
@@ -240,4 +240,3 @@ export function Packages() {
     </section>
   );
 }
-
