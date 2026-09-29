@@ -1,78 +1,56 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 interface PillOption {
   id: string;
   label: string;
-  // Area titles/keywords that should activate this pill
   keywords: string[];
 }
 
-export function ContactForm() {
-  // Form fields state
+export function PackageEnquiryForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  // Query param state (read client-side to avoid useSearchParams + Suspense)
   const [titleQuery, setTitleQuery] = useState<string | null>(null);
   const [priceQuery, setPriceQuery] = useState<string | null>(null);
-  const [pillsQuery, setPillsQuery] = useState<string | null>(null);
-  const [isCanvasFlow, setIsCanvasFlow] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Help topics / pill buttons options
   const allPills: PillOption[] = [
-    { id: "strategy", label: "Strategy & Planning", keywords: ["strategy", "planning", "strategy & planning"] },
-    { id: "commercial", label: "Commercial Growth", keywords: ["commercial", "business growth", "business", "revenue", "profitability"] },
-    { id: "seo", label: "SEO & AI Visibility", keywords: ["seo", "ai visibility", "seo & ai visibility", "search"] },
-    { id: "social", label: "Social & Content", keywords: ["social", "content", "social media", "social & content"] },
-    { id: "website", label: "Website & Conversion", keywords: ["website", "conversion", "website & conversion", "ux"] },
-    { id: "campaigns", label: "Campaigns & Leads", keywords: ["campaigns", "leads", "marketing", "campaigns & leads"] },
+    { id: "strategy", label: "Strategy & Planning", keywords: ["strategy", "planning"] },
+    { id: "commercial", label: "Commercial Growth", keywords: ["commercial", "business"] },
+    { id: "seo", label: "SEO & AI Visibility", keywords: ["seo", "ai visibility", "search"] },
+    { id: "social", label: "Social & Content", keywords: ["social", "content", "social media"] },
+    { id: "website", label: "Website & Conversion", keywords: ["website", "conversion", "ux"] },
+    { id: "campaigns", label: "Campaigns & Leads", keywords: ["campaigns", "leads", "marketing"] },
   ];
 
-  // Active pill selection state
   const [activePillIds, setActivePillIds] = useState<string[]>([]);
 
-  // Read query params on mount (avoids useSearchParams + Suspense)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const title = params.get("title");
-    const price = params.get("price");
-    const pills = params.get("pills");
-    const canvas = params.get("canvas");
+    const rawTitle = params.get("title") || "Social Media Growth";
+    const rawPrice = params.get("price");
 
-    setTitleQuery(title);
-    setPriceQuery(price);
-    setPillsQuery(pills);
+    let displayTitle = rawTitle;
+    let displayPrice = rawPrice;
 
-    // Detect canvas flow: has a canvas param OR price === "Growth Canvas"
-    if (canvas || price === "Growth Canvas") {
-      setIsCanvasFlow(true);
+    if (rawTitle.toLowerCase().includes("seo")) {
+      displayTitle = "SEO & AI Visibility Growth";
+      displayPrice = displayPrice ? (displayPrice.toUpperCase().startsWith("FROM") ? displayPrice : `FROM ${displayPrice}`) : "FROM £649 + VAT / month";
+    } else if (rawTitle.toLowerCase().includes("social")) {
+      displayTitle = "Social Media Growth";
+      displayPrice = displayPrice ? (displayPrice.toUpperCase().startsWith("FROM") ? displayPrice : `FROM ${displayPrice}`) : "FROM £399 + VAT / month";
+    } else {
+      displayPrice = displayPrice ? (displayPrice.toUpperCase().startsWith("FROM") ? displayPrice : `FROM ${displayPrice}`) : "FROM £399 + VAT / month";
     }
 
-    // Build active pills from ?pills= param (area titles from canvas or legacy pill ids)
-    const rawSource = pills || title || "";
-    if (!rawSource) return;
-
-    const tokens = rawSource.split(",").map((t) => t.trim().toLowerCase());
-    const matched = new Set<string>();
-
-    for (const pill of allPills) {
-      for (const token of tokens) {
-        const tokenClean = token.replace(/[&]/g, "and");
-        const hits = pill.keywords.some((kw) =>
-          token.includes(kw) || kw.includes(token) || tokenClean.includes(kw)
-        );
-        if (hits) matched.add(pill.id);
-      }
-    }
-
-    if (matched.size > 0) setActivePillIds(Array.from(matched));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setTitleQuery(displayTitle);
+    setPriceQuery(displayPrice);
   }, []);
 
   const togglePill = (id: string) => {
@@ -88,20 +66,27 @@ export function ContactForm() {
       .filter((p) => activePillIds.includes(p.id))
       .map((p) => p.label);
 
-    console.log("Primary Package / Canvas:", titleQuery || "None");
-    console.log("Selected Topics / Other Packages:", selectedTopics);
+    console.log("Package Enquiry Submitted:", {
+      package: titleQuery,
+      price: priceQuery,
+      name,
+      email,
+      company,
+      phone,
+      topics: selectedTopics,
+      message,
+    });
 
     setIsSubmitted(true);
   };
 
   return (
-    <section id="enquiry-form" className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
+    <section className="relative w-full bg-white py-20 lg:py-28 px-6 md:px-12 lg:px-20 overflow-hidden border-t border-neutral-100">
       <div className="mx-auto max-w-[1500px]">
-
-        {/* Title & Form Grid */}
+        {/* Header Grid Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-          {/* Left Column: Info & Details */}
+          {/* Left Column: Info & Messaging */}
           <div className="lg:col-span-4 flex flex-col items-start text-left lg:pr-8">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-6 h-[1.5px] bg-[#00dfb6]" />
@@ -122,7 +107,7 @@ export function ContactForm() {
               A short, structured conversation about where the business is and what's blocking progress. No pitch, no obligation.
             </p>
 
-            {/* Info details block */}
+            {/* Contact details */}
             <div className="flex flex-col gap-5 w-full border-t border-neutral-100 pt-8">
               <div className="flex flex-col gap-1">
                 <span className="text-[#061B2D8C] text-[12px] font-mono uppercase tracking-widest font-semibold">
@@ -148,21 +133,12 @@ export function ContactForm() {
                 </a>
               </div>
 
-              <div className="flex flex-col gap-1">
-                <span className="text-[#061B2D8C] text-[12px] font-mono uppercase tracking-widest font-semibold">
-                  Location
-                </span>
-                <span className="text-[#03182B] font-sans font-bold text-xs">
-                  United Kingdom · Working Internationally
-                </span>
-              </div>
             </div>
           </div>
 
-          {/* Right Column: Form Panel */}
+          {/* Right Column: Dedicated Package Form */}
           <div className="lg:col-span-8 flex justify-center w-full shadow-xl">
             <div className="w-full bg-white border border-[#E5EBEA]/60 rounded-lg p-6 sm:p-8 lg:p-10 shadow-[0_10px_30px_rgba(0,0,0,0.02)]">
-
               {isSubmitted ? (
                 <div className="flex flex-col items-start py-10 sm:py-16 px-2 sm:px-6">
                   <div className="w-12 h-12 bg-[#EAFBF5] border border-[#00dfb6]/30 flex items-center justify-center rounded-sm mb-8">
@@ -174,41 +150,39 @@ export function ContactForm() {
                     ENQUIRY PREPARED
                   </span>
                   <h3 className="font-sans font-bold text-[32px] sm:text-[40px] text-[#03182B] leading-tight mb-5">
-                    Your enquiry has been sent.
+                    Your package enquiry has been sent.
                   </h3>
                   <p className="text-[#525252] font-sans text-[15px] font-light leading-relaxed mb-10 max-w-[450px]">
-                    Axudar aims to respond within one working day. If your query is urgent, email <a href="mailto:hello@axudargroup.com" className="text-[#00dfb6] hover:underline">hello@axudargroup.com</a>.
+                    Axudar aims to respond within one working day regarding <strong className="font-semibold text-[#03182B]">{titleQuery}</strong>.
                   </p>
-                  <a
+                  <Link
                     href="/"
                     className="border border-[#E5EBEA] hover:border-[#00dfb6] transition-colors duration-200 text-[#03182B] font-sans font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-sm flex items-center justify-center gap-2 select-none"
                   >
                     <span>Return Home</span>
                     <span>➔</span>
-                  </a>
+                  </Link>
                 </div>
               ) : (
                 <>
-                  {titleQuery && !titleQuery.toLowerCase().includes("growth canvas") && (
-                    <div className="mb-8 p-6 sm:p-8 bg-[#EAFBF5] rounded-md flex flex-col items-start select-none">
-                      <span className="text-[#00B894] text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[2px] mb-3 block">
-                        SELECTED PACKAGE
-                      </span>
-                      <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#03182B] leading-tight mb-1.5">
-                        {titleQuery}
-                      </h3>
-                      <p className="text-neutral-500 font-sans text-xs sm:text-sm font-normal">
-                        {priceQuery || "£399 + VAT / month"}
-                      </p>
-                    </div>
-                  )}
+                  {/* Green Selected Package Header Card */}
+                  <div className="mb-8 p-6 sm:p-8 bg-[#EAFBF5] rounded-md flex flex-col items-start select-none border border-[#00DFB6]/20">
+                    <span className="text-[#00B894] text-[10px] sm:text-[11px] font-sans font-bold uppercase tracking-[2px] mb-3 block">
+                      SELECTED PACKAGE
+                    </span>
+                    <h3 className="font-sans font-bold text-xl sm:text-2xl text-[#03182B] leading-tight mb-1.5">
+                      {titleQuery || "Social Media Growth"}
+                    </h3>
+                    <p className="text-neutral-500 font-sans text-xs sm:text-sm font-normal">
+                      {priceQuery || "FROM £399 + VAT / month"}
+                    </p>
+                  </div>
 
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-
                     {/* Name & Email Row */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 ">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
-                        <label className="text-[#061B2D8C] text-[12.5px] font-sans font-extrabold uppercase tracking-wider ">
+                        <label className="text-[#061B2D8C] text-[12.5px] font-sans font-extrabold uppercase tracking-wider">
                           Name *
                         </label>
                         <input
@@ -220,7 +194,6 @@ export function ContactForm() {
                           className="w-full bg-white border border-[#E5EBEA] rounded-md px-4 py-3.5 font-sans text-xs sm:text-sm text-[#03182B] focus:outline-none focus:border-[#00dfb6] placeholder:text-[#061B2D4D]"
                         />
                       </div>
-
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[#061B2D8C] text-[12.5px] font-sans font-extrabold uppercase tracking-wider">
                           Email *
@@ -250,14 +223,13 @@ export function ContactForm() {
                           className="w-full bg-white border border-[#E5EBEA] rounded-md px-4 py-3.5 font-sans text-xs sm:text-sm text-[#03182B] focus:outline-none focus:border-[#00dfb6] placeholder:text-[#061B2D4D]"
                         />
                       </div>
-
                       <div className="flex flex-col gap-1.5">
                         <label className="text-[#061B2D8C] text-[12.5px] font-sans font-extrabold uppercase tracking-wider">
                           Phone
                         </label>
                         <input
-                          type="text"
-                          placeholder="+44..."
+                          type="tel"
+                          placeholder="+44 ..."
                           value={phone}
                           onChange={(e) => setPhone(e.target.value)}
                           className="w-full bg-white border border-[#E5EBEA] rounded-md px-4 py-3.5 font-sans text-xs sm:text-sm text-[#03182B] focus:outline-none focus:border-[#00dfb6] placeholder:text-[#061B2D4D]"
@@ -265,12 +237,12 @@ export function ContactForm() {
                       </div>
                     </div>
 
-                    {/* What can we help with pill selectors */}
-                    <div className="flex flex-col gap-3">
+                    {/* What can we help with */}
+                    <div className="flex flex-col gap-2.5">
                       <label className="text-[#061B2D8C] text-[12.5px] font-sans font-extrabold uppercase tracking-wider">
                         What can we help with?
                       </label>
-                      <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                      <div className="flex flex-wrap gap-2 pt-1">
                         {allPills.map((pill) => {
                           const isActive = activePillIds.includes(pill.id);
                           return (
@@ -279,8 +251,8 @@ export function ContactForm() {
                               type="button"
                               onClick={() => togglePill(pill.id)}
                               className={`px-4 py-3 rounded-[5px] font-sans text-[10.5px] font-bold uppercase tracking-wider transition-all duration-200 select-none ${isActive
-                                ? "bg-[#03182B] text-white border border-[#03182B] shadow-sm hover:bg-[#0c1a24]"
-                                : "bg-white border border-[#E5EBEA]/80 text-neutral-500 hover:border-neutral-300"
+                                  ? "bg-[#03182B] text-white border border-[#03182B] shadow-sm hover:bg-[#0c1a24]"
+                                  : "bg-white border border-[#E5EBEA]/80 text-neutral-500 hover:border-neutral-300"
                                 }`}
                             >
                               {pill.label}
@@ -304,7 +276,7 @@ export function ContactForm() {
                       />
                     </div>
 
-                    {/* Submit Action (Aligned Left, Auto Width) */}
+                    {/* Submit Button */}
                     <div className="flex justify-start mt-2">
                       <button
                         type="submit"
@@ -314,16 +286,12 @@ export function ContactForm() {
                         <span>➔</span>
                       </button>
                     </div>
-
                   </form>
                 </>
               )}
-
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   );

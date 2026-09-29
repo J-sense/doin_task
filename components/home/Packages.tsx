@@ -183,7 +183,7 @@ export function Packages() {
               {/* Action Buttons */}
               <div className="mt-auto pt-4">
                 <Link
-                  href={`/contact?title=${encodeURIComponent(
+                  href={`/packages/enquiry?title=${encodeURIComponent(
                     pkg.title
                   )}&price=${encodeURIComponent(pkg.price + " " + pkg.vatText)}`}
                   className={`w-full font-sans text-xs font-bold uppercase tracking-wider py-4 px-6 rounded-sm flex items-center justify-between transition-colors duration-200 ${pkg.isFeatured
@@ -209,7 +209,7 @@ export function Packages() {
         </div>
 
         {/* Disclaimer Note */}
-        <div className="flex items-center gap-2 mb-12 text-[#737373] font-sans text-[14px] font-light">
+        <div className="hidden flex items-center gap-2 mb-12 text-[#737373] font-sans text-[14px] font-light">
           <span className="text-[#00B894] border border-[#00B894] rounded-full w-4 h-4 flex items-center justify-center text-[10px] font-bold shrink-0">
             i
           </span>

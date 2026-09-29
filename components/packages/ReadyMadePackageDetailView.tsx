@@ -14,7 +14,7 @@ export function ReadyMadePackageDetailView({
   const price = data.price || "£649";
   const vatText = data.vatText || "+ VAT / month";
 
-  const contactUrl = `/contact?title=${encodeURIComponent(
+  const contactUrl = `/packages/enquiry?title=${encodeURIComponent(
     data.title
   )}&price=${encodeURIComponent(price + " " + vatText)}`;
 
@@ -248,13 +248,11 @@ export function ReadyMadePackageDetailView({
                   </span>
                 </div>
 
-                <span className="text-xs font-mono text-neutral-500 block mb-8">
-                  {data.minimumTerm || "12 months minimum"}
-                </span>
 
-                <div className="h-[1px] w-full bg-neutral-200/70 mb-8" />
 
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
+                {/* <div className="h-[1px] w-full bg-neutral-200/70 mb-8" /> */}
+
+                <span className="font-mono text-[10px] mt-10 font-bold uppercase tracking-widest text-neutral-400 mb-2 block">
                   NEED BROADER SUPPORT?
                 </span>
 

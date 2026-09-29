@@ -369,7 +369,7 @@ export const packagesData: Record<string, PackageDetailData> = {
   "social-content-growth": {
     id: "social-content-growth",
     slug: "social-content-growth",
-    tag: "SOCIAL & CONTENT GROWTH",
+    tag: "SOCIAL MEDIA GROWTH",
     title: "SOCIAL MEDIA GROWTH",
     subtitle: "A fully managed social content programme for consistent visibility.",
     price: "£399",
