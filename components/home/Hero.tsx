@@ -130,7 +130,7 @@ export function Hero() {
             {/* Floating Outer Cards (Uniform size, centered content, and precise positions) */}
             {/* Top Left - Leadership */}
             <div className="absolute left-[145px] top-10 w-[128px] h-[128px] bg-[#061931] border border-[#00dfb6]/35 hover:border-[#00dfb6] transition-colors flex items-center justify-center text-center rounded-[10px] text-white font-sans font-bold text-xs uppercase shadow-4xl tracking-widest cursor-default select-none">
-              Leadership
+              BUSINESS GROWTH
             </div>
 
             {/* Top Right - Strategy */}
@@ -140,22 +140,24 @@ export function Hero() {
 
             {/* Middle Left - Leadership */}
             <div className="absolute left-[20px] top-[250px] w-[128px] h-[128px] bg-[#061931] border border-[#00dfb6]/35 hover:border-[#00dfb6] transition-colors flex items-center justify-center text-center rounded-[10px] text-white font-sans font-bold text-xs uppercase tracking-widest cursor-default select-none">
-              Leadership
+              SEO & AI VISIBILITY
             </div>
 
             {/* Middle Right - Marketing */}
             <div className="absolute right-[20px] top-[270px] w-[128px] h-[128px] bg-[#061931] border border-[#00dfb6]/35 hover:border-[#00dfb6] transition-colors flex items-center justify-center text-center rounded-[10px] text-white font-sans font-bold text-xs uppercase tracking-widest cursor-default select-none">
-              Marketing
+              SOCIAL
+              MEDIA
             </div>
 
             {/* Bottom Left - Digital */}
             <div className="absolute left-[145px] bottom-10 w-[128px] h-[128px] bg-[#061931] border border-[#00dfb6]/35 hover:border-[#00dfb6] transition-colors flex items-center justify-center text-center rounded-[10px] text-white font-sans font-bold text-xs uppercase tracking-widest cursor-default select-none">
-              Digital
+              WEBSITE &
+              CONVERSION
             </div>
 
             {/* Bottom Right - Digital */}
             <div className="absolute right-[145px] bottom-10 w-[128px] h-[128px] bg-[#061931] border border-[#00dfb6]/35 hover:border-[#00dfb6] transition-colors flex items-center justify-center text-center rounded-[10px] text-white font-sans font-bold text-xs uppercase tracking-widest cursor-default select-none">
-              Digital
+              MARKETING
             </div>
           </div>
         </div>
