@@ -43,7 +43,7 @@ export function Hero() {
 
             <Link
               href="#what-we-do"
-              className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/5 hover:border-slate-500 hover:scale-[1.02] text-center w-full sm:w-auto border-2 border-[#E5E7EB]"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-transparent px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-[#DFDFDF] transition-all hover:bg-white/5 hover:border-slate-500 hover:scale-[1.02] text-center w-full sm:w-auto border-1 border-[#E5E7EB]"
             >
               Discover Our Ecosystem
               <ArrowUpRight className="size-4 stroke-[2.5px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

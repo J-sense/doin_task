@@ -149,8 +149,8 @@ export function Header() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`font-sans font-semibold text-[14px] leading-[14.68px] tracking-[0.49px] transition-colors ${isActive
-                      ? "text-[#00dfb6]"
-                      : "text-slate-300 hover:text-[#00dfb6]"
+                    ? "text-[#00dfb6]"
+                    : "text-slate-300 hover:text-[#00dfb6]"
                     }`}
                 >
                   {link.name}
@@ -163,7 +163,7 @@ export function Header() {
             href="/contact"
             className="group rounded-none inline-flex items-center gap-1.5 bg-[#00dfb6] px-5 py-2.5 text-xs font-bold tracking-wider text-[#02111c] transition-all hover:bg-[#00f5d4] hover:scale-[1.02] shadow-[0_0_20px_rgba(0,223,182,0.15)]"
           >
-            Contact us
+            BUILD YOUR GROWTH CANVAS
             <span className="transition-transform group-hover:translate-x-0.5">
               →
             </span>
@@ -199,8 +199,8 @@ export function Header() {
                       <span>{link.name}</span>
                       <ChevronDown
                         className={`size-5 transition-transform duration-200 ${isMobileDropdownOpen
-                            ? "rotate-180 text-[#00dfb6]"
-                            : ""
+                          ? "rotate-180 text-[#00dfb6]"
+                          : ""
                           }`}
                       />
                     </button>
@@ -229,8 +229,8 @@ export function Header() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`text-lg font-semibold tracking-wide transition-colors ${isActive
-                      ? "text-[#00dfb6]"
-                      : "text-slate-200 hover:text-[#00dfb6]"
+                    ? "text-[#00dfb6]"
+                    : "text-slate-200 hover:text-[#00dfb6]"
                     }`}
                 >
                   {link.name}
@@ -245,7 +245,7 @@ export function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex w-full items-center justify-center gap-2 rounded-sm bg-[#00dfb6] py-4 text-sm font-bold tracking-wider text-[#02111c] transition-all hover:bg-[#00f5d4]"
             >
-              Contact us
+              BUILD YOUR GROWTH CANVAS
               <span>→</span>
             </Link>
           </div>
