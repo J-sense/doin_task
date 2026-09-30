@@ -8,6 +8,7 @@ export interface LessonItem {
 export interface ReviewItem {
   id: string;
   name: string;
+  role?: string;
   avatar: string;
   rating: number;
   date: string;
@@ -48,8 +49,8 @@ export const COURSE_DETAILS_DATA: CourseDetailsData = {
   subtitle: "Unlock the Power of Digital Creation with Expert Guidance",
   author: "purepearl studio",
   level: "Intermediate",
-  rating: 4.5,
-  reviewsCount: 172,
+  rating: 4.7,
+  reviewsCount: 889,
   studentsCount: "199 Students",
   totalLessons: "112 Lessons",
   totalDuration: "24 hours",
@@ -120,23 +121,47 @@ export const COURSE_DETAILS_DATA: CourseDetailsData = {
   reviews: [
     {
       id: "r-1",
-      name: "Alex Morgan",
+      name: "PurePearl Studio",
+      role: "UI/UX Designer",
       avatar:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
       rating: 5,
-      date: "2 days ago",
+      date: "a year ago",
       comment:
-        "This course completely transformed how I structure my Figma design assets. PurePearl Studio breaks down complex principles into actionable steps!",
+        "The course provided me with a comprehensive understanding of digital asset creation. The lessons were in-depth, practical, and immediately applicable to my work. Highly recommended!",
     },
     {
       id: "r-2",
-      name: "David Chen",
+      name: "Albert Flores",
+      role: "UI/UX Designer",
       avatar:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80",
-      rating: 4.5,
-      date: "1 week ago",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      date: "a year ago",
       comment:
-        "Extremely insightful! The hands-on capstone project helped me build a portfolio piece that got me my first freelance client.",
+        "This course transformed my approach to digital design. The combination of theory, hands-on exercises, and real-world applications made it a truly enriching experience. Excited to implement what I've learned!",
+    },
+    {
+      id: "r-3",
+      name: "Cody Fisher",
+      role: "UI/UX Designer",
+      avatar:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      date: "a year ago",
+      comment:
+        "The project showcase and critique module created a collaborative environment where I could showcase my work, receive valuable feedback, and refine my skills. It added a unique and valuable dimension to the learning process.",
+    },
+    {
+      id: "r-4",
+      name: "Brooklyn Simmons",
+      role: "UI/UX Designer",
+      avatar:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      date: "a year ago",
+      comment:
+        "The lessons on optimizing digital assets for various platforms were particularly insightful. The course adapts to the evolving digital landscape, and the engaging content kept me motivated throughout.",
     },
   ],
   creator: {
