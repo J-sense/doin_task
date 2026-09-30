@@ -1,6 +1,6 @@
 import { GridBackground } from "@/components/shared/grid-background";
 import { Navbar } from "@/components/layout/navbar";
-import { Hero404 } from "@/components/home/hero-404";
+import { Hero404 } from "@/components/Hero-section/hero-404";
 
 export const metadata = {
   title: "404 - Page Not Found | ByteSpace",

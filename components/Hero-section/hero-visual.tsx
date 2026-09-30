@@ -13,19 +13,33 @@ export function HeroVisual({ className = "", showCards = true }: HeroVisualProps
       className={`pointer-events-none absolute inset-0 z-20 w-full h-full overflow-hidden select-none ${className}`}
       aria-hidden="true"
     >
+      {/* ================= FULL-WIDTH SCREEN EDGE 3D ASSETS ================= */}
+      {/* 1. Upper Left: green-left.png (Pinned to total left edge 0) */}
+      <div className="hidden sm:block absolute left-0 top-[180px] sm:top-[200px] md:top-[220px] z-10 select-none">
+        <Image
+          src="/green-left.png"
+          alt="ByteSpace decorative green left coil"
+          width={267}
+          height={387}
+          priority
+          className="w-[160px] sm:w-[200px] md:w-[230px] lg:w-[260px] h-auto object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+        />
+      </div>
+
+      {/* 1. Upper Right: green-right.png (Pinned to total right edge 0) */}
+      <div className="hidden sm:block absolute right-0 top-[170px] sm:top-[190px] md:top-[210px] z-10 select-none">
+        <Image
+          src="/green-right.png"
+          alt="ByteSpace decorative green right cylinder"
+          width={213}
+          height={372}
+          priority
+          className="w-[140px] sm:w-[170px] md:w-[195px] lg:w-[220px] h-auto object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+        />
+      </div>
+
       <div className="relative w-full h-full max-w-[1440px] mx-auto">
         {/* ================= LEFT SIDE 3D ASSETS ================= */}
-        {/* 1. Upper Left: green-left.png (Coiled lime tube entering from left edge) */}
-        <div className="hidden sm:block absolute left-[-20px] md:left-[-10px] lg:left-0 top-[180px] sm:top-[200px] md:top-[220px] z-10 select-none">
-          <Image
-            src="/green-left.png"
-            alt="ByteSpace decorative green left coil"
-            width={267}
-            height={387}
-            priority
-            className="w-[160px] sm:w-[200px] md:w-[230px] lg:w-[260px] h-auto object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
-          />
-        </div>
 
         {/* 2. Middle Left: right-frame.png (Small spring helix) */}
         <div className="hidden sm:block absolute left-12 sm:left-20 md:left-24 lg:left-38 top-[410px] sm:top-[500px] z-15 select-none transition-transform duration-500 hover:scale-105">
@@ -48,19 +62,6 @@ export function HeroVisual({ className = "", showCards = true }: HeroVisualProps
             height={342}
             priority
             className="w-[220px] sm:w-[270px] md:w-[310px] lg:w-[302px] h-[220px] sm:h-[270px] md:h-[310px] lg:h-[342px] object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
-          />
-        </div>
-
-        {/* ================= RIGHT SIDE 3D ASSETS ================= */}
-        {/* 1. Upper Right: green-right.png (Lime cylinder entering from right edge) */}
-        <div className="hidden sm:block absolute right-[-20px] md:right-[-10px] lg:right-0 top-[170px] sm:top-[190px] md:top-[210px] z-10 select-none">
-          <Image
-            src="/green-right.png"
-            alt="ByteSpace decorative green right cylinder"
-            width={213}
-            height={372}
-            priority
-            className="w-[140px] sm:w-[170px] md:w-[195px] lg:w-[220px] h-auto object-contain select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
           />
         </div>
 

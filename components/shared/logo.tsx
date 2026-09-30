@@ -3,13 +3,14 @@ import Link from "next/link";
 interface LogoProps {
   className?: string;
   size?: "sm" | "md" | "lg";
+  variant?: "light" | "dark";
 }
 
 /**
  * ByteSpace Logo (Server Component)
- * Clean SVG emblem in electric lime (#d4ff00) with bold white wordmark.
+ * Clean SVG emblem in electric lime (#d4ff00) with bold wordmark.
  */
-export function Logo({ className = "", size = "md" }: LogoProps) {
+export function Logo({ className = "", size = "md", variant = "light" }: LogoProps) {
   const iconSizes = {
     sm: "w-6 h-6",
     md: "w-7 h-7",
@@ -21,6 +22,8 @@ export function Logo({ className = "", size = "md" }: LogoProps) {
     md: "text-xl",
     lg: "text-2xl",
   };
+
+  const textColor = variant === "dark" ? "text-neutral-800" : "text-white";
 
   return (
     <Link
@@ -43,7 +46,7 @@ export function Logo({ className = "", size = "md" }: LogoProps) {
         />
       </svg>
       {/* Wordmark */}
-      <span className={`font-bold ${textSizes[size]} tracking-tight text-white select-none`}>
+      <span className={`font-bold ${textSizes[size]} tracking-tight ${textColor} select-none`}>
         ByteSpace
       </span>
     </Link>

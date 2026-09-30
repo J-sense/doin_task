@@ -6,20 +6,13 @@ interface GridBackgroundProps {
   showVignette?: boolean;
 }
 
-/**
- * GridBackground (Server Component)
- * Renders the electric blue background with crisp 1px grid overlay
- * and ambient radial spotlight matching the ByteSpace design system.
- * Uses absolute positioning so it seamlessly supports full-width sections
- * with custom heights (e.g. 1024px hero) as well as full-screen layouts.
- */
 export function GridBackground({
   children,
   className = "",
   showVignette = true,
 }: GridBackgroundProps) {
   return (
-    <div className={`relative w-full bg-[#0748f5] overflow-hidden ${className}`}>
+    <div className={`relative w-full bg-blue-800 overflow-hidden ${className}`}>
       {/* Exact Electric Blue Grid layer */}
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-bytespace-grid"
@@ -29,7 +22,7 @@ export function GridBackground({
       {/* Ambient vignette layer */}
       {showVignette && (
         <div
-          className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(4,45,160,0.3)_100%)]"
+          className="pointer-events-none absolute inset-0 z-0 "
           aria-hidden="true"
         />
       )}
