@@ -110,7 +110,7 @@ export function HeroVisual({ className = "", showCards = true }: HeroVisualProps
             width={700}
             height={650}
             priority
-            className="w-[360px] sm:w-[460px] md:w-[560px] lg:w-[700px] h-auto object-contain object-bottom select-none drop-shadow-[0_15px_35px_rgba(0,0,0,0.35)] translate-y-[1px]"
+            className="w-[300px] xs:w-[360px] sm:w-[460px] md:w-[560px] lg:w-[700px] h-auto object-contain object-bottom select-none drop-shadow-[0_15px_35px_rgba(0,0,0,0.35)] translate-y-[1px]"
           />
 
           {/* Floating Metric Cards from Figma reference */}

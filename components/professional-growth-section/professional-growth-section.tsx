@@ -140,7 +140,7 @@ export function ProfessionalGrowthSection() {
             </h2>
 
             {/* Paragraph Subtitle */}
-            <p className="w-full lg:w-[574px] justify-start text-[#4B4C53] text-base sm:text-lg font-normal font-['Satoshi'] leading-relaxed sm:leading-7">
+            <p className="w-full lg:w-[574px] justify-start text-[#4B4C53] text-base sm:text-lg font-normal  leading-relaxed sm:leading-7">
               <strong className="text-neutral-800 font-bold">ByteSpace</strong>{" "}
               supports individuals or entities in the creation, publication, and
               administration of educational courses.
@@ -165,7 +165,7 @@ export function ProfessionalGrowthSection() {
                       />
                     </svg>
                   </div>
-                  <span className="text-neutral-800 text-base sm:text-lg font-medium font-['Satoshi'] leading-6">
+                  <span className="text-neutral-800 text-base sm:text-lg font-medium leading-6">
                     {feature}
                   </span>
                 </div>

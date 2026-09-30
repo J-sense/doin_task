@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <main className="w-full min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <section className="relative w-full h-[1024px] overflow-hidden text-white">
+      <section className="relative w-full h-[490px] xs:h-[540px] sm:h-[750px] md:h-[880px] lg:h-[1024px] overflow-hidden text-white">
         <GridBackground className="w-full h-full">
           {/* Top Navbar */}
           <Navbar />

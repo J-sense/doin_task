@@ -12,9 +12,9 @@ export function CoursesSection() {
     activeCategory === "Featured" || activeCategory === "+ More"
       ? SAMPLE_COURSES
       : SAMPLE_COURSES.filter(
-          (course) =>
-            course.category.toLowerCase() === activeCategory.toLowerCase()
-        );
+        (course) =>
+          course.category.toLowerCase() === activeCategory.toLowerCase()
+      );
 
   const displayCourses =
     filteredCourses.length > 0 ? filteredCourses : SAMPLE_COURSES;
@@ -24,11 +24,11 @@ export function CoursesSection() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-8">
-          <h2 className="text-center text-slate-950 text-3xl sm:text-4xl font-semibold font-['Poppins'] leading-8 sm:leading-10">
+          <h2 className="text-center text-slate-950 text-3xl sm:text-5xl font-semibold  ">
             Discover Your Passion, <br className="hidden sm:inline" />
             Build Your Skills
           </h2>
-          <p className="text-center text-gray-500 text-base sm:text-lg font-normal font-['Satoshi'] leading-7 max-w-4xl mx-auto">
+          <p className="text-center text-gray-500 text-base sm:text-lg font-normal  leading-7 max-w-4xl mx-auto">
             At Bytespace Courses, we bring you closer to life-changing
             knowledge. Explore a variety of courses across different fields,
             from technology to the arts, and make a difference in your career
