@@ -15,7 +15,7 @@ export function CourseDetailsHero({ course }: CourseDetailsHeroProps) {
       <Navbar />
 
       {/* Hero Header Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-24 lg:pb-32 flex flex-col gap-6 select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 lg:pt-22 pb-16 lg:pb-10 flex flex-col gap-6 select-none">
         {/* Top Title & Share Button Row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex flex-col gap-2 max-w-3xl">

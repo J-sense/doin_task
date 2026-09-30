@@ -13,7 +13,7 @@ export function CourseVideoPlayer({ coverUrl, title }: CourseVideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <div className="w-full max-w-[720px] h-auto lg:h-[479px] aspect-[720/479] relative rounded-3xl overflow-hidden shadow-2xl group select-none bg-neutral-900">
+    <div className="w-full max-w-[720px] h-auto aspect-[720/479] relative rounded-3xl overflow-hidden shadow-2xl group select-none bg-neutral-900">
       {!isPlaying ? (
         <>
           <Image

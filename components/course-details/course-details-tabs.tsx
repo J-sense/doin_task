@@ -16,7 +16,7 @@ export function CourseDetailsTabs({ course }: CourseDetailsTabsProps) {
   const [activeTab, setActiveTab] = useState<TabType>("about");
 
   return (
-    <div className="w-full flex flex-col gap-8 select-none mt-36">
+    <div className="w-full flex flex-col gap-8 select-none lg:mt-30">
       {/* 3 Tab Switcher Bar */}
       <div className="flex items-center gap-2 sm:gap-3">
         <button
