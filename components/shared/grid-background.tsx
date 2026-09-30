@@ -4,15 +4,17 @@ interface GridBackgroundProps {
   children?: ReactNode;
   className?: string;
   showVignette?: boolean;
+  overflowVisible?: boolean;
 }
 
 export function GridBackground({
   children,
   className = "",
   showVignette = true,
+  overflowVisible = false,
 }: GridBackgroundProps) {
   return (
-    <div className={`relative w-full bg-[#003BE2] overflow-hidden ${className}`}>
+    <div className={`relative w-full bg-[#003BE2] ${overflowVisible ? "overflow-visible" : "overflow-hidden"} ${className}`}>
       {/* Exact Electric Blue Grid layer */}
       <div
         className="pointer-events-none absolute inset-0 z-0 bg-bytespace-grid"

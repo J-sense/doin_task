@@ -15,7 +15,7 @@ interface NavbarProps {
  */
 export function Navbar({ className = "" }: NavbarProps) {
   return (
-    <header className={`w-full relative z-30 transition-all ${className}`}>
+    <header className={`w-full absolute top-0 left-0 right-0 z-50 pointer-events-auto transition-all ${className}`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-6 flex items-center justify-between">
         {/* Left: ByteSpace Logo (Server Component) */}
         <div className="flex items-center">

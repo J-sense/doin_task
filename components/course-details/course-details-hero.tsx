@@ -1,7 +1,6 @@
 "use client";
 
 import { Share2, BarChart2, Star, Users } from "lucide-react";
-import { Navbar } from "@/components/layout/navbar";
 import { CourseDetailsData } from "./course-details-data";
 
 interface CourseDetailsHeroProps {
@@ -10,12 +9,9 @@ interface CourseDetailsHeroProps {
 
 export function CourseDetailsHero({ course }: CourseDetailsHeroProps) {
   return (
-    <div className="w-full text-white">
-      {/* Top Navigation Header */}
-      <Navbar />
-
+    <div className="w-full text-white pt-20 sm:pt-24 lg:pt-28">
       {/* Hero Header Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 sm:pt-14 lg:pt-22 pb-16 lg:pb-10 flex flex-col gap-6 select-none">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8 pb-16 lg:pb-10 flex flex-col gap-6 select-none">
         {/* Top Title & Share Button Row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex flex-col gap-2 max-w-3xl">

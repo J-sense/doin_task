@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -33,8 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={`${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased min-h-full bg-background text-foreground selection:bg-[#d4ff00] selection:text-black`}
+        className={`${plusJakartaSans.variable} ${geistMono.variable} font-sans antialiased min-h-full bg-background text-foreground selection:bg-[#d4ff00] selection:text-black flex flex-col relative`}
       >
+        <Navbar />
         {children}
       </body>
     </html>

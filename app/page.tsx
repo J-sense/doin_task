@@ -1,5 +1,4 @@
 import { GridBackground } from "@/components/shared/grid-background";
-import { Navbar } from "@/components/layout/navbar";
 import { HeroSection } from "@/components/Hero-section/hero-section";
 import { HeroVisual } from "@/components/Hero-section/hero-visual";
 import LogoipsumSectionMain from "@/components/Logopism-section/Logopism-section-main";
@@ -21,10 +20,7 @@ export default function HomePage() {
     <main className="w-full min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative w-full h-[490px] xs:h-[540px] sm:h-[750px] md:h-[880px] lg:h-[1024px] overflow-hidden text-white">
-        <GridBackground className="w-full h-full">
-          {/* Top Navbar */}
-          <Navbar />
-
+        <GridBackground className="w-full h-full pt-16 sm:pt-20 lg:pt-24">
           {/* Hero Content */}
           <HeroSection />
 

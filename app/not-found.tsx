@@ -1,5 +1,4 @@
 import { GridBackground } from "@/components/shared/grid-background";
-import { Navbar } from "@/components/layout/navbar";
 import { Hero404 } from "@/components/Hero-section/hero-404";
 
 export const metadata = {
@@ -13,8 +12,7 @@ export const metadata = {
  */
 export default function NotFound() {
   return (
-    <GridBackground className="min-h-screen">
-      <Navbar />
+    <GridBackground className="min-h-screen pt-20 sm:pt-24">
       <main className="flex-1 flex flex-col justify-center">
         <Hero404 />
       </main>

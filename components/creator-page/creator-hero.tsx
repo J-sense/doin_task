@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { Navbar } from "@/components/layout/navbar";
 
 interface CreatorHeroData {
   name: string;
@@ -30,11 +29,8 @@ export function CreatorHero() {
       {/* Electric blue grid background — reused pattern */}
       <div className="absolute inset-0 bg-bytespace-grid pointer-events-none" aria-hidden="true" />
 
-      {/* Navbar */}
-      <Navbar />
-
       {/* Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-16 pb-12 lg:pb-16 flex flex-col gap-10">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-12 lg:pb-16 flex flex-col gap-10">
 
         {/* Top Row: Avatar + Name + Bio */}
         <div className="flex flex-col justify-start items-start gap-10">
