@@ -14,7 +14,7 @@ export function CreatorCtaSection() {
           width={320}
           height={380}
           priority
-          className="w-[200px] sm:w-[280px] lg:w-[300px] h-auto object-contain"
+          className="w-[110px] xs:w-[150px] sm:w-[240px] lg:w-[300px] h-auto object-contain"
         />
       </div>
 
@@ -42,7 +42,7 @@ export function CreatorCtaSection() {
         />
       </div>
 
-      <GridBackground className="relative w-full min-h-[488px] flex items-center justify-center">
+      <GridBackground className="relative w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[488px] flex items-center justify-center py-10 sm:py-14 lg:py-16">
         {/* ================= FULL-WIDTH LEFT SIDE 3D ASSETS ================= */}
 
         {/* 2. Upper Middle Left White Spring Helix */}
@@ -58,7 +58,7 @@ export function CreatorCtaSection() {
         </div>
 
         {/* 3. Middle-Left White Cone ("left-pizza.png") Pinned to left-0 */}
-        <div className="absolute left-0 bottom-[90px] sm:bottom-[10px] pointer-events-none select-none z-20">
+        <div className="hidden sm:block absolute left-0 bottom-[90px] sm:bottom-[10px] pointer-events-none select-none z-20">
           <Image
             src="/unlock/left-pizza.png"
             alt="Decorative 3D left pizza cone"
@@ -97,14 +97,14 @@ export function CreatorCtaSection() {
 
 
         {/* ================= CENTER CONTENT ================= */}
-        <div className="relative z-30 max-w-4xl mx-auto flex flex-col justify-center items-center gap-6 sm:gap-8 px-4 sm:px-6 text-center">
+        <div className="relative z-30 max-w-4xl mx-auto flex flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 text-center">
           {/* Headline */}
-          <h2 className="w-full max-w-[710px] text-center text-neutral-100 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight sm:leading-[52.80px]">
+          <h2 className="w-full max-w-[710px] text-center text-neutral-100 text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight sm:leading-snug lg:leading-[52.80px]">
             Unlock Your Potential as a Creator with ByteSpace
           </h2>
 
           {/* Subtitle */}
-          <p className="w-full max-w-[964px] text-center text-neutral-100 text-sm sm:text-base lg:text-lg font-normal leading-relaxed sm:leading-7 opacity-95">
+          <p className="w-full max-w-[964px] text-center text-neutral-100 text-xs xs:text-sm sm:text-base lg:text-lg font-normal leading-relaxed sm:leading-7 opacity-95 px-2 sm:px-0">
             Experience the collaboration of numerous creators and an expanding
             selection of courses. Register now and become a part of a community
             comprising over 10,000 local and international creators. Utilize
@@ -115,7 +115,7 @@ export function CreatorCtaSection() {
           {/* CTA Button */}
           <button
             type="button"
-            className="px-7 sm:px-8 py-3 sm:py-3.5 bg-[#D4FB20] hover:brightness-95 rounded-3xl inline-flex justify-center items-center gap-2 text-neutral-800 text-base sm:text-lg font-medium leading-5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer select-none shrink-0 shadow-lg"
+            className="px-6 sm:px-8 py-2.5 sm:py-3.5 bg-[#D4FB20] hover:brightness-95 rounded-3xl inline-flex justify-center items-center gap-2 text-neutral-800 text-sm sm:text-base lg:text-lg font-medium leading-5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer select-none shrink-0 shadow-lg"
           >
             Join as Creator
           </button>
