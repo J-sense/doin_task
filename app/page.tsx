@@ -5,6 +5,8 @@ import { HeroVisual } from "@/components/Hero-section/hero-visual";
 import LogoipsumSectionMain from "@/components/Logopism-section/Logopism-section-main";
 import { CoursesSection } from "@/components/courses-section/courses-section-main";
 import { LearningPathsSection } from "@/components/learning-paths-section/learning-paths-section";
+import { ProfessionalGrowthSection } from "@/components/professional-growth-section/professional-growth-section";
+import { CreatorCtaSection } from "@/components/creator-cta-section/creator-cta-section";
 import { TestimonialsSection } from "@/components/testimonials-section/testimonials-section";
 import { Footer } from "@/components/layout/footer";
 
@@ -39,6 +41,12 @@ export default function HomePage() {
 
       {/* Explore Diverse Learning Paths Section */}
       <LearningPathsSection />
+
+      {/* Your Path to Professional Growth & Course Management Section */}
+      <ProfessionalGrowthSection />
+
+      {/* Unlock Your Potential as a Creator Section */}
+      <CreatorCtaSection />
 
       {/* Testimonials Community Section */}
       <TestimonialsSection />
