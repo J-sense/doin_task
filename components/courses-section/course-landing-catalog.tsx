@@ -26,7 +26,6 @@ export function CourseLandingCatalog() {
   return (
     <section className="w-full bg-white py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8 text-stone-900 select-none">
       <div className="max-w-7xl mx-auto flex flex-col gap-10">
-        {/* Course Landing 2-Row Filter Bar */}
         <CourseLandingFilter
           activeCategory={activeCategory}
           onSelectCategory={(cat) => {
@@ -35,16 +34,13 @@ export function CourseLandingCatalog() {
           }}
         />
 
-        {/* Course Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {displayCourses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>
 
-        {/* Pagination Bar */}
         <div className="flex items-center justify-center gap-3 pt-8">
-          {/* Previous Page Button */}
           <button
             type="button"
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -58,7 +54,6 @@ export function CourseLandingCatalog() {
             <ChevronLeft className="w-5 h-5 text-neutral-600" />
           </button>
 
-          {/* Page Numbers 1 to 5 */}
           <div className="flex items-center gap-2 px-2">
             {[1, 2, 3, 4, 5].map((page) => {
               const isActive = currentPage === page;
@@ -78,7 +73,6 @@ export function CourseLandingCatalog() {
             })}
           </div>
 
-          {/* Next Page Button */}
           <button
             type="button"
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}

@@ -28,7 +28,6 @@ export function TabReviews({ course }: TabReviewsProps) {
 
   return (
     <div className="flex flex-col gap-8 text-neutral-800 select-none max-w-[723px]">
-      {/* 1. What Learners Are Saying */}
       <div className="flex flex-col gap-3">
         <TabSectionTitle>What Learners Are Saying</TabSectionTitle>
         <p className="text-sm sm:text-base text-[#4B4C53] font-normal leading-relaxed">
@@ -36,9 +35,7 @@ export function TabReviews({ course }: TabReviewsProps) {
         </p>
       </div>
 
-      {/* 2. Rating Breakdown Card */}
       <div className="w-full max-w-[723px] p-6 sm:p-10 bg-white rounded-2xl border border-neutral-300 backdrop-blur-[10px] shadow-[inset_0px_4px_0px_0px_rgba(255,255,255,0.25)] flex flex-col sm:flex-row justify-center items-center gap-6">
-        {/* Left Lime Rating Box */}
         <div className="p-6 sm:p-8 bg-[#D4FB20] rounded-lg backdrop-blur-[20px] flex flex-col justify-center items-center shrink-0 min-w-[120px]">
           <div className="justify-center text-neutral-800 text-sm font-medium leading-4">
             Ratings
@@ -48,11 +45,9 @@ export function TabReviews({ course }: TabReviewsProps) {
           </div>
         </div>
 
-        {/* Right Star Progress Bars */}
         <div className="flex-1 flex flex-col justify-start items-start gap-2 w-full">
           {RATING_BREAKDOWN.map((item) => (
             <div key={item.stars} className="w-full flex items-center justify-between gap-3 sm:gap-4">
-              {/* Progress track */}
               <div className="flex-1 h-2 bg-zinc-200 rounded-3xl overflow-hidden">
                 <div
                   className="h-full bg-[#D4FB20] rounded-3xl transition-all duration-300"
@@ -60,7 +55,6 @@ export function TabReviews({ course }: TabReviewsProps) {
                 />
               </div>
 
-              {/* 5 Stars group */}
               <div className="flex items-center gap-1 shrink-0">
                 {[1, 2, 3, 4, 5].map((starIndex) => (
                   <Star
@@ -70,7 +64,6 @@ export function TabReviews({ course }: TabReviewsProps) {
                 ))}
               </div>
 
-              {/* Count */}
               <div className="w-10 text-right text-neutral-600 text-base font-normal leading-6 shrink-0">
                 {item.count}
               </div>
@@ -79,11 +72,9 @@ export function TabReviews({ course }: TabReviewsProps) {
         </div>
       </div>
 
-      {/* 3. Individual Reviews Heading & Filter Pills */}
       <div className="flex flex-col gap-4 mt-2">
         <TabSectionTitle>Individual Reviews:</TabSectionTitle>
 
-        {/* Filter Pills */}
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={() => setSelectedFilter("all")}
@@ -112,7 +103,6 @@ export function TabReviews({ course }: TabReviewsProps) {
         </div>
       </div>
 
-      {/* 4. Reviews List */}
       <div className="flex flex-col gap-4">
         {filteredReviews.length === 0 ? (
           <p className="text-sm text-neutral-500 py-4">
@@ -124,10 +114,8 @@ export function TabReviews({ course }: TabReviewsProps) {
               key={rev.id}
               className="w-full max-w-[723px] p-6 sm:p-10 bg-white rounded-3xl border border-neutral-300 flex flex-col justify-start items-start gap-6"
             >
-              {/* Header row */}
               <div className="w-full flex justify-between items-start gap-4">
                 <div className="flex flex-col justify-start items-start gap-4 sm:gap-6">
-                  {/* User info */}
                   <div className="flex justify-start items-center gap-3">
                     <Image
                       src={rev.avatar}
@@ -148,7 +136,6 @@ export function TabReviews({ course }: TabReviewsProps) {
                     </div>
                   </div>
 
-                  {/* Stars */}
                   <div className="flex justify-start items-center gap-1">
                     {[1, 2, 3, 4, 5].map((star) => (
                       <Star
@@ -163,13 +150,11 @@ export function TabReviews({ course }: TabReviewsProps) {
                   </div>
                 </div>
 
-                {/* Date */}
                 <div className="text-neutral-600 text-base font-normal leading-6 shrink-0">
                   {rev.date}
                 </div>
               </div>
 
-              {/* Comment */}
               <div className="w-full text-neutral-600 text-base font-normal leading-6">
                 &quot;{rev.comment}&quot;
               </div>

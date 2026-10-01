@@ -24,10 +24,8 @@ export function CourseVideoPlayer({ coverUrl, title }: CourseVideoPlayerProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
 
-          {/* Dark Overlay Gradient */}
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
 
-          {/* Center Glassmorphism Play Button */}
           <button
             type="button"
             onClick={() => setIsPlaying(true)}

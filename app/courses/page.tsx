@@ -11,13 +11,10 @@ export const metadata = {
 export default function CoursesLandingPage() {
   return (
     <main className="w-full min-h-screen bg-background text-foreground select-none">
-      {/* Course Hero Section */}
       <CourseHeroSection />
 
-      {/* Course Landing Catalog Section with 2-Row Filter Bar */}
       <CourseLandingCatalog />
 
-      {/* Footer */}
       <Footer />
     </main>
   );

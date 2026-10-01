@@ -18,36 +18,26 @@ export const metadata = {
 export default function HomePage() {
   return (
     <main className="w-full min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
       <section className="relative w-full h-[490px] xs:h-[540px] sm:h-[750px] md:h-[880px] lg:h-[1024px] overflow-hidden text-white">
         <GridBackground className="w-full h-full pt-16 sm:pt-20 lg:pt-24">
-          {/* Hero Content */}
           <HeroSection />
 
-          {/* Bottom Hero Illustration */}
           <HeroVisual />
         </GridBackground>
       </section>
 
-      {/* Brand Logos Bar */}
       <LogoipsumSectionMain />
 
-      {/* Courses Catalog Section */}
       <CoursesSection />
 
-      {/* Explore Diverse Learning Paths Section */}
       <LearningPathsSection />
 
-      {/* Your Path to Professional Growth & Course Management Section */}
       <ProfessionalGrowthSection />
 
-      {/* Unlock Your Potential as a Creator Section */}
       <CreatorCtaSection />
 
-      {/* Testimonials Community Section */}
       <TestimonialsSection />
 
-      {/* Footer Section */}
       <Footer />
     </main>
   );

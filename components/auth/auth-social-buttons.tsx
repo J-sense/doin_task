@@ -3,7 +3,6 @@
 export function AuthSocialButtons() {
   return (
     <div className="w-full inline-flex flex-col justify-start items-center gap-10">
-      {/* Divider with crisp left & right border lines */}
       <div className="w-full max-w-[453px] inline-flex justify-center items-center gap-2.5">
         <div className="flex-1 h-px bg-neutral-300" />
         <div className="justify-start text-zinc-500 text-lg font-normal leading-7 px-1">
@@ -11,10 +10,7 @@ export function AuthSocialButtons() {
         </div>
         <div className="flex-1 h-px bg-neutral-300" />
       </div>
-
-      {/* Social Buttons: Google & Facebook in black */}
       <div className="inline-flex justify-start items-center gap-4">
-        {/* Google Icon Button (Black) */}
         <button
           type="button"
           aria-label="Sign in with Google"
@@ -27,7 +23,6 @@ export function AuthSocialButtons() {
           </div>
         </button>
 
-        {/* Facebook Icon Button (Black) */}
         <button
           type="button"
           aria-label="Sign in with Facebook"

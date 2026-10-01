@@ -6,7 +6,6 @@ import { GridBackground } from "@/components/shared/grid-background";
 export function CreatorCtaSection() {
   return (
     <section className="relative w-full overflow-hidden text-white select-none">
-      {/* 1. Top Left Corner Asset (Pinned strictly to absolute section corner left-0 top-0) */}
       <div className="absolute left-0 top-0 pointer-events-none select-none z-30">
         <Image
           src="/unlock/top-left-corner.png"
@@ -18,7 +17,6 @@ export function CreatorCtaSection() {
         />
       </div>
 
-      {/* 4. Lower Left Circle ("left-bottom-circle.png") Pinned strictly to section bottom-0 left-[10%] */}
       <div className="hidden sm:block absolute left-[-2%] sm:left-[5%] lg:left-[2%] bottom-0 pointer-events-none select-none z-30">
         <Image
           src="/unlock/left-bottom-circle.png"
@@ -30,7 +28,6 @@ export function CreatorCtaSection() {
         />
       </div>
 
-      {/* 5. Lower Right Asset ("right-bottom.png") Pinned strictly to section bottom-0 right-0 */}
       <div className="hidden sm:block absolute right-0 bottom-0 pointer-events-none select-none z-30">
         <Image
           src="/unlock/right-bottom.png"
@@ -43,9 +40,6 @@ export function CreatorCtaSection() {
       </div>
 
       <GridBackground className="relative w-full min-h-[380px] sm:min-h-[440px] lg:min-h-[488px] flex items-center justify-center py-10 sm:py-14 lg:py-16">
-        {/* ================= FULL-WIDTH LEFT SIDE 3D ASSETS ================= */}
-
-        {/* 2. Upper Middle Left White Spring Helix */}
         <div className="hidden lg:block absolute left-[180px] xl:left-[240px] top-[20px] pointer-events-none select-none z-10">
           <Image
             src="/right-frame.png"
@@ -57,7 +51,6 @@ export function CreatorCtaSection() {
           />
         </div>
 
-        {/* 3. Middle-Left White Cone ("left-pizza.png") Pinned to left-0 */}
         <div className="hidden sm:block absolute left-0 bottom-[90px] sm:bottom-[10px] pointer-events-none select-none z-20">
           <Image
             src="/unlock/left-pizza.png"
@@ -69,8 +62,6 @@ export function CreatorCtaSection() {
           />
         </div>
 
-        {/* ================= FULL-WIDTH RIGHT SIDE 3D ASSETS ================= */}
-        {/* 1. Upper Right Lime Pyramid */}
         <div className="hidden lg:block absolute right-[180px] xl:right-[240px] top-[30px] pointer-events-none select-none z-10">
           <Image
             src="/tringle-right.png"
@@ -82,7 +73,6 @@ export function CreatorCtaSection() {
           />
         </div>
 
-        {/* 2. Far Right White Square Cylinder ("right-squrea.png") Pinned to right-0 top-[2%] */}
         <div className="hidden sm:block absolute right-0 -top-[15%] pointer-events-none select-none z-10">
           <Image
             src="/unlock/right-squrea.png"
@@ -94,16 +84,11 @@ export function CreatorCtaSection() {
           />
         </div>
 
-
-
-        {/* ================= CENTER CONTENT ================= */}
         <div className="relative z-30 max-w-4xl mx-auto flex flex-col justify-center items-center gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 text-center">
-          {/* Headline */}
           <h2 className="w-full max-w-[710px] text-center text-neutral-100 text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight sm:leading-snug lg:leading-[52.80px]">
             Unlock Your Potential as a Creator with ByteSpace
           </h2>
 
-          {/* Subtitle */}
           <p className="w-full max-w-[964px] text-center text-neutral-100 text-xs xs:text-sm sm:text-base lg:text-lg font-normal leading-relaxed sm:leading-7 opacity-95 px-2 sm:px-0">
             Experience the collaboration of numerous creators and an expanding
             selection of courses. Register now and become a part of a community
@@ -112,7 +97,6 @@ export function CreatorCtaSection() {
             finest course on the ByteSpace Course Library.
           </p>
 
-          {/* CTA Button */}
           <button
             type="button"
             className="px-6 sm:px-8 py-2.5 sm:py-3.5 bg-[#D4FB20] hover:brightness-95 rounded-3xl inline-flex justify-center items-center gap-2 text-neutral-800 text-sm sm:text-base lg:text-lg font-medium leading-5 transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer select-none shrink-0 shadow-lg"

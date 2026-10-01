@@ -17,7 +17,6 @@ export function SignupForm() {
 
   return (
     <div className="w-full flex flex-col justify-between items-center gap-8">
-      {/* Header */}
       <div className="w-full flex flex-col justify-start items-start gap-1">
         <span className="text-blue-700 text-lg font-normal leading-7">
           Create an Account
@@ -27,7 +26,6 @@ export function SignupForm() {
         </h2>
       </div>
 
-      {/* Form Fields */}
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
         <AuthInput
           label="Full Name"
@@ -56,13 +54,11 @@ export function SignupForm() {
           required
         />
 
-        {/* Action Button (Right-aligned) */}
         <div className="w-full flex justify-end pt-2">
           <AuthButton type="submit">Continue</AuthButton>
         </div>
       </form>
 
-      {/* Bottom Switch Link */}
       <div className="inline-flex justify-center items-center gap-1 text-base leading-6 pt-4">
         <span className="text-zinc-500 font-normal">
           Already have an account?

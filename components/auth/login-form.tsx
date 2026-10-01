@@ -17,7 +17,6 @@ export function LoginForm() {
 
   return (
     <div className="w-full flex flex-col justify-between items-center gap-8">
-      {/* Header */}
       <div className="w-full flex flex-col justify-start items-start gap-1">
         <span className="text-blue-700 text-lg font-normal leading-7">
           Sign In
@@ -27,7 +26,6 @@ export function LoginForm() {
         </h2>
       </div>
 
-      {/* Form & Input Fields */}
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-6">
         <AuthInput
           label="Email"
@@ -47,16 +45,13 @@ export function LoginForm() {
           required
         />
 
-        {/* Action Button (Right-aligned) */}
         <div className="w-full flex justify-end pt-2">
           <AuthButton type="submit">Sign In</AuthButton>
         </div>
       </form>
 
-      {/* Social Buttons */}
       <AuthSocialButtons />
 
-      {/* Bottom Switch Link */}
       <div className="inline-flex justify-center items-center gap-1 text-base leading-6 pt-2">
         <span className="text-zinc-500 font-normal">New user?</span>
         <Link

@@ -12,16 +12,12 @@ export const metadata = {
 export default function CreatorsPage() {
   return (
     <main className="w-full min-h-screen bg-white text-neutral-900">
-      {/* ── Hero Section ── */}
       <CreatorHero />
 
-      {/* ── Filter Bar ── */}
       <CreatorFilterBar />
 
-      {/* ── Course Grid ── */}
       <CreatorCourseGrid />
 
-      {/* ── Footer ── */}
       <Footer />
     </main>
   );

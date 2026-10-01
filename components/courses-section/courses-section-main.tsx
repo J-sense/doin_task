@@ -22,7 +22,6 @@ export function CoursesSection() {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-stone-900 select-none">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-8">
           <h2 className="text-center text-slate-950 text-3xl sm:text-5xl font-semibold  ">
             Discover Your Passion, <br className="hidden sm:inline" />
@@ -36,13 +35,11 @@ export function CoursesSection() {
           </p>
         </div>
 
-        {/* Category Pills Filter */}
         <CategoryFilter
           activeCategory={activeCategory}
           onSelectCategory={setActiveCategory}
         />
 
-        {/* Course Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
           {displayCourses.map((course) => (
             <CourseCard key={course.id} course={course} />

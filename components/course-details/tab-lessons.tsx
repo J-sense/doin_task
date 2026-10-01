@@ -50,7 +50,6 @@ const MODULES = [
 export function TabLessons({ course }: TabLessonsProps) {
   return (
     <div className="flex flex-col gap-10 text-neutral-800 select-none">
-      {/* 1. Explore the Modules */}
       <div className="flex flex-col gap-3">
         <TabSectionTitle>Explore the Modules</TabSectionTitle>
         <p className="text-sm sm:text-base text-[#4B4C53] font-normal leading-relaxed">
@@ -60,19 +59,16 @@ export function TabLessons({ course }: TabLessonsProps) {
         </p>
       </div>
 
-      {/* 2. Lesson List */}
       <div className="flex flex-col gap-6">
         <TabSectionTitle>Lesson List</TabSectionTitle>
 
         <div className="flex flex-col gap-6">
           {MODULES.map((module) => (
             <div key={module.id} className="flex items-start gap-4 sm:gap-5">
-              {/* Lime Video Camera Icon Box */}
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#D4FB20] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
                 <Video className="w-6 h-6 text-neutral-900 fill-neutral-900" />
               </div>
 
-              {/* Module Info */}
               <div className="flex flex-col gap-1.5">
                 <h4 className="text-base sm:text-[16px] font-normal text-[#242528]">
                   {module.title}
@@ -86,7 +82,6 @@ export function TabLessons({ course }: TabLessonsProps) {
         </div>
       </div>
 
-      {/* 3. Lesson Content */}
       <div className="flex flex-col gap-3">
         <TabSectionTitle>Lesson Content</TabSectionTitle>
         <p className="text-sm sm:text-base text-[#4B4C53] font-normal leading-relaxed">
@@ -96,7 +91,6 @@ export function TabLessons({ course }: TabLessonsProps) {
         </p>
       </div>
 
-      {/* 4. Lesson Progress Tracking */}
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <TabSectionTitle>Lesson Progress Tracking</TabSectionTitle>
@@ -106,7 +100,6 @@ export function TabLessons({ course }: TabLessonsProps) {
           </p>
         </div>
 
-        {/* Learning Progress Card */}
         <div className="w-full max-w-[723px] p-4 bg-white rounded-2xl border border-neutral-300 backdrop-blur-[10px] flex flex-col justify-start items-start gap-2">
           <div className="text-neutral-800 text-sm font-medium leading-4">
             Learning Progress

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Course } from "./courses-data";
 
 interface CourseCardProps {
@@ -9,9 +10,11 @@ export function CourseCard({ course }: CourseCardProps) {
   const authorName = course.author.replace(/^by\s+/i, "");
 
   return (
-    <div className="group relative bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-neutral-300 overflow-hidden p-4 flex flex-col justify-between hover:shadow-lg transition-all duration-300">
+    <Link
+      href={`/courses/${course.id}`}
+      className="group relative bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-neutral-300 overflow-hidden p-4 flex flex-col justify-between hover:shadow-lg transition-all duration-300 cursor-pointer block"
+    >
       <div>
-        {/* Course Thumbnail & Badges */}
         <div className="relative w-full h-48 rounded-xl overflow-hidden mb-4 select-none">
           <Image
             src={course.imageUrl}
@@ -21,7 +24,6 @@ export function CourseCard({ course }: CourseCardProps) {
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
 
-          {/* Overlaid Glassmorphism Badges */}
           <div className="absolute left-3 bottom-3 inline-flex justify-start items-start gap-2 flex-wrap">
             <div className="px-3 py-1.5 bg-neutral-100/60 rounded-3xl backdrop-blur-xs inline-flex flex-col justify-center items-center">
               <span className="text-center justify-center text-neutral-600 text-xs font-medium leading-4">
@@ -41,9 +43,7 @@ export function CourseCard({ course }: CourseCardProps) {
           </div>
         </div>
 
-        {/* Title, Rating & Author Container */}
         <div className="flex flex-col justify-start items-start gap-3 mb-3">
-          {/* Title and Rating Header Row */}
           <div className="w-full flex items-start justify-between gap-2">
             <div className="flex flex-col justify-start items-start">
               <h3 className="justify-center text-black text-xl font-semibold leading-6 line-clamp-1 group-hover:text-blue-700 transition-colors">
@@ -59,7 +59,6 @@ export function CourseCard({ course }: CourseCardProps) {
               </div>
             </div>
 
-            {/* Rating */}
             <div className="inline-flex justify-start items-center gap-1 shrink-0 mt-0.5">
               <span className="justify-start text-neutral-600 text-lg font-normal leading-7">
                 {course.rating.toFixed(1)}
@@ -75,9 +74,7 @@ export function CourseCard({ course }: CourseCardProps) {
             </div>
           </div>
 
-          {/* Level Badge & Student Avatars Row */}
           <div className="w-full inline-flex justify-between items-center gap-3 flex-wrap">
-            {/* Level Badge */}
             <div className="px-3 py-1.5 bg-neutral-100 rounded-3xl flex justify-center items-center gap-1">
               <div className="size-5 relative overflow-hidden flex items-center justify-center">
                 <svg
@@ -99,7 +96,6 @@ export function CourseCard({ course }: CourseCardProps) {
               </span>
             </div>
 
-            {/* Overlapping Avatars */}
             <div className="flex items-center -space-x-2">
               {course.studentAvatars.map((src, i) => (
                 <div
@@ -124,7 +120,6 @@ export function CourseCard({ course }: CourseCardProps) {
         </div>
       </div>
 
-      {/* Price Row */}
       <div className="inline-flex justify-start items-end gap-0.5 pt-2 border-t border-neutral-100">
         <span className="justify-center text-blue-700 text-xl font-semibold leading-6">
           ${course.price}
@@ -133,6 +128,6 @@ export function CourseCard({ course }: CourseCardProps) {
           {course.pricePeriod}
         </span>
       </div>
-    </div>
+    </Link>
   );
 }

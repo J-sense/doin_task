@@ -20,11 +20,8 @@ export function CourseLandingFilter({
 
   return (
     <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 my-8 flex flex-col gap-6 select-none">
-      {/* ================= ROW 1: TOOLBAR BUTTONS ================= */}
       <div className="w-full flex flex-wrap items-center justify-between gap-3 sm:gap-4">
-        {/* Left Action Buttons: Filter, Level, Category */}
         <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
-          {/* Filter Button */}
           <button
             type="button"
             className="px-4 py-2.5 bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-neutral-300 inline-flex items-center justify-center gap-2 text-neutral-600 hover:text-neutral-900 text-sm sm:text-base font-medium  leading-5 shadow-xs hover:bg-neutral-50 transition-all cursor-pointer"
@@ -33,7 +30,6 @@ export function CourseLandingFilter({
             <span>Filter</span>
           </button>
 
-          {/* Level Dropdown Button */}
           <div className="relative">
             <button
               type="button"
@@ -63,7 +59,6 @@ export function CourseLandingFilter({
             )}
           </div>
 
-          {/* Category Button */}
           <button
             type="button"
             className="px-4 py-2.5 bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-neutral-300 inline-flex items-center justify-center gap-2 text-neutral-600 hover:text-neutral-900 text-sm sm:text-base font-medium  leading-5 shadow-xs hover:bg-neutral-50 transition-all cursor-pointer"
@@ -73,7 +68,6 @@ export function CourseLandingFilter({
           </button>
         </div>
 
-        {/* Right Action Button: Most relevant */}
         <div className="relative">
           <button
             type="button"
@@ -104,7 +98,6 @@ export function CourseLandingFilter({
         </div>
       </div>
 
-      {/* ================= ROW 2: CATEGORY FILTER PILLS ================= */}
       <div className="w-full flex items-center gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-none">
         {CATEGORIES.map((cat) => {
           const isActive = activeCategory === cat;

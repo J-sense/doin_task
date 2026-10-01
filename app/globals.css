@@ -130,7 +130,6 @@
   }
 }
 
-/* ByteSpace Design Tokens & Utilities */
 .bg-bytespace-grid {
   background-color: #0748f5;
   background-image: 
@@ -142,7 +141,15 @@
 }
 
 .text-bytespace-lime-gradient {
-  background: linear-gradient(180deg, #d8ff00 10%, #a6e300 50%, #598e00 85%, #3a6300 100%);
+  background: linear-gradient(
+    180deg,
+    #D4FB20 0%,
+    rgba(212, 251, 32, 0.96) 28%,
+    rgba(212, 251, 32, 0.81) 56%,
+    rgba(212, 251, 32, 0.61) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

@@ -9,16 +9,12 @@ interface MobileMenuProps {
   className?: string;
 }
 
-/**
- * MobileMenu (Client Component)
- * Provides responsive hamburger toggle and full drawer navigation for smaller screens.
- */
+
 export function MobileMenu({ className = "" }: MobileMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={`md:hidden ${className}`}>
-      {/* Hamburger Toggle */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="p-2 text-white/90 hover:text-white rounded-lg transition-colors focus:outline-none"
@@ -28,7 +24,6 @@ export function MobileMenu({ className = "" }: MobileMenuProps) {
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
-      {/* Drawer Overlay */}
       {isOpen && (
         <div
           className="fixed inset-0 top-[72px] z-50 bg-[#0748f5]/98 backdrop-blur-xl border-t border-white/10 p-6 flex flex-col justify-between animate-in fade-in slide-in-from-top-4 duration-200"

@@ -26,18 +26,13 @@ export function CreatorHero() {
 
   return (
     <div className="relative w-full h-auto min-h-[480px] sm:min-h-[540px] lg:h-[592px] bg-blue-700 overflow-hidden">
-      {/* Electric blue grid background — reused pattern */}
       <div className="absolute inset-0 bg-bytespace-grid pointer-events-none" aria-hidden="true" />
 
-      {/* Hero Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-28 pb-12 lg:pb-16 flex flex-col gap-10">
 
-        {/* Top Row: Avatar + Name + Bio */}
         <div className="flex flex-col justify-start items-start gap-10">
 
-          {/* Creator identity block */}
           <div className="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-6">
-            {/* Avatar */}
             <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-3xl overflow-hidden shrink-0 bg-neutral-200">
               <Image
                 src={creator.avatar}
@@ -49,7 +44,6 @@ export function CreatorHero() {
               />
             </div>
 
-            {/* Name + Role badge + tagline */}
             <div className="flex flex-col justify-start items-start gap-2">
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <h1 className="text-neutral-100 text-3xl sm:text-4xl font-semibold leading-10">
@@ -65,16 +59,13 @@ export function CreatorHero() {
             </div>
           </div>
 
-          {/* Bio text */}
           <div className="w-full max-w-4xl text-neutral-100 text-base sm:text-lg font-normal leading-7 whitespace-pre-line">
             {creator.bio}
           </div>
         </div>
 
-        {/* Bottom Row: Stats + Follow button */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
 
-          {/* Stat badges */}
           <div className="flex flex-wrap items-center gap-4">
             <div className="px-6 py-3 bg-white rounded-3xl backdrop-blur-[20px] flex justify-center items-center gap-2">
               <span className="text-blue-700 text-lg font-medium leading-5">
@@ -94,7 +85,6 @@ export function CreatorHero() {
             </div>
           </div>
 
-          {/* Follow button */}
           <button
             type="button"
             className="px-6 py-3 bg-[#D4FB20] rounded-3xl flex justify-center items-center gap-2 text-neutral-900 text-lg font-medium leading-5 cursor-pointer hover:brightness-95 active:scale-95 transition-all"

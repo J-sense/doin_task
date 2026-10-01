@@ -12,7 +12,6 @@ interface TabAboutProps {
 export function TabAbout({ course }: TabAboutProps) {
   return (
     <div className="flex flex-col gap-10 text-neutral-800 select-none">
-      {/* Description Section */}
       <div className="flex flex-col gap-4">
         <TabSectionTitle>Description</TabSectionTitle>
         <div className="flex flex-col gap-4 text-sm sm:text-base text-[#4B4C53] font-normal leading-relaxed">
@@ -22,7 +21,6 @@ export function TabAbout({ course }: TabAboutProps) {
         </div>
       </div>
 
-      {/* Sneak Peak Section */}
       <div className="flex flex-col gap-4">
         <TabSectionTitle>Sneak Peak</TabSectionTitle>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
@@ -42,7 +40,6 @@ export function TabAbout({ course }: TabAboutProps) {
         </div>
       </div>
 
-      {/* Key Points Checklist Section */}
       <div className="flex flex-col gap-4">
         <TabSectionTitle>Key Points</TabSectionTitle>
         <div className="flex flex-col gap-3">

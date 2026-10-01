@@ -14,10 +14,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Creators", href: "/creators" },
 ];
 
-/**
- * NavLinks (Client Component)
- * Handles active route detection and smooth hover states for desktop nav.
- */
 export function NavLinks({ className = "" }: { className?: string }) {
   const pathname = usePathname();
 

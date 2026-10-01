@@ -7,17 +7,14 @@ export function Footer() {
   return (
     <footer className="w-full bg-white relative overflow-hidden border-t border-neutral-300 py-16 sm:py-20 px-4 sm:px-6 lg:px-8 select-none">
       <div className="max-w-7xl mx-auto flex flex-col justify-between gap-16">
-        {/* Main Footer Top Content */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-24">
-          {/* Left Column: Brand & Newsletter */}
           <div className="flex flex-col items-start max-w-xl">
-            <Logo variant="dark" size="lg" />
+            <Logo size="lg" />
             <p className="text-neutral-800 text-sm font-normal leading-6 max-w-[528px] mt-4 mb-6">
               Stay Up to date with our latest features and releases by joining
               our newsletter.
             </p>
 
-            {/* Newsletter Form */}
             <form
               onSubmit={(e) => e.preventDefault()}
               className="w-full flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6"
@@ -41,9 +38,7 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Right Column: Links Grid */}
           <div className="w-full lg:w-auto grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-12 lg:gap-16 shrink-0">
-            {/* Column 1: Browse 1 */}
             <div className="flex flex-col items-start gap-4">
               <span className="text-base font-normal text-neutral-900 leading-6 mb-2">
                 Browse
@@ -80,7 +75,6 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Column 2: Browse 2 */}
             <div className="flex flex-col items-start gap-4 sm:pt-[32px]">
               <Link
                 href="#"
@@ -114,7 +108,6 @@ export function Footer() {
               </Link>
             </div>
 
-            {/* Column 3: Platform */}
             <div className="flex flex-col items-start gap-4">
               <span className="text-base font-normal text-neutral-900 leading-6 mb-2">
                 Platform
@@ -153,7 +146,6 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom Bar */}
         <div className="w-full pt-6 border-t border-neutral-300 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-neutral-800 text-xs font-normal leading-5">
             @ 2023 ByteSpace. All rights reserved.

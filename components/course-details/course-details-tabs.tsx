@@ -17,7 +17,6 @@ export function CourseDetailsTabs({ course }: CourseDetailsTabsProps) {
 
   return (
     <div className="w-full flex flex-col gap-8 select-none lg:mt-30">
-      {/* 3 Tab Switcher Bar */}
       <div className="flex items-center gap-2 sm:gap-3">
         <button
           type="button"
@@ -53,7 +52,6 @@ export function CourseDetailsTabs({ course }: CourseDetailsTabsProps) {
         </button>
       </div>
 
-      {/* Tab Content Display */}
       <div className="w-full pt-2">
         {activeTab === "about" && <TabAbout course={course} />}
         {activeTab === "lessons" && <TabLessons course={course} />}

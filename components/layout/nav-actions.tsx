@@ -8,17 +8,12 @@ interface NavActionsProps {
   className?: string;
 }
 
-/**
- * NavActions (Client Component)
- * Handles Sign In, Join Us, and Shopping Bag with interactive cart preview.
- */
 export function NavActions({ className = "" }: NavActionsProps) {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartCount] = useState(0);
 
   return (
     <div className={`relative flex items-center gap-6 ${className}`}>
-      {/* Sign In Link */}
       <Link
         href="/signin"
         className="text-sm font-normal text-white/80 hover:text-white transition-colors py-1"
@@ -26,7 +21,6 @@ export function NavActions({ className = "" }: NavActionsProps) {
         Sign In
       </Link>
 
-      {/* Join Us Link */}
       <Link
         href="/join"
         className="text-sm font-normal text-white/80 hover:text-white transition-colors py-1"
@@ -34,7 +28,6 @@ export function NavActions({ className = "" }: NavActionsProps) {
         Join Us
       </Link>
 
-      {/* Shopping Bag Button */}
       <div className="relative">
         <button
           onClick={() => setIsCartOpen(!isCartOpen)}
@@ -50,7 +43,6 @@ export function NavActions({ className = "" }: NavActionsProps) {
           )}
         </button>
 
-        {/* Cart Dropdown Preview */}
         {isCartOpen && (
           <div className="absolute right-0 top-10 w-72 bg-[#063ecf]/95 backdrop-blur-md border border-white/15 rounded-2xl p-4 shadow-2xl z-50 text-white animate-in fade-in slide-in-from-top-2 duration-150">
             <div className="flex items-center justify-between pb-2 border-b border-white/10">

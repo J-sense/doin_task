@@ -18,8 +18,6 @@ const FEATURES = [
 export function ProfessionalGrowthSection() {
   return (
     <section className="relative w-full bg-neutral-50 overflow-hidden py-16 lg:py-24 select-none">
-      {/* ================= BACKGROUND RADIAL GLOW BLOBS ================= */}
-      {/* Glow 1: Top Left Lime Blur */}
       <div
         className="absolute -left-[150px] -top-[200px] w-[600px] sm:w-[900px] lg:w-[1137px] h-[600px] sm:h-[900px] lg:h-[1137px] rounded-full blur-[40px] lg:blur-[60px] pointer-events-none z-0 opacity-70"
         style={{
@@ -28,7 +26,6 @@ export function ProfessionalGrowthSection() {
         }}
       />
 
-      {/* Glow 2: Top Right Blue Blur */}
       <div
         className="absolute -right-[200px] -top-[200px] w-[600px] sm:w-[900px] lg:w-[1137px] h-[600px] sm:h-[900px] lg:h-[1137px] rounded-full blur-[40px] lg:blur-[60px] pointer-events-none z-0 opacity-50"
         style={{
@@ -37,7 +34,6 @@ export function ProfessionalGrowthSection() {
         }}
       />
 
-      {/* Glow 3: Middle Left Blue Blur */}
       <div
         className="absolute -left-[300px] top-[30%] w-[500px] sm:w-[800px] lg:w-[1137px] h-[500px] sm:h-[800px] lg:h-[1137px] rounded-full blur-[40px] lg:blur-[60px] pointer-events-none z-0 opacity-60"
         style={{
@@ -46,7 +42,6 @@ export function ProfessionalGrowthSection() {
         }}
       />
 
-      {/* Glow 4: Bottom Right Blue Blur */}
       <div
         className="absolute -right-[200px] bottom-[5%] w-[600px] sm:w-[900px] lg:w-[1137px] h-[600px] sm:h-[900px] lg:h-[1137px] rounded-full blur-[40px] lg:blur-[60px] pointer-events-none z-0 opacity-70"
         style={{
@@ -55,7 +50,6 @@ export function ProfessionalGrowthSection() {
         }}
       />
 
-      {/* Glow 5: Bottom Left Lime Blur */}
       <div
         className="absolute -left-[150px] bottom-0 w-[400px] sm:w-[600px] lg:w-[672px] h-[400px] sm:h-[600px] lg:h-[672px] rounded-full blur-[40px] lg:blur-[60px] pointer-events-none z-0 opacity-80"
         style={{
@@ -64,19 +58,13 @@ export function ProfessionalGrowthSection() {
         }}
       />
 
-      {/* ================= MAIN CONTAINER ================= */}
       <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-16 lg:gap-24">
-        {/* ================= ROW 1 ================= */}
-        {/* Left: Professional Growth Content | Right: Student Graphic Visual */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          {/* Left Text Column (Cols 1-6) */}
           <div className="lg:col-span-6 flex flex-col justify-start items-start gap-8 lg:gap-10">
-            {/* Main Headline */}
             <h2 className="w-full lg:w-[577px] justify-start text-neutral-800 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight sm:leading-snug lg:leading-[52.80px]">
               Your Path to Professional Growth Starts Here!
             </h2>
 
-            {/* Paragraph Subtitle */}
             <p className="w-full lg:w-[477px] justify-start text-[#4B4C53] text-base sm:text-[16px] font-normal leading-relaxed sm:leading-7">
               Explore our curated selection of courses tailored to enhance your
               capabilities and accelerate your career journey. Whether you are
@@ -85,7 +73,6 @@ export function ProfessionalGrowthSection() {
               need.
             </p>
 
-            {/* Key Statistics Row */}
             <div className="flex flex-wrap items-center gap-8 sm:gap-12 lg:gap-14 pt-2">
               {STATS.map((stat) => (
                 <div key={stat.label} className="flex flex-col justify-start items-start">
@@ -100,7 +87,6 @@ export function ProfessionalGrowthSection() {
             </div>
           </div>
 
-          {/* Right Visual Illustration Column (Cols 7-12) */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end items-center">
             <div className="relative w-full max-w-[621px] h-auto lg:h-[552px] flex items-center justify-center">
               <Image
@@ -115,10 +101,7 @@ export function ProfessionalGrowthSection() {
           </div>
         </div>
 
-        {/* ================= ROW 2 ================= */}
-        {/* Left: Creator Management Graphic Visual | Right: Course Creation Content */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Visual Illustration Column (Cols 1-6) */}
           <div className="lg:col-span-6 flex justify-center lg:justify-start items-center order-2 lg:order-1">
             <div className="relative w-full max-w-[541px] h-auto lg:h-[596px] flex items-center justify-center">
               <Image
@@ -132,21 +115,17 @@ export function ProfessionalGrowthSection() {
             </div>
           </div>
 
-          {/* Right Text Column (Cols 7-12) */}
           <div className="lg:col-span-6 flex flex-col justify-start items-start gap-8 lg:gap-10 order-1 lg:order-2">
-            {/* Main Headline */}
             <h2 className="w-full lg:w-[580px] justify-start text-neutral-800 text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight sm:leading-snug lg:leading-[52.80px]">
               Create &amp; Manage Courses Easily.
             </h2>
 
-            {/* Paragraph Subtitle */}
             <p className="w-full lg:w-[574px] justify-start text-[#4B4C53] text-base sm:text-lg font-normal  leading-relaxed sm:leading-7">
               <strong className="text-neutral-800 font-bold">ByteSpace</strong>{" "}
               supports individuals or entities in the creation, publication, and
               administration of educational courses.
             </p>
 
-            {/* Checkmark Feature List */}
             <div className="flex flex-col justify-start items-start gap-4 sm:gap-5">
               {FEATURES.map((feature) => (
                 <div key={feature} className="flex items-center gap-3">

@@ -126,7 +126,6 @@ export function LearningPathsSection() {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 text-neutral-900 select-none">
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-12 sm:mb-16">
           <h2 className="text-center text-slate-950 text-3xl sm:text-4xl font-semibold leading-8 sm:leading-10">
             Explore Diverse Learning Paths at Bytespace
@@ -139,21 +138,18 @@ export function LearningPathsSection() {
           </p>
         </div>
 
-        {/* Category Cards Row */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
           {LEARNING_PATHS.map((path) => (
             <div
               key={path.id}
               className="group relative rounded-3xl outline outline-1 outline-offset-[-1px] outline-neutral-300 bg-white p-6 sm:py-9 sm:px-6 flex flex-col items-center justify-center gap-3 hover:outline-lime-400 hover:shadow-md transition-all duration-300 cursor-pointer"
             >
-              {/* Lime Icon Circle */}
               <div className="p-3 bg-[#D4FB20] rounded-[40px] inline-flex justify-center items-center gap-2 group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <div className="size-9 relative flex items-center justify-center overflow-hidden">
                   {path.icon}
                 </div>
               </div>
 
-              {/* Category Name */}
               <div className="justify-start text-neutral-800 text-lg sm:text-xl font-medium leading-6 group-hover:text-black transition-colors text-center">
                 {path.name}
               </div>

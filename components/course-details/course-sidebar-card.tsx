@@ -16,13 +16,11 @@ interface CourseSidebarCardProps {
 export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
   return (
     <div className="w-full bg-white rounded-3xl p-6 sm:p-10 border border-neutral-300 flex flex-col justify-start items-start gap-6 select-none overflow-hidden">
-      {/* 1. Top Lessons Summary Header */}
       <div className="flex flex-col justify-start items-start gap-6 w-full">
         <h3 className="text-neutral-800 text-xl font-semibold leading-6">
           {course.totalLessons} ({course.totalDuration})
         </h3>
 
-        {/* Video Lessons Quick Preview List */}
         <div className="flex flex-col justify-start items-start gap-3 w-full">
           {course.lessons.slice(0, 3).map((item) => (
             <div
@@ -48,13 +46,11 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </div>
       </div>
 
-      {/* 2. Pricing & CTA Section */}
       <div className="flex flex-col justify-start items-start gap-6 w-full">
         <p className="text-neutral-600 text-base font-normal leading-6">
           Ready to Dive In? Enroll Now and Start Building Your Digital Future!
         </p>
 
-        {/* Price Tag */}
         <div className="flex justify-start items-end gap-1">
           <span className="text-blue-700 text-4xl font-semibold leading-10">
             ${course.price}
@@ -64,7 +60,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
           </span>
         </div>
 
-        {/* Enroll Now Button */}
         <button
           type="button"
           className="w-full px-6 py-3 bg-[#D4FB20] rounded-3xl flex justify-center items-center gap-2 cursor-pointer hover:brightness-95 active:scale-98 transition-all"
@@ -75,7 +70,6 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </button>
       </div>
 
-      {/* 3. This Course Includes List */}
       <div className="flex flex-col justify-start items-start gap-4 w-full">
         <h4 className="text-neutral-800 text-xl font-semibold leading-6">
           This course include
@@ -109,10 +103,8 @@ export function CourseSidebarCard({ course }: CourseSidebarCardProps) {
         </div>
       </div>
 
-      {/* Divider */}
       <div className="w-full h-0 border-t border-neutral-300 my-1" />
 
-      {/* 4. Creator Profile Box */}
       <div className="flex flex-col justify-start items-start gap-6 w-full">
         <div className="flex justify-start items-center gap-3">
           <Image
